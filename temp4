@@ -1,0 +1,3701 @@
+final {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Cookie: 'XSRF-TOKEN=eyJpdiI6IlFGeU1MVHdqTnF4eCtUMUxZSFhzYUE9PSIsInZhbHVlIjoiaHl3WXkyZ3lFbkdpVTRyVUJQMjdCb1FGYUNXdkJQTWFtQ043R3RST1dvemZuYUtyZ2tXbkpUY0FRMy9ZcUM3ZFZCVlNhdG1yZTJsVURINTNkd251RGNqN212bzJ2QStkSDJZVEVHV2tES1pzZjhRK2ZGYjc4V2xKVFI5Z3owMU4iLCJtYWMiOiJhMTQ4Y2JhOTBhNDM5MTg0YjJlMGFiMmM2Njc1ZjA1YzdiZDFiYjA4MjhjYmRkMTE1Y2E1Njc2N2FmNDkwZmViIiwidGFnIjoiIn0%3D; _session=eyJpdiI6Ill5dUZsVVhBQ0pKTGFKdGR1N3JFalE9PSIsInZhbHVlIjoiVktjcytFZ1AzbmtsM0s4ZmNSam50aHRRL044WitGYUluRTI2endxaWNXcjVRUGN1VDVSQjFpWTh2bG5NZmlkNkd6N3gwTVJHSmNYeHMvT0pSaHp1bDl3TGx4WFROUS9jT1IwNEpDckFHUTVUL0JhOXY1a0JkeE5ZZjJGd29VV0kiLCJtYWMiOiJkNWFjM2IzMWZlYzBiM2E3Nzk0Zjc3YTYwZDJlOThkMjJkNWY3NjliMGNmMjkyOWE5ODViMTY3NTYzMDliMWI3IiwidGFnIjoiIn0%3D',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    Origin: 'https://sis.ncnu.edu.tw',
+    Referer: 'https://sis.ncnu.edu.tw/b09/b09120'
+  },
+  body: '_token=dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg&srh%5BACADYear%5D%5B%5D=113&srh%5BSemester%5D%5B%5D=2&srh%5BDayfgID%5D%5B%5D=&srh%5BClassTypeID%5D%5B%5D=&srh%5BCollegeID%5D%5B%5D=&srh%5BUnitID%5D%5B%5D=93&srh%5BGrade%5D%5B%5D=&srh%5BClassID%5D%5B%5D=&srh%5BCourseNo%5D=&srh%5BSemesterCourseNo%5D=&srh%5BTeacher%5D=&srh%5BSemesterCourseName%5D=&srh%5BClassRoom%5D%5B%5D=&srh%5BTeaLanguage%5D%5B%5D=&srh%5BDayKind%5D%5B%5D=&srh%5BSectionBeg%5D%5B%5D=&srh%5BSectionEnd%5D%5B%5D=&tb_length=2000&tb_sel=&tb_cancel='
+}
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>iNCNU</title>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="csrf-token" content=dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg>
+
+<title>iNCNU</title>
+
+<link rel="stylesheet" href="/css/app.css?id=8fe3b20d7789a079d628417a7495c81d" />
+
+
+
+<link rel="stylesheet" href="/dist/css/adminlte.min.css">
+
+
+
+<link rel="stylesheet" href="/skin/school/style.css">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/vendor/datatables.min.css">
+<link rel="stylesheet" href="/css/vendor/Scroller/dataTables.scrollResize.min.css" />
+<link rel="stylesheet" href="/css/vendor/inputPaging/dataTables.inputPaging.min.css" />
+<link rel="stylesheet" href="/css/DataTablesAdjustment.css" />
+
+
+
+
+<script src="/js/app.js?id=a10fc35174ce17e205592ff61d4203ec"></script>
+
+<script type="module">
+    import * as utils from '/js/utils.js';
+    window.utils = utils;
+</script>
+
+
+
+
+
+
+<script src="/addons/moment.min.js"></script>
+
+
+
+<script type="text/javascript" src="/addons/tempusdominus/moment/locale/zh-tw.js"></script>
+<script type="text/javascript" src="/addons/tempusdominus/bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js">
+</script>
+
+
+
+<script src="/js/vendor/lodash.min.js"></script>
+
+
+
+
+
+<!-- <script src="https://unpkg.com/react@18/umd/react.production.min.js"
+    integrity="sha384-tMH8h3BGESGckSAVGZ82T9n90ztNXxvdwvdM6UoR56cYcf+0iGXBliJ29D+wZ/x8" crossorigin="anonymous">
+</script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    integrity="sha384-bm7MnzvK++ykSwVJ2tynSE5TRdN+xL418osEVF2DE/L/gfWHj91J2Sphe582B1Bh" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.0/babel.min.js"
+    integrity="sha512-2nvFgDDkDQZAO7x0iuupGiKpK+/qm7+bjzIEZBCn3o7v60+ZaPoe5x4sb21xahHfI7RCC9emLVY1k4kvap9RyQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/vendor/busy-load.min.css">
+<script src="/js/vendor/busy-load.min.js"></script>
+
+
+<!-- <script src="/addons/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/addons/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="/addons/jquery-validation/dist/localization/messages_zh_TW.min.js"></script> -->
+
+
+
+
+
+<!-- <link rel="stylesheet" href="/addons/icheck-material/icheck-material.min.css" />
+<link rel="stylesheet" href="/addons/icheck-material/icheck-material-custom.min.css" /> -->
+
+
+
+
+
+
+
+
+<link href="/dist/plugins/kendo/default-ocean-blue.css" rel="stylesheet">
+<script src="/dist/plugins/kendo/kendo.all.min.js"></script>
+<script src="/dist/plugins/kendo/kendo.messages.zh-TW.min.js"></script>
+
+<style>
+    .swal-wide2 {
+        width: 80% !important;
+    }
+
+    .swal-input {
+        width: 100%;
+        border-width: 0
+    }
+
+    .fa-plus::before {
+        content: "\f067";
+    }
+
+    .dt-info {
+        text-align: left !important;
+    }
+</style>
+
+<script type="text/javascript">
+
+    window.locale = "zh_TW";
+    Loading();
+
+    function Loading() {
+        $("html").animate({
+            scrollTop: 0
+        }, "slow");
+
+        $("html").busyLoad("show", {
+            spinner: "circles",
+            //color: "red",
+            text: "Loading",
+            textPosition: "bottom",
+            textColor: "white",
+        });
+    }
+
+    function LoadingClose() {
+        $("html").busyLoad("hide", {
+            animation: "fade"
+        });
+    }
+
+    function tab_Loading() {
+        $("#tabs-shadow").animate({
+            scrollTop: 0
+        }, "slow");
+
+        $("#tabs-shadow").busyLoad("show", {
+            spinner: "circles",
+            //color: "red",
+            text: "Loading",
+            textPosition: "bottom",
+            textColor: "white",
+        });
+    }
+
+    function tab_LoadingClose() {
+        $("#tabs-shadow").busyLoad("hide");
+    }
+
+    function EmbedAstar(arg, arg2) {}
+
+    function DisplayEUDCForID(arg) {}
+
+    function DisplayEUDCForElement(arg) {}
+
+    function copychksum(elm) {
+        var copyTxt = elm.getAttribute('title');
+        navigator.clipboard.writeText(copyTxt);
+        Swal.fire('檢查值已複製至剪貼簿!');
+    }
+
+    function copychksum2(copyTxt) {
+        // navigator.clipboard.writeText(copyTxt);
+        let ary = copyTxt.split('\n\r');
+        let ary1 = ary[0].split(':');
+        let ary2 = ary[1].split(':');
+        var tstr = '<div class="row"><div class="col-md-1">' + ary1[0] +
+            ':</div><div class="col-md-11"><input value="' + ary1[1] + '" class="swal-input" /></div></div>';
+        tstr += '<br/><div class="row"><div class="col-md-1">' + ary2[0] +
+            ':</div><div class="col-md-11"><input value="' + ary2[1] + '" class="swal-input" /></div></div>';
+        Swal.fire({
+            title: '檔案檢查碼',
+            html: tstr,
+            icon: "info",
+            customClass: 'swal-wide2',
+            confirmButtonText: '取消'
+        });
+    }
+    
+    // 回調函數管理器 formatDetailsCallback
+    const dataTableHandler = {};
+</script>
+
+                <link rel='icon' type='image/x-icon' href='/skin/school/image/logo_3.png' />
+        <style>
+            .main-sidebar {
+                height: 100vh;
+                /* Fallback for browsers that do not support Custom Properties */
+                height: calc(var(--vh, 1vh) * 100);
+            }
+        </style>
+    </head>
+
+    <body class="hold-transition sidebar-mini" onload="LoadingClose();">
+        <div class="wrapper" id="app" style="">
+            <div class="modal fade" role="dialog" id="modal"></div>
+                        <nav class="main-header navbar navbar-expand bg-custom navbar-light border-bottom">
+    
+    
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+    </ul>
+            
+
+    <ul class="navbar-nav ml-auto" style="font-size:medium;">
+        <!-- 手冊還沒做先隱藏
+        <li class="nav-item dropdown" title="選課新制教學影片/Course Selection Video">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <em class="fas fa-video"></em>
+                </a>
+                    <input type="hidden" name="_token" value="dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg" autocomplete="off">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header text-school">教學影片</span>
+                    </div>
+            </li>
+
+        <li class="nav-item dropdown" title="操作手冊/Operation Manual">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <em class="fa fa-book"></em>
+            </a>
+            <form id="manual" method='POST' action="https://sis.ncnu.edu.tw/home">
+                <input type="hidden" name="_token" value="dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg" autocomplete="off">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-header text-school">操作手冊</span>
+                    <a href="https://sis.ncnu.edu.tw/download_local/aU5UVUUg5pON5L2c5LuL6Z2i6Kqq5piOLnBkZg==/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                iNCNU 操作介面說明
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5pWZ6IG35ZOhX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                教職員
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5o6I6Kqy5pWZ5birX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                授課教師
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5bCO5birX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                導師
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5Yqp5pWZX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                助教
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5a2455SfX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                學生
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/5qCh5Y+LX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                校友
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://sis.ncnu.edu.tw/download_local/6Kiq5a6iX+ezu+e1seS9v+eUqOaJi+WGii5wZGY=/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
+                        <div class="media">
+                            <div class="media-body" onclick="">
+                                訪客
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </form>
+        </li>
+        -->
+        
+                        
+        <li class="nav-item dropdown" title="語言/Language">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <em class="fas fa-language"></em>
+            </a>
+            <form id="language" method='POST'>
+                <input type="hidden" name="_token" value="dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg" autocomplete="off">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-header text-school">繁中/EN</span>
+                    <a href="#" class="dropdown-item">
+                        <div class="media">
+                            <div class="media-body" onclick="setLang('zh_TW')">
+                                繁體中文
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <div class="media">
+                            <div class="media-body" onclick="setLang('en_US')">
+                                English
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </form>
+        </li>
+        
+                                    <li class="nav-item dropdown" title="登出/Sign Out">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <em class="fas fa-sign-out-alt"></em>
+                </a>
+                    <input type="hidden" name="_token" value="dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg" autocomplete="off">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header text-school">系統登出</span>
+                        <a href="#" class="dropdown-item">
+                            <div class="media" >
+                                <div class="media-body" onclick="setLogout()">
+                                    登出
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+            </li>
+
+    </ul>
+</nav>
+            <style>
+    .sidebar-pic-head {
+        background-image: url('/skin/school/image/logo_4.png') !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #1d3f66;
+        background-size: contain;
+        padding-bottom: 20%;
+    }
+</style>
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="https://sis.ncnu.edu.tw/home" class="brand-link">
+        <div class='sidebar-pic-head col-md-12'></div>
+    </a>
+    
+    <div class="sidebar pb-5" id='sidebar'>
+        
+
+        
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="info">
+                <em class="nav-icon fas fa-user"></em>
+                訪客帳號
+            </div>
+        </div>
+        
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item has-treeview " style="width:100%;">
+                    <a href="https://sis.ncnu.edu.tw/home" class="nav-link ">
+                        <em class="nav-icon fas fa-house-user"></em>
+                        <p>
+                            首頁區
+                        </p>
+                    </a>
+                </li>
+
+                
+                <li class="nav-item has-treeview px-2 pt-4" style="width:100%;">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search..." v-model="inputSearch"
+                            list="inputList">
+                        <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;"
+                            @click="inputSearch=''">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                    <datalist id="inputList" v-html="inputList"> </datalist>
+                </li>
+                <li class="nav-item has-treeview menu-is-opening menu-open" style="width:100%;">
+                    <ul class="nav nav-treeview" v-html="searchResult"></ul>
+                </li>
+
+                                    <li class="nav-header">訪客專區</li>
+                                            <li class="nav-item has-treeview   menu-open" style="width:100%;">
+                            <a href="#" class="nav-link ">
+                                <em class="nav-icon fas fa-list"></em>
+                                <p style="width: 80%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                    title="GST01數位服務">
+                                                                            數位服務
+                                                                        <em class="fa fa-angle-left right"></em>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="gst01110"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a01/a01240', '', 'gst01110')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="GST01110學生學號查詢">
+                                                　學生學號查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="gst01120"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b05/b05230', '', 'gst01120')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="GST01120校際修課申請">
+                                                　校際修課申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="gst01130"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09120', '', 'gst01130')"
+                                            class="hvr-grow-shadow nav-link active">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="GST01130公開課表查詢">
+                                                　公開課表查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="gst01131"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09130', '', 'gst01131')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="GST01131公開課架查詢">
+                                                　公開課架查詢 </p>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                                                </ul>
+        </nav>
+        
+    </div>
+    
+    <script>
+        $('.nav-item.has-treeview').on('click', function() {
+            $('#sidebar').animate({
+                scrollTop: $(this).position().top
+            }, 500);
+        });
+    </script>
+    <script type="module">
+        import {
+            createApp,
+            ref,
+            watch,
+        } from '/addons/vue.esm-browser.prod.js';
+
+        const menu = [{"text":"\u5b78\u751f\u5b78\u865f\u67e5\u8a62","number":"gst01110","url":"https:\/\/sis.ncnu.edu.tw\/a01\/a01240","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u6821\u969b\u4fee\u8ab2\u7533\u8acb","number":"gst01120","url":"https:\/\/sis.ncnu.edu.tw\/b05\/b05230","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u516c\u958b\u8ab2\u8868\u67e5\u8a62","number":"gst01130","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09120","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u516c\u958b\u8ab2\u67b6\u67e5\u8a62","number":"gst01131","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09130","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"}];
+
+        function filterObject(arr, searchKey) {
+            const keys = Object.keys(arr[0]).slice(0, -1); // 去掉 title
+            return arr.filter(obj => keys.some(key => obj[key].includes(searchKey))); // 不搜尋 title
+            // return arr.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchKey))); // 搜尋所有
+        }
+
+        function htmlMap(arr) {
+            return arr.map((item) =>
+                `<li class="nav-item" style="cursor:pointer;">
+                    <a id="${ item.number }" href="#" onclick="setHref('${ item.url }', '', '${ item.number }')" class="hvr-grow-shadow nav-link" data-toggle="tooltip" data-placement="top" title="${ item.title }">
+                        <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;">${ item.text } </p>
+                    </a>
+                </li>`).join('');
+        }
+
+        function searchListMap(arr) {
+            return arr.map((item) =>
+                `<option value="${item}">`).join('');
+        }
+
+        const localStorageInputList = {
+            get() {
+                return JSON.parse(localStorage.getItem('inputList')) || [];
+            },
+            set(value) {
+                localStorage.setItem('inputList', JSON.stringify([...value]));
+            }
+        }
+
+        const App = {
+            setup() {
+                const inputSearch = ref("");
+                const searchResult = ref("");
+                const inputList = ref([]);
+                let tempList = new Set();
+
+                // 更新輸入項目列表
+                function updateInputList() {
+                    if (searchResult.value) {
+                        tempList.add(inputSearch.value)
+                        // 列表上限
+                        if (tempList.size > 6) {
+                            tempList.delete(tempList.values().next().value);
+                        }
+                        const reversedTempList = [...tempList].reverse();
+                        inputList.value = searchListMap(reversedTempList);
+                        localStorageInputList.set(reversedTempList);
+                    }
+                }
+
+                // 要延後執行的事
+                const debounce = _.debounce(() => {
+                    $('[data-toggle="tooltip"]').tooltip(); // 掛上 tooltip
+                    updateInputList();
+                }, 500);
+
+                function init() {
+                    const localData = localStorageInputList.get();
+                    if (localData.length > 0) {
+                        tempList = new Set(localData)
+                        inputList.value = searchListMap(localData);
+                    }
+                }
+                init();
+
+                watch(inputSearch, () => {
+                    if (!inputSearch.value) {
+                        searchResult.value = "";
+                        $(".tooltip").remove();
+                    } else {
+                        const result = filterObject(menu, inputSearch.value.toLowerCase().trim());
+                        searchResult.value = htmlMap(result);
+                        debounce();
+                    }
+                })
+
+                return {
+                    inputSearch,
+                    searchResult,
+                    inputList,
+                };
+            },
+        };
+
+        const app = createApp(App);
+        app.mount("#sidebar")
+    </script>
+</aside>
+                        <div class="content-wrapper">
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                                                    <h1 class="m-0 text-school">
+                                                                                    公開課表查詢
+                                                                            </h1>
+                                                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right text-school">
+                                                                                                                        <li class="breadcrumb-item">訪客專區</li>
+                                                                                    <li class="breadcrumb-item">數位服務</li>
+                                                                                    <li class="breadcrumb-item">公開課表查詢</li>
+                                                                                                            </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content">
+                    <div class="container-fluid">
+                            <form id='main' method='POST' autocomplete='off'>
+        <input type="hidden" name="_token" value="dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg" autocomplete="off">
+        <div ><div class='form-row'><div class='form-group text-left col-md-2' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>學年</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[ACADYear]' name='srh[ACADYear][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學年'><option value='108' >108</option> <option value='109' >109</option> <option value='110' >110</option> <option value='111' >111</option> <option value='112' >112</option> <option value='113' selected>113</option> <option value='114' >114</option> <option value='115' >115</option> <option value='116' >116</option> <option value='117' >117</option> <option value='118' >118</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[ACADYear][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-2' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>學期</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[Semester]' name='srh[Semester][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學期'><option value='1' >上學期</option> <option value='2' selected>下學期</option> <option value='3' >暑期</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[Semester][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div></div></div>        
+        <div id='tabs-shadow' style='min-height: 80vh; width:100%'>
+            <ul class='nav nav-tabs mb-3' id='nav_tabs' role='tablist'>
+                <li>
+        <a id='https://sis.ncnu.edu.tw/b09/b09120_id' class='nav-item nav-link active' data-toggle='tab'
+             href='https://sis.ncnu.edu.tw/b09/b09120'>進階查詢
+        </a>
+        </li><li>
+        <a id='https://sis.ncnu.edu.tw/b09/b09120/tab2_id' class='nav-item nav-link ' data-toggle='tab'
+             href='https://sis.ncnu.edu.tw/b09/b09120/tab2'>教室課表查詢
+        </a>
+        </li><li>
+        <a id='https://sis.ncnu.edu.tw/b09/b09120/tab3_id' class='nav-item nav-link ' data-toggle='tab'
+             href='https://sis.ncnu.edu.tw/b09/b09120/tab3'>班級課表查詢
+        </a>
+        </li><li>
+        <a id='https://sis.ncnu.edu.tw/b09/b09120/tab4_id' class='nav-item nav-link ' data-toggle='tab'
+             href='https://sis.ncnu.edu.tw/b09/b09120/tab4'>教師課表查詢
+        </a>
+        </li><li>
+        <a id='https://sis.ncnu.edu.tw/b09/b09120/tab5_id' class='nav-item nav-link ' data-toggle='tab'
+             href='https://sis.ncnu.edu.tw/b09/b09120/tab5'>課架開課查詢
+        </a>
+        </li>
+            </ul>
+            <div class='tab-content' id='nav-tabContent'>
+                <div class='tab-pane active' >
+        
+            <div class='card bg-light'>
+                <div class='card-header text-center d-md-none' id='SearchHead'  data-toggle='collapse' data-target='#SearchBody' aria-expanded='true' aria-controls='SearchBody'>
+                    <a href='#'>
+                       <i class='fas fa-filter text-info'></i>
+                       進階查詢
+                    </a>
+                </div>
+
+                <div id='SearchBody' class='collapse d-md-block' aria-labelledby='SearchHead'>
+                    <div class='card-body'>
+                        <div ><div class='form-row'><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>部別</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[DayfgID]' name='srh[DayfgID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='部別'><option value='' selected>-</option> <option value='1' >日間部</option> <option value='2' >進修學制</option> <option value='3' >國際專修部</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[DayfgID][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>學制</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[ClassTypeID]' name='srh[ClassTypeID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學制'><option value='' selected>-</option> <option value='4' >專修班</option> <option value='1' >學士班</option> <option value='2' >碩士班</option> <option value='5' >碩士在職專班</option> <option value='3' >博士班</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[ClassTypeID][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>學院</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[CollegeID]' name='srh[CollegeID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學院'><option value='' selected>-</option> <option value='1' >人文</option> <option value='2' >管理</option> <option value='3' >科技</option> <option value='4' >教育</option> <option value='5' >水沙連</option> <option value='6' >護理暨健康福祉</option> <option value='7' >通識</option> <option value='242' >不分學院</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[CollegeID][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>系所</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[UnitID]' name='srh[UnitID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='系所'><option value='' >-</option> <option value='128' >諮商心理與人力資源發展學系</option> <option value='67' >中國語文學系</option> <option value='125' >國際文教與比較教育學系</option> <option value='113' >社會政策與社會工作學系</option> <option value='122' >外國語文學系</option> <option value='30' >歷史學系</option> <option value='63' >公共行政與政策學系</option> <option value='112' >教育政策與行政學系</option> <option value='65' >東南亞學系</option> <option value='40' >諮商心理與人力資源發展學系終身學習與人力資源發展</option> <option value='46' >經濟學系</option> <option value='103' >國際企業學系</option> <option value='93' selected>資訊管理學系</option> <option value='100' >財務金融學系</option> <option value='138' >高階經營管理碩士學位學程</option> <option value='41' >資訊工程學系</option> <option value='78' >土木工程學系</option> <option value='43' >電機工程學系</option> <option value='96' >應用化學系</option> <option value='88' >應用化學系生物醫學</option> <option value='121' >應用材料及光電工程學系</option> <option value='79' >公共行政與政策學系碩士在職專班</option> <option value='130' >東南亞學系人類學</option> <option value='118' >諮商心理與人力資源發展學系輔導與諮商新加坡境外碩士在職專班</option> <option value='15' >東南亞學系碩士在職專班</option> <option value='51' >課程教學與科技研究所</option> <option value='133' >終身學習與人力資源發展碩士學位學程碩士在職專班</option> <option value='98' >華語文教學碩士學位學程</option> <option value='16' >非營利組織經營管理碩士學位學程在職專班</option> <option value='48' >觀光休閒與餐旅管理學系</option> <option value='106' >觀光休閒與餐旅管理學系餐旅</option> <option value='95' >兩岸高階主管經營管理境外碩士在職學位學程</option> <option value='24' >新興產業策略與發展博士學位學程</option> <option value='47' >原住民文化產業與社會工作學士學位學程原住民族專班</option> <option value='94' >國際文教管理人才博士學位學程</option> <option value='129' >新興產業策略與發展碩士學位學程</option> <option value='54' >區域發展重點產業碩士專班</option> <option value='105' >心理健康與諮詢碩士學位學程在職專班</option> <option value='27' >管理學院學士班</option> <option value='84' >科技學院學士班</option> <option value='58' >教育學院學士班</option> <option value='82' >文化創意與社會行銷碩士學位學程</option> <option value='120' >長期照顧經營管理碩士在職學位學程在職專班</option> <option value='42' >人工智慧與機器人碩士學位學程</option> <option value='92' >心理健康與輔導諮商碩士在職進修新加坡境外專班</option> <option value='123' >地方創生與跨域治理碩士學位學程</option> <option value='83' >護理學系</option> <option value='114' >護理學系原住民族專班</option> <option value='85' >智慧精準農業產學研發博士學位學程</option> <option value='156' >高齡健康與長期照顧管理學士學位學程原住民族專班</option> <option value='241' >光電材料產業碩士專班</option> <option value='249' >智慧暨永續農業學士學位學程</option> <option value='251' >商業管理及資訊科技創新應用全英語碩士學位學程</option> <option value='243' >跨校</option> <option value='80' >體育室</option> <option value='55' >軍訓室</option> <option value='77' >共同科</option> <option value='107' >師資培育中心</option> <option value='115' >遠距教學中心</option> <option value='19' >全校共同選修</option> <option value='135' >全校共同基本必修</option> <option value='246' >全校國文</option> <option value='247' >全校英文</option> <option value='248' >服務學習</option> <option value='32' >通識領域課程</option> <option value='34' >人文學院</option> <option value='91' >管理學院</option> <option value='81' >科技學院</option> <option value='126' >教育學院</option> <option value='157' >教務處課務組</option> <option value='158' >創業育成中心</option> <option value='221' >語文教學中心</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[UnitID][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>開課年級</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[Grade]' name='srh[Grade][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='開課年級'><option value='' selected>-</option> <option value='1' >1</option> <option value='2' >2</option> <option value='3' >3</option> <option value='4' >4</option> <option value='5' >5</option> <option value='6' >6</option> <option value='7' >7</option> <option value='8' >8</option> <option value='9' >9</option> <option value='10' >10</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[Grade][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>班級</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[ClassID]' name='srh[ClassID][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='班級'><option value='' selected>-</option> <option value='19' >資管系1</option> <option value='53' >資管系2</option> <option value='87' >資管系3</option> <option value='121' >資管系4</option> <option value='155' >資管系5</option> <option value='189' >資管系6</option> <option value='220' >資管系碩1</option> <option value='269' >資管系碩2</option> <option value='318' >資管系碩3</option> <option value='367' >資管系碩4</option> <option value='416' >資管系碩5</option> <option value='465' >資管系碩6</option> <option value='514' >資管系碩7</option> <option value='721' >資管系專1</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[ClassID][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>課號</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <input type='text'  class='text-left form-control form-control-sm' id='srh[CourseNo]' name='srh[CourseNo]' value='' data-validation-rules='{"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}}' data-error-title='課號' >
+                
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var Elem = document.getElementById('srh[CourseNo]');
+
+                    $(Elem).rules('add', {"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}});
+                });
+            </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>開課號</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <input type='text'  class='text-left form-control form-control-sm' id='srh[SemesterCourseNo]' name='srh[SemesterCourseNo]' value='' data-validation-rules='{"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}}' data-error-title='開課號' >
+                
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var Elem = document.getElementById('srh[SemesterCourseNo]');
+
+                    $(Elem).rules('add', {"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}});
+                });
+            </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>教師名稱</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <input type='text'  class='text-left form-control form-control-sm' id='srh[Teacher]' name='srh[Teacher]' value='' data-validation-rules='{"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}}' data-error-title='教師名稱' >
+                
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var Elem = document.getElementById('srh[Teacher]');
+
+                    $(Elem).rules('add', {"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}});
+                });
+            </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>科目名稱</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <input type='text'  class='text-left form-control form-control-sm' id='srh[SemesterCourseName]' name='srh[SemesterCourseName]' value='' data-validation-rules='{"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}}' data-error-title='科目名稱' >
+                
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var Elem = document.getElementById('srh[SemesterCourseName]');
+
+                    $(Elem).rules('add', {"required":false,"messages":{"required":"\u203b\u5fc5\u586b\u8cc7\u8a0a\uff01","minlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u4f4e\u65bc {0} \u5b57\uff01","maxlength":"\u203b\u5b57\u6578\u4e0d\u5f97\u5927\u65bc {0} \u5b57\uff01","rangelength":"\u203b\u5b57\u6578\u9650\u5236\u65bc {0} ~ {1} \u500b\u5b57\uff01"}});
+                });
+            </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>上課教室</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[ClassRoom]' name='srh[ClassRoom][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='上課教室'><option value='' selected>-</option> <option value='202-1' >202-1</option> <option value='324-2' >324-2</option> <option value='514' >514</option> <option value='A000' >A000</option> <option value='A001' >A001</option> <option value='A100' >A100</option> <option value='A101' >A101</option> <option value='A104' >A104</option> <option value='A105' >A105</option> <option value='A107' >A107</option> <option value='A201' >A201</option> <option value='A201-1' >A201-1</option> <option value='A202' >A202</option> <option value='A203' >A203</option> <option value='A205-1' >A205-1</option> <option value='A206' >A206</option> <option value='A207' >A207</option> <option value='A207-1' >A207-1</option> <option value='A301' >A301</option> <option value='A301-1專業教室' >A301-1專業教室</option> <option value='A302研討室' >A302研討室</option> <option value='A303研討室' >A303研討室</option> <option value='A306' >A306</option> <option value='A307系會議室' >A307系會議室</option> <option value='A308博士班研究室' >A308博士班研究室</option> <option value='A309研討室' >A309研討室</option> <option value='A310研討室' >A310研討室</option> <option value='A311' >A311</option> <option value='A401' >A401</option> <option value='A401-1' >A401-1</option> <option value='A404-2' >A404-2</option> <option value='A407' >A407</option> <option value='A407-1' >A407-1</option> <option value='B01-2' >B01-2</option> <option value='B102' >B102</option> <option value='B103' >B103</option> <option value='B103團體諮商室' >B103團體諮商室</option> <option value='B104' >B104</option> <option value='B203' >B203</option> <option value='B204' >B204</option> <option value='B205' >B205</option> <option value='B301' >B301</option> <option value='B302' >B302</option> <option value='B305' >B305</option> <option value='R127' >R127</option> <option value='人103' >人103</option> <option value='人104' >人104</option> <option value='人105' >人105</option> <option value='人106' >人106</option> <option value='人107' >人107</option> <option value='人110' >人110</option> <option value='人113' >人113</option> <option value='人115' >人115</option> <option value='人118-1' >人118-1</option> <option value='人118-2' >人118-2</option> <option value='人203' >人203</option> <option value='人204-1' >人204-1</option> <option value='人205' >人205</option> <option value='人208' >人208</option> <option value='人215' >人215</option> <option value='人217' >人217</option> <option value='人219' >人219</option> <option value='人303' >人303</option> <option value='人304' >人304</option> <option value='人305-1' >人305-1</option> <option value='人305-2' >人305-2</option> <option value='人306' >人306</option> <option value='人307' >人307</option> <option value='人309-2' >人309-2</option> <option value='人322' >人322</option> <option value='人323' >人323</option> <option value='人324-1' >人324-1</option> <option value='人324-2' >人324-2</option> <option value='人325' >人325</option> <option value='人326' >人326</option> <option value='人327' >人327</option> <option value='人328-1' >人328-1</option> <option value='人328-2' >人328-2</option> <option value='人401' >人401</option> <option value='人402' >人402</option> <option value='人403-1' >人403-1</option> <option value='人403-2' >人403-2</option> <option value='人404' >人404</option> <option value='人405-1' >人405-1</option> <option value='人406' >人406</option> <option value='人418' >人418</option> <option value='人419' >人419</option> <option value='人420' >人420</option> <option value='人B01-1' >人B01-1</option> <option value='人B01-2' >人B01-2</option> <option value='人B04' >人B04</option> <option value='人B05' >人B05</option> <option value='人B07' >人B07</option> <option value='人B08' >人B08</option> <option value='人B09' >人B09</option> <option value='人B12' >人B12</option> <option value='人B14' >人B14</option> <option value='人B15' >人B15</option> <option value='人小個案教室(第二個案教室)' >人小個案教室(第二個案教室)</option> <option value='人院大個案教室' >人院大個案教室</option> <option value='人院小個案教室' >人院小個案教室</option> <option value='人院第一個案教室' >人院第一個案教室</option> <option value='人院第二個案教室' >人院第二個案教室</option> <option value='小個案' >小個案</option> <option value='中科104會議室' >中科104會議室</option> <option value='中科105' >中科105</option> <option value='中科106會議室' >中科106會議室</option> <option value='中科107' >中科107</option> <option value='中科108' >中科108</option> <option value='戶外探索教育中心' >戶外探索教育中心</option> <option value='方形劇場' >方形劇場</option> <option value='方型劇場' >方型劇場</option> <option value='北科大' >北科大</option> <option value='北科大六教326' >北科大六教326</option> <option value='北科大六教726' >北科大六教726</option> <option value='另定' >另定</option> <option value='另訂' >另訂</option> <option value='各實驗室' >各實驗室</option> <option value='行政院人事行政總' >行政院人事行政總</option> <option value='系會議室' >系會議室</option> <option value='系辦會議室' >系辦會議室</option> <option value='東南亞系大會議室' >東南亞系大會議室</option> <option value='東南亞學系大會議室' >東南亞學系大會議室</option> <option value='南投縣政府' >南投縣政府</option> <option value='科一109' >科一109</option> <option value='科一115' >科一115</option> <option value='科一116' >科一116</option> <option value='科一210' >科一210</option> <option value='科一234' >科一234</option> <option value='科一235' >科一235</option> <option value='科一310' >科一310</option> <option value='科一312' >科一312</option> <option value='科一329' >科一329</option> <option value='科一409' >科一409</option> <option value='科一411' >科一411</option> <option value='科一412' >科一412</option> <option value='科一429' >科一429</option> <option value='科一511' >科一511</option> <option value='科一512-2' >科一512-2</option> <option value='科二 533' >科二 533</option> <option value='科二109' >科二109</option> <option value='科二208' >科二208</option> <option value='科二218' >科二218</option> <option value='科二220' >科二220</option> <option value='科二222' >科二222</option> <option value='科二224' >科二224</option> <option value='科二227' >科二227</option> <option value='科二303' >科二303</option> <option value='科二319' >科二319</option> <option value='科二323' >科二323</option> <option value='科二324' >科二324</option> <option value='科二325' >科二325</option> <option value='科二414' >科二414</option> <option value='科二416' >科二416</option> <option value='科二436' >科二436</option> <option value='科二439' >科二439</option> <option value='科二514' >科二514</option> <option value='科二516' >科二516</option> <option value='科二-516' >科二-516</option> <option value='科二531' >科二531</option> <option value='科二小屋' >科二小屋</option> <option value='科三102' >科三102</option> <option value='科三107' >科三107</option> <option value='科三108' >科三108</option> <option value='科三113' >科三113</option> <option value='科三115' >科三115</option> <option value='科三116' >科三116</option> <option value='科三117' >科三117</option> <option value='科三118' >科三118</option> <option value='科三119' >科三119</option> <option value='科三201' >科三201</option> <option value='科三207' >科三207</option> <option value='科三208' >科三208</option> <option value='科三209' >科三209</option> <option value='科三214' >科三214</option> <option value='科三301' >科三301</option> <option value='科三302' >科三302</option> <option value='科三303-右' >科三303-右</option> <option value='科三304-1' >科三304-1</option> <option value='科三305' >科三305</option> <option value='科三307-1' >科三307-1</option> <option value='科三308' >科三308</option> <option value='科三321' >科三321</option> <option value='科三322' >科三322</option> <option value='科三401' >科三401</option> <option value='科三408' >科三408</option> <option value='科三409' >科三409</option> <option value='科三410' >科三410</option> <option value='科三415' >科三415</option> <option value='科四102' >科四102</option> <option value='科四104' >科四104</option> <option value='科四110' >科四110</option> <option value='科四114' >科四114</option> <option value='科四116' >科四116</option> <option value='科四116-2' >科四116-2</option> <option value='科四117' >科四117</option> <option value='科四202-1' >科四202-1</option> <option value='科四206' >科四206</option> <option value='科四319' >科四319</option> <option value='科四322' >科四322</option> <option value='科四404' >科四404</option> <option value='科四412' >科四412</option> <option value='科四417' >科四417</option> <option value='科四419' >科四419</option> <option value='科四419-1' >科四419-1</option> <option value='科四420' >科四420</option> <option value='科四館420' >科四館420</option> <option value='耐震204' >耐震204</option> <option value='射箭場' >射箭場</option> <option value='高爾夫球場' >高爾夫球場</option> <option value='教A104' >教A104</option> <option value='教A105' >教A105</option> <option value='教A301' >教A301</option> <option value='教A311' >教A311</option> <option value='教B102' >教B102</option> <option value='教師研究室' >教師研究室</option> <option value='游泳池' >游泳池</option> <option value='結構實驗室' >結構實驗室</option> <option value='華中科技大學' >華中科技大學</option> <option value='圓形劇場' >圓形劇場</option> <option value='圖資010-1(B1數位教室)' >圖資010-1(B1數位教室)</option> <option value='圖資026' >圖資026</option> <option value='圖資027' >圖資027</option> <option value='圖資028' >圖資028</option> <option value='圖資213無國界教室' >圖資213無國界教室</option> <option value='圖資218' >圖資218(戲劇展演練習室)</option> <option value='圖資222數位教室' >圖資222數位教室</option> <option value='圖資223創意教室' >圖資223創意教室</option> <option value='圖資大樓多功能演講廳' >圖資大樓多功能演講廳</option> <option value='管103' >管103</option> <option value='管104' >管104</option> <option value='管106' >管106</option> <option value='管107' >管107</option> <option value='管112' >管112</option> <option value='管113' >管113</option> <option value='管115' >管115</option> <option value='管125-2' >管125-2</option> <option value='管126' >管126</option> <option value='管127' >管127</option> <option value='管135' >管135</option> <option value='管136' >管136</option> <option value='管203' >管203</option> <option value='管204' >管204</option> <option value='管206' >管206</option> <option value='管207' >管207</option> <option value='管210' >管210</option> <option value='管212' >管212</option> <option value='管213' >管213</option> <option value='管215' >管215</option> <option value='管217' >管217</option> <option value='管226' >管226</option> <option value='管228' >管228</option> <option value='管241' >管241</option> <option value='管255' >管255</option> <option value='管260' >管260</option> <option value='管268' >管268</option> <option value='管304' >管304</option> <option value='管305' >管305</option> <option value='管312' >管312</option> <option value='管316' >管316</option> <option value='管320' >管320</option> <option value='管328' >管328</option> <option value='管329' >管329</option> <option value='管331' >管331</option> <option value='管341' >管341</option> <option value='管342' >管342</option> <option value='管350' >管350</option> <option value='管371' >管371</option> <option value='管427' >管427</option> <option value='管432' >管432</option> <option value='管441' >管441</option> <option value='管443' >管443</option> <option value='管451' >管451</option> <option value='管452' >管452</option> <option value='管457' >管457</option> <option value='管461' >管461</option> <option value='管462' >管462</option> <option value='管5004' >管5004</option> <option value='管5005' >管5005</option> <option value='管5015' >管5015</option> <option value='管5017' >管5017</option> <option value='管5043' >管5043</option> <option value='管5049' >管5049</option> <option value='管5058' >管5058</option> <option value='管5059' >管5059</option> <option value='管5064' >管5064</option> <option value='管5099' >管5099</option> <option value='管5101' >管5101</option> <option value='管5112' >管5112</option> <option value='管5117' >管5117</option> <option value='管B11' >管B11</option> <option value='管B15' >管B15</option> <option value='管B24' >管B24</option> <option value='管R127' >管R127</option> <option value='網球場' >網球場</option> <option value='線上' >線上</option> <option value='壘球場' >壘球場</option> <option value='攝影棚' >攝影棚</option> <option value='體健中心' >體健中心</option> <option value='體健中心有氧教室' >體健中心有氧教室</option> <option value='體健中心室內划船訓練室' >體健中心室內划船訓練室</option> <option value='體健中心綜合球場' >體健中心綜合球場</option> <option value='體健中心綜合球館' >體健中心綜合球館</option> <option value='體健中心韻律教室' >體健中心韻律教室</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[ClassRoom][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-3' >
+                
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>授課語言</h6>
+                </div>
+            </div>
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[TeaLanguage]' name='srh[TeaLanguage][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='授課語言'><option value='' selected>-</option> <option value='0' >國語</option> <option value='1' >英語</option> <option value='2' >日語</option> <option value='3' >法語</option> <option value='4' >韓語</option> <option value='5' >泰語</option> <option value='6' >德語</option> <option value='7' >越南語</option> <option value='8' >印尼語</option> <option value='9' >雙語(中英)</option> <option value='Z' >其他</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[TeaLanguage][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-md-6' >
+                <div class='row'>
+                <div class='col-12'>
+                    <h6>上課時間</h6>
+                </div>
+            </div>
+                <div ><div class='form-row'><div class='form-group text-left col-md-2' >
+                
+                
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[DayKind]' name='srh[DayKind][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title=''><option value='' selected>-</option> <option value='1' >星期一</option> <option value='2' >星期二</option> <option value='3' >星期三</option> <option value='4' >星期四</option> <option value='5' >星期五</option> <option value='6' >星期六</option> <option value='7' >星期日</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[DayKind][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-auto' >
+                
+                <span class='' style='' id=''>從第 </span>
+                
+                </div><div class='form-group text-left col-md-2' >
+                
+                
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[SectionBeg]' name='srh[SectionBeg][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title=''><option value='' selected>-</option> <option value='1' >x</option> <option value='2' >y</option> <option value='3' >a</option> <option value='4' >b</option> <option value='5' >c</option> <option value='6' >d</option> <option value='7' >z</option> <option value='8' >e</option> <option value='9' >f</option> <option value='10' >g</option> <option value='11' >h</option> <option value='12' >i</option> <option value='13' >j</option> <option value='14' >k</option> <option value='15' >l</option> <option value='16' >m</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[SectionBeg][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-auto' >
+                
+                <span class='' style='' id=''>節到 第</span>
+                
+                </div><div class='form-group text-left col-md-2' >
+                
+                
+            <div class='input-group'>
+                
+                
+                <select class='form-control form-control-sm selectpicker' id='srh[SectionEnd]' name='srh[SectionEnd][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title=''><option value='' selected>-</option> <option value='1' >x</option> <option value='2' >y</option> <option value='3' >a</option> <option value='4' >b</option> <option value='5' >c</option> <option value='6' >d</option> <option value='7' >z</option> <option value='8' >e</option> <option value='9' >f</option> <option value='10' >g</option> <option value='11' >h</option> <option value='12' >i</option> <option value='13' >j</option> <option value='14' >k</option> <option value='15' >l</option> <option value='16' >m</option></select>
+            </div>
+            <script>
+                    $(document).ready(function() {
+                        var Elem = document.getElementsByName('srh[SectionEnd][]')
+                        
+                        $(Elem).selectpicker({size: 7});
+                        $(Elem).on('change', function () {
+                            $(this).valid();
+                        });
+                        
+                    });
+                </script>
+                
+                </div><div class='form-group text-left col-auto' >
+                
+                <span class='' style='' id=''>節</span>
+                
+                </div></div></div>
+                
+                </div></div></div>
+                    </div>
+                </div>
+            </div><div ><div class='form-row'><div class='form-group text-left col-auto' >
+                
+                
+                <button type='button' class='btn btn-outline-secondary' title=''  name='event' value='search' onclick=setSubmit(this,1,0,);>
+                    <i class=' text-info fas fa-search'></i> 查詢
+                </button>
+                
+                
+                </div><div class='form-group text-left col-auto' >
+                
+                
+                <button type='button' class='btn btn-outline-secondary' title=''  name='event' value='clear' onclick=setSubmit(this,1,0,);>
+                    <i class=' text-success fas fa-hand-point-up'></i> 清除查詢
+                </button>
+                
+                
+                </div></div></div><div class='alert school-alert-warning' role='alert'><span class='' style='' id=''><span class='text-danger' style='' id=''>說明：</span></span><BR><span class='' style='' id=''><p><span style="font-size:14px;">1.科目為藍色字，表示有〔教學計畫〕可供查詢，請直接點選科目即可查詢〔教學計畫〕。</span></p><p><span style="font-size:14px;">2.</span><span style="font-size:medium;">選課人數將在最後階段結束後才會顯示，確保所有選課變動都已完成，並提供最準確的數據。</span></p></span></div><table id='tb' class='hover row-border compact' style='width:100%'></table>
+                <script>
+                    $(document).ready(function() {
+                        let mergeCell = [];
+                        
+                        setDataTables('tb', {"language":{"buttons":{"selectAll":"<span class='' style='' id=''><i class=' text-info far fa-check-square'><\/i> \u5168\u9078<\/span>","selectNone":"<span class='' style='' id=''><i class=' text-info far fa-square'><\/i> \u53d6\u6d88<\/span>","create":"<span class='' style='' id=''><i class=' text-success fas fa-plus'><\/i> \u65b0\u589e<\/span>","edit":"<span class='' style='' id=''><i class=' text-warning fas fa-edit'><\/i> \u7de8\u8f2f<\/span>","remove":"<span class='' style='' id=''><i class=' text-danger fas fa-trash'><\/i> \u522a\u9664<\/span>"}},"rowGroup":"","data":[{"SemesterCourseID":"87266","CourseNo":"130101","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87266\">\u7ba1\u7406\u6703\u8a08\u7cfb\u7d71<\/a>","SemesterCourseENGName":"Management Accounting System","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u8a31\u666f\u660e","SemCourseTime":"5efg","ClassRoom":"\u7ba1241","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"28","VolCnt":"0","VolGetCnt":"21","Memo":"","SemesterCourseNo":"0023","Choose":"\u9078\u4fee","DT_RowId":"row_0"},{"SemesterCourseID":"87267","CourseNo":"130014","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87267\">\u7a0b\u5f0f\u8a2d\u8a08(\u4e0b)<\/a>","SemesterCourseENGName":"Programming (2)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u6e38\u5b50\u5b9c","SemCourseTime":"3bcd","ClassRoom":"\u7ba1371","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"87","VolCnt":"0","VolGetCnt":"89","Memo":"","SemesterCourseNo":"0024","Choose":"\u5fc5\u4fee","DT_RowId":"row_1"},{"SemesterCourseID":"87268","CourseNo":"130008","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87268\">\u8a08\u7b97\u6a5f\u6982\u8ad6(\u4e0a)<\/a>","SemesterCourseENGName":"Introduction to Computer (1)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"4bcd","ClassRoom":"\u7ba1B11","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"89","VolCnt":"0","VolGetCnt":"90","Memo":"","SemesterCourseNo":"0025","Choose":"\u5fc5\u4fee","DT_RowId":"row_2"},{"SemesterCourseID":"87269","CourseNo":"130085","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87269\">\u4f01\u696d\u5be6\u7fd2(\u4e00)<\/a>","SemesterCourseENGName":"Enterprise Internship (I)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"","ClassRoom":"","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"2","VolCnt":"0","VolGetCnt":"1","Memo":"\u6027\u8cea\u7279\u6b8a\u8ab2\u7a0b(1131)","SemesterCourseNo":"0026","Choose":"\u9078\u4fee","DT_RowId":"row_3"},{"SemesterCourseID":"87270","CourseNo":"130022","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87270\">\u8a08\u7b97\u6a5f\u7d44\u7e54<\/a>","SemesterCourseENGName":"Computer Organization","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"5bcd","ClassRoom":"\u7ba1228","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"40","SelAmt":"48","VolCnt":"4","VolGetCnt":"40","Memo":"","SemesterCourseNo":"0027","Choose":"\u9078\u4fee","DT_RowId":"row_4"},{"SemesterCourseID":"87271","CourseNo":"130039","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87271\">\u4f01\u696d\u8cc7\u8a0a\u901a\u8a0a\u8207\u7db2\u8def<\/a>","SemesterCourseENGName":"Enterprise Communication Networks","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5f65\u931a","SemCourseTime":"2efg","ClassRoom":"\u7ba1241","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"74","VolCnt":"1","VolGetCnt":"74","Memo":"","SemesterCourseNo":"0028","Choose":"\u5fc5\u4fee","DT_RowId":"row_5"},{"SemesterCourseID":"87272","CourseNo":"130027","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87272\">\u7cfb\u7d71\u5206\u6790\u8207\u8a2d\u8a08<\/a>","SemesterCourseENGName":"System Analysis and Design","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5efa\u5b8f","SemCourseTime":"1efg","ClassRoom":"\u7ba1241","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"72","VolCnt":"0","VolGetCnt":"68","Memo":"","SemesterCourseNo":"0029","Choose":"\u5fc5\u4fee","DT_RowId":"row_6"},{"SemesterCourseID":"87273","CourseNo":"130030","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87273\">\u7ba1\u7406\u8cc7\u8a0a\u7cfb\u7d71<\/a>","SemesterCourseENGName":"Management Information System","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5c0f\u82ac","SemCourseTime":"3bcd","ClassRoom":"\u7ba1241","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"72","VolCnt":"1","VolGetCnt":"72","Memo":"","SemesterCourseNo":"0030","Choose":"\u5fc5\u4fee","DT_RowId":"row_7"},{"SemesterCourseID":"87274","CourseNo":"130086","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87274\">\u4f01\u696d\u5be6\u7fd2(\u4e8c)<\/a>","SemesterCourseENGName":"Enterprise Internship (II)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9ec3\u4fca\u54f2,\u767d\u70b3\u8c50","SemCourseTime":"","ClassRoom":"","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"10","VolCnt":"2","VolGetCnt":"10","Memo":"\u6027\u8cea\u7279\u6b8a\u8ab2(1122)","SemesterCourseNo":"0031","Choose":"\u9078\u4fee","DT_RowId":"row_8"},{"SemesterCourseID":"87275","CourseNo":"130095","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87275\">\u4f01\u696d\u5be6\u7fd2(\u4e09)<\/a>","SemesterCourseENGName":"Enterprise Internship (III)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9ec3\u4fca\u54f2,\u767d\u70b3\u8c50","SemCourseTime":"","ClassRoom":"","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"3","VolCnt":"0","VolGetCnt":"3","Memo":"\u6027\u8cea\u7279\u6b8a\u8ab2\u7a0b(1132)","SemesterCourseNo":"0032","Choose":"\u9078\u4fee","DT_RowId":"row_9"},{"SemesterCourseID":"87276","CourseNo":"130089","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87276\">Android App \u7a0b\u5f0f\u8a2d\u8a08<\/a>","SemesterCourseENGName":"Android App Programming Design","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6e38\u5b50\u5b9c","SemCourseTime":"1fgh","ClassRoom":"\u7ba1203","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"30","SelAmt":"34","VolCnt":"10","VolGetCnt":"30","Memo":"","SemesterCourseNo":"0033","Choose":"\u9078\u4fee","DT_RowId":"row_10"},{"SemesterCourseID":"87277","CourseNo":"130098","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87277\">3D\u6578\u4f4d\u5167\u5bb9\u8207\u61c9\u7528<\/a>","SemesterCourseENGName":"3D Digital Contents and Applications","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5efa\u5b8f,\u9ad8\u7af9\u8abc","SemCourseTime":"3efg","ClassRoom":"\u7ba1268","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"140","VolCnt":"0","VolGetCnt":"119","Memo":"","SemesterCourseNo":"0034","Choose":"\u9078\u4fee","DT_RowId":"row_11"},{"SemesterCourseID":"87278","CourseNo":"130034","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87278\">\u7cfb\u7d71\u7a0b\u5f0f<\/a>","SemesterCourseENGName":"System Programming","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u59dc\u7f8e\u73b2","SemCourseTime":"4bcd","ClassRoom":"\u7ba1228","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"30","SelAmt":"19","VolCnt":"0","VolGetCnt":"30","Memo":"","SemesterCourseNo":"0035","Choose":"\u9078\u4fee","DT_RowId":"row_12"},{"SemesterCourseID":"87279","CourseNo":"130024","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87279\">\u8cc7\u6599\u7d50\u69cb\u8207\u6f14\u7b97\u6cd5(\u4e0b)<\/a>","SemesterCourseENGName":"Data Structures and Algorithms (2)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6e38\u5b50\u5b9c","SemCourseTime":"2bcd","ClassRoom":"\u7ba1203","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"37","VolCnt":"0","VolGetCnt":"41","Memo":"","SemesterCourseNo":"0036","Choose":"\u9078\u4fee","DT_RowId":"row_13"},{"SemesterCourseID":"87280","CourseNo":"130073","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87280\">\u4eba\u56e0\u8207\u4eba\u6a5f\u4ecb\u9762<\/a>","SemesterCourseENGName":"Human Factors and Human Machine Interface","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6234\u69ae\u8ce6","SemCourseTime":"1bcd","ClassRoom":"\u7ba1241","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"41","VolCnt":"1","VolGetCnt":"41","Memo":"","SemesterCourseNo":"0037","Choose":"\u9078\u4fee","DT_RowId":"row_14"},{"SemesterCourseID":"87281","CourseNo":"130092","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87281\">Linux \u7cfb\u7d71\u7ba1\u7406\u5be6\u52d9\uff08\u4e8c\uff0c\u9032\u968e\uff09<\/a>","SemesterCourseENGName":"PracticalLinux System Administration - Level II, Advanced","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u7df4\u5586\u660e","SemCourseTime":"4hij","ClassRoom":"\u7ba1228","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"20","SelAmt":"23","VolCnt":"2","VolGetCnt":"22","Memo":"","SemesterCourseNo":"0038","Choose":"\u9078\u4fee","DT_RowId":"row_15"},{"SemesterCourseID":"87282","CourseNo":"130038","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87282\">\u6c7a\u7b56\u652f\u63f4\u7cfb\u7d71<\/a>","SemesterCourseENGName":"Decision Support Systems","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u738b\u80b2\u6c11","SemCourseTime":"4efg","ClassRoom":"\u7ba1215","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"68","VolCnt":"0","VolGetCnt":"60","Memo":"","SemesterCourseNo":"0039","Choose":"\u9078\u4fee","DT_RowId":"row_16"},{"SemesterCourseID":"87289","CourseNo":"135049","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87289\">\u7814\u7a76\u65b9\u6cd5\u8ad6<\/a>","SemesterCourseENGName":"Research Methodology","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u738b\u80b2\u6c11","SemCourseTime":"4bcd","ClassRoom":"\u7ba1203","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"21","VolCnt":"0","VolGetCnt":"22","Memo":"\u70ba\u78a9\u58eb\u73ed\u5fc5\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0046","Choose":"\u5fc5\u4fee","DT_RowId":"row_17"},{"SemesterCourseID":"87290","CourseNo":"135146","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87290\">\u5c08\u984c\u8a0e\u8ad6(\u4e0b)<\/a>","SemesterCourseENGName":"Seminar(2)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":1,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u767d\u70b3\u8c50,\u7c21\u5b8f\u5b87,\u4faf\u5b8f\u5f6c","SemCourseTime":"4fgh","ClassRoom":"\u7ba1260","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"15","VolCnt":"0","VolGetCnt":"17","Memo":"1. \u6027\u8cea\u7279\u6b8a\u8ab2\u7a0b\u3002(1132)\r\n2. \u70ba\u78a9\u58eb\u73ed\u5fc5\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0047","Choose":"\u5fc5\u4fee","DT_RowId":"row_18"},{"SemesterCourseID":"87291","CourseNo":"135082","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87291\">\u9ad8\u7b49\u751f\u7522\u7ba1\u7406<\/a>","SemesterCourseENGName":"Advanced Production and Operations Management","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u767d\u70b3\u8c50","SemCourseTime":"3bcd","ClassRoom":"\u7ba1203","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"11","VolCnt":"0","VolGetCnt":"13","Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0048","Choose":"\u9078\u4fee","DT_RowId":"row_19"},{"SemesterCourseID":"87292","CourseNo":"135143","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87292\">\u4eba\u5de5\u667a\u6167\u8207\u5be6\u52d9\u61c9\u7528\uff08I\uff09<\/a>","SemesterCourseENGName":"Artificial Intelligence and Practical Application (I)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u912d\u80b2\u8a55","SemCourseTime":"1fgh","ClassRoom":"\u7ba1204","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"24","VolCnt":"1","VolGetCnt":"26","Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0049","Choose":"\u9078\u4fee","DT_RowId":"row_20"},{"SemesterCourseID":"87293","CourseNo":"135126","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87293\">\u5927\u6578\u64da\u8207\u6c7a\u7b56\u79d1\u5b78<\/a>","SemesterCourseENGName":"Big Data and Decision Sciences","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u767d\u70b3\u8c50,\u4faf\u5b8f\u5f6c","SemCourseTime":"2bcd","ClassRoom":"\u7ba1204","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"23","VolCnt":"0","VolGetCnt":"23","Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0050","Choose":"\u9078\u4fee","DT_RowId":"row_21"},{"SemesterCourseID":"87294","CourseNo":"135122","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87294\">\u4f01\u696d\u7ba1\u7406\u5206\u6790\u5b78<\/a>","SemesterCourseENGName":"Business management analytics","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u9ec3\u4fca\u54f2,\u9f94\u69ae\u767c","SemCourseTime":"2efg","ClassRoom":"\u7ba1203","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"17","VolCnt":"0","VolGetCnt":"17","Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0051","Choose":"\u9078\u4fee","DT_RowId":"row_22"},{"SemesterCourseID":"87340","CourseNo":"130104","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/87340\">\u5fae\u5275\u65b0\u8207\u61c9\u7528<\/a>","SemesterCourseENGName":"Micro Innovations and Applications","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5efa\u5b8f,\u984f\u660c\u9686","SemCourseTime":"2efg","ClassRoom":"\u7ba1228","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"57","VolCnt":"1","VolGetCnt":"53","Memo":"","SemesterCourseNo":"0097","Choose":"\u9078\u4fee","DT_RowId":"row_23"},{"SemesterCourseID":"88125","CourseNo":"130108","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88125\">\u9032\u968e\u7a0b\u5f0f\u8a2d\u8a08<\/a>","SemesterCourseENGName":"Advanced Programming","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u912d\u80b2\u8a55","SemCourseTime":"1bcd","ClassRoom":"\u7ba1371","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"66","VolCnt":"1","VolGetCnt":"64","Memo":"","SemesterCourseNo":"0845","Choose":"\u9078\u4fee","DT_RowId":"row_24"},{"SemesterCourseID":"88126","CourseNo":"130070","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88126\">\u5fae\u7a4d\u5206\u8207\u5be6\u7fd2(\u4e0b)<\/a>","SemesterCourseENGName":"Calculus (2)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"2bcd","ClassRoom":"\u7ba1215","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"83","VolCnt":"0","VolGetCnt":"79","Memo":"","SemesterCourseNo":"0846","Choose":"\u9078\u4fee","DT_RowId":"row_25"},{"SemesterCourseID":"88135","CourseNo":"130071","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88135\">\u7d71\u8a08\u5b78\u8207\u5be6\u7fd2(\u4e0b)<\/a>","SemesterCourseENGName":"Statistics (2)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6d2a\u5609\u826f","SemCourseTime":"5bcd","ClassRoom":"\u7ba1226","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"39","VolCnt":"0","VolGetCnt":"34","Memo":"","SemesterCourseNo":"0852","Choose":"\u9078\u4fee","DT_RowId":"row_26"},{"SemesterCourseID":"88332","CourseNo":"130103","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88332\">\u8a2d\u8a08\u601d\u8003<\/a>","SemesterCourseENGName":"Introduction to Design Thinking","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":1,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5c0f\u82ac","SemCourseTime":"3e","ClassRoom":"\u7ba1451","StageSelDisplay":"4","TeaLanguage":"\u82f1\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"6","VolCnt":"0","VolGetCnt":"9","Memo":"\u5168\u82f1\u8a9e\u6388\u8ab2\/English-Taught Course","SemesterCourseNo":"1040","Choose":"\u9078\u4fee","DT_RowId":"row_27"},{"SemesterCourseID":"88980","CourseNo":"130041","StudyClassName":"f","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88980\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u6234\u69ae\u8ce6,\u912d\u80b2\u8a55","SemCourseTime":"3hij","ClassRoom":"\u7ba1106","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"13","VolCnt":"0","VolGetCnt":"13","Memo":"","SemesterCourseNo":"1665","Choose":"\u5fc5\u4fee","DT_RowId":"row_28"},{"SemesterCourseID":"88981","CourseNo":"130041","StudyClassName":"e","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88981\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5f65\u931a,\u9673\u5c0f\u82ac","SemCourseTime":"3hij","ClassRoom":"\u7ba1136","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"14","VolCnt":"0","VolGetCnt":"14","Memo":"","SemesterCourseNo":"1666","Choose":"\u5fc5\u4fee","DT_RowId":"row_29"},{"SemesterCourseID":"88982","CourseNo":"130041","StudyClassName":"d","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88982\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5efa\u5b8f","SemCourseTime":"3hij","ClassRoom":"\u7ba1204","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"12","VolCnt":"0","VolGetCnt":"12","Memo":"","SemesterCourseNo":"1667","Choose":"\u5fc5\u4fee","DT_RowId":"row_30"},{"SemesterCourseID":"88983","CourseNo":"130041","StudyClassName":"c","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88983\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"3hij","ClassRoom":"\u7ba1304","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"13","VolCnt":"0","VolGetCnt":"13","Memo":"","SemesterCourseNo":"1668","Choose":"\u5fc5\u4fee","DT_RowId":"row_31"},{"SemesterCourseID":"88984","CourseNo":"130041","StudyClassName":"b","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88984\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u6d2a\u5609\u826f","SemCourseTime":"3hij","ClassRoom":"\u7ba1451","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"11","VolCnt":"0","VolGetCnt":"11","Memo":"","SemesterCourseNo":"1669","Choose":"\u5fc5\u4fee","DT_RowId":"row_32"},{"SemesterCourseID":"88985","CourseNo":"130041","StudyClassName":"a","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/88985\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0a)<\/a>","SemesterCourseENGName":"Project(I)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"3hij","ClassRoom":"\u7ba1B24","StageSelDisplay":"4","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"12","VolCnt":"0","VolGetCnt":"12","Memo":"","SemesterCourseNo":"1670","Choose":"\u5fc5\u4fee","DT_RowId":"row_33"}],"columns":[{"title":"\r\n            <div ><div class='icheck-material-green form-check'>\r\n                    <input class='form-check-input' type='checkbox' id='tb_detail_all' value=all name='tb_detail[]'   onclick=table_detail('tb') data-error-title=''>\r\n                    <label class='form-check-label' for='tb_detail_all'><\/label>\r\n                <\/div><\/div>\r\n            ","data":null,"defaultContent":"","className":"control","width":"1%","searchable":false,"orderable":false},{"title":"\u8ab2\u865f","data":"CourseNo","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u73ed\u7d1a","data":"StudyClassName","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u79d1\u76ee","data":"SemesterCourseName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u79d1\u76ee\u82f1\u6587\u540d\u7a31","data":"SemesterCourseENGName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u4fee\u5225","data":"CourseClassName","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u5b78\u5206","data":"Credit","className":"text-center align-middle ","width":"60","orderable":true,"visible":true},{"title":"\u7cfb\u6240","data":"UnitName","className":"text-left align-middle ","width":"180","orderable":true,"visible":true},{"title":"\u5b78\u5236","data":"DayfgClassTypeName","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u5e74\u7d1a","data":"Grade","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u4efb\u8ab2\u6559\u5e2b","data":"Teacher","className":"text-left align-middle ","width":"120","orderable":true,"visible":true},{"title":"\u4e0a\u8ab2\u6642\u9593","data":"SemCourseTime","className":"text-left align-middle ","width":"120","orderable":false,"visible":true},{"title":"\u4e0a\u8ab2\u6559\u5ba4","data":"ClassRoom","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u5099\u8a3b","data":"Memo","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u6388\u8ab2\u8a9e\u8a00","data":"TeaLanguage","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0b\u9650","data":"StdAmtLow","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0a\u9650","data":"StdAmtUp","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u767b\u8a18\u4eba\u6578","data":"VolCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u4e2d\u9078\u4eba\u6578","data":"VolGetCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u9078\u8ab2\u4eba\u6578","data":"SelAmt","className":"text-left align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u865f","data":"SemesterCourseNo","className":"text-left align-middle none","width":"80","orderable":true,"visible":true},{"title":"\u9078\u5225","data":"Choose","className":"text-left align-middle none","width":"60","orderable":true,"visible":true}],"autoWidth":false,"sort":true,"paging":true,"searching":true,"info":true,"deferLoading":"10","order":[],"pageLength":10,"lengthMenu":[10,25,50,100,200,500,1000,2000],"scrollResize":false,"modifier":{"selected":true},"layout":{"bottom":"inputPaging"},"responsive":{"details":{"target":0,"type":"column"}},"select":false,"buttons":[{"extend":"excelHtml5","title":"Data Export","exportOptions":{"columns":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]},"text":"<i class='far fa-file-excel text-success'><\/i> \u532f\u51faExcel"}]}, [], [], [], false);
+        ;
+                        MergeGridCells('tb', mergeCell);
+                    });
+                </script>
+        </div><div class='tab-pane ' >
+        
+        </div><div class='tab-pane ' >
+        
+        </div><div class='tab-pane ' >
+        
+        </div><div class='tab-pane ' >
+        
+        </div>
+            </div>
+        </div>
+        <script type='text/javascript'>
+            $(function(){
+                $('a[id$="_id"]').click(function(e){
+                    if (FormLock) {
+                        var SwalFire = {
+                            html: htmlText,
+                            icon: 'question',
+                            title: titleText,
+                            footer: footerText,
+                            showCancelButton: true,
+                        };
+
+                        setSweetAlert(SwalFire, e.target.href, 'href');
+                        return false;
+                    }else{
+                        window.location.href = e.target.href;
+                    }
+                });
+            });
+        </script>
+        <script>
+                $('#main').validate({
+                    ignore: [],
+                    errorElement: 'span',
+                    errorPlacement: function ( error, element ) {
+                        // Add the `invalid-feedback` class to the error element
+                        error.addClass( 'invalid-feedback' );
+
+                        if (typeof(element.closest('td')[0]) != 'undefined') {
+                            element.closest('td').append(error);
+                        } else {
+                            element.closest('.form-group').append(error);
+                        }
+
+                        /*
+                        if ( element.prop( 'type' ) === 'radio' ) {
+                            error.insertAfter( element.next( 'label' ) );
+                        } else {
+                            error.insertAfter( element );
+                        }
+                        */
+                    },
+                    highlight: function ( element, errorClass, validClass ) {
+                        //$( element ).addClass( 'is-invalid' ).removeClass( 'is-valid' );
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        //$( element ).addClass( 'is-valid' ).removeClass( 'is-invalid' );
+                    },
+                });
+            </script>
+    </form>
+                    </div>
+                </section>
+            </div>
+            <style type="text/css">
+    .footer_container {
+        font-size: .75rem;
+        color: rgba(0, 0, 0);
+        font-weight: 500;
+    }
+
+    .footer_container p {
+        margin-bottom: 0;
+    }
+
+    @media(max-width: 768px) {
+        .footer_container {
+            width: 100%;
+            font-size: .55rem;
+        }
+    }
+</style>
+
+<footer class="main-footer">
+    
+    <div class="footer_container">
+        <div id="fr_school_name">
+            <p>國立暨南國際大學</p>
+        </div>
+        <div id="fr_school_addr">
+            <p>地址：(545301)  南投縣埔里鎮大學路1號 </p>
+            <p>計算機與網路中心 </p>
+        </div>
+        <div id="fr_school_tel">
+            <p>聯絡電話：+886-49-2910960(總機2996)</p>
+        </div>
+        <div id="fr_school_mail">
+            <p>Email：<a href="mailto:cc@ncnu.edu.tw">cc@ncnu.edu.tw</a></p>
+        </div>
+    </div>
+</footer>
+        </div>
+
+        <script>
+    // 主要顯示錯誤訊息的函數
+    function showErrorMessages(message) {
+        const errorHtml = createErrorContainer(processMessages(message));
+        insertErrorToPage(errorHtml);
+    }
+
+    // 建立錯誤訊息容器
+    function createErrorContainer(content) {
+        return `<div class="alert alert-danger"><ul style="color: white;">${content}</ul></div>`;
+    }
+
+    // 插入錯誤訊息到頁面
+    function insertErrorToPage(errorHtml) {
+        $('.form-group:first').html(errorHtml);
+    }
+
+    // 建立錯誤訊息項目
+    function createErrorItem(message, key = '') {
+        if (key === '' || !isNaN(key)) {
+            return `<li>${message}</li>`;
+        }
+        return `<li><a href="#${key}">${message}</a></li>`;
+    }
+
+    // 處理錯誤訊息的遞迴函數
+    function processMessages(messages, parentKey = '') {
+        let html = '';
+
+        if (Array.isArray(messages)) {
+            messages.forEach(msg => {
+                if (typeof msg === 'object' && msg !== null) {
+                    html += processMessages(msg, parentKey);
+                } else {
+                    html += createErrorItem(msg, parentKey);
+                }
+            });
+        } else if (typeof messages === 'object' && messages !== null) {
+            Object.entries(messages).forEach(([key, value]) => {
+                if (Array.isArray(value) || typeof value === 'object') {
+                    html += processMessages(value, key);
+                } else {
+                    html += createErrorItem(value, key);
+                }
+            });
+        } else {
+            html += createErrorItem(messages, parentKey);
+        }
+
+        return html;
+    }
+</script>
+<script>
+    // 建立一個命名空間物件
+    const ScrollManager = {
+        getPosition: function() {
+            return Math.max(
+                window.pageYOffset,
+                document.documentElement.scrollTop,
+                document.body.scrollTop
+            );
+        },
+        scrollTo: function(position) {
+            window.scrollTo({
+                top: parseInt(position),
+                behavior: 'instant'
+            });
+        },
+        delay: 50
+    };
+
+    $(document).ready(function() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition > 0) {
+            // 確保頁面已完全載入後再執行捲動
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    ScrollManager.scrollTo(scrollPosition);
+                }, ScrollManager.delay);
+            });
+            sessionStorage.removeItem('scrollPosition');
+        }
+    });
+
+    function handleFormSubmit(obj) {
+        const scrollPosition = ScrollManager.getPosition();
+        sessionStorage.setItem('scrollPosition', scrollPosition);
+        obj.form.submit();
+    }
+</script>
+
+
+<script src="/dist/plugins/jQueryUI/jquery-ui.min.js"></script>
+
+
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+
+<script src="/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="/dist/plugins/slimScroll/jquery.slimscroll.min.js?id=15e48a5be2734d4a8851a50d41f435d8"></script>
+
+
+
+<script src="/dist/js/adminlte.min.js"></script>
+
+
+
+
+<script src="/js/bootstrap-select_zh_TW.min.js?id=2a1be40d8100b2f0ffad3244a729786b"></script>
+
+
+
+
+
+<script src="/js/bootstrap-fileinput.min.js?id=1acaea2f0c0110ab4a24b1e1bb5f499b"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/dist/plugins/datepicker/bootstrap-datepicker.min.js?id=4e2f07b3fb7eb0775d54fe33a939579c"></script>
+
+
+<script type="text/javascript" src="/js/vendor/datatables.min.js"></script>
+<script type="text/javascript" src="/js/vendor/Scroller/dataTables.scrollResize.min.js"></script>
+<script type="text/javascript" src="/js/vendor/inputPaging/dataTables.inputPaging.min.js"></script>
+
+<script type="module">
+    // import {
+    //     getOptionAjax
+    // } from '/js/utils.js';
+
+    // HTMX 下拉監聽
+    // document.body.addEventListener("htmx:afterSwap", (e) => {
+    //     refDropDown();
+    // })
+</script>
+<script type="text/javascript">
+    var FormLock = false;
+    var FormStatus = '';
+    DataTable.defaults.order = [];
+    DataTable.defaults.layout = {
+        top2Start: 'pageLength',
+        top2End: 'search',
+        top2: null,
+        top1Start: 'buttons',
+        top1End: null,
+        top: 'info',
+        topStart: null,
+        topEnd: null,
+        bottomStart: null,
+        bottomEnd: null,
+        bottom: 'paging'
+    };
+    // 設定 buttons 預設為空陣列
+    DataTable.defaults.buttons = [];
+    if (window.locale == "zh_TW") {
+        DataTable.defaults.language = {
+            "lengthMenu": "顯示 _MENU_ 筆",
+            "search": "關鍵字搜尋：",
+            "emptyTable": "無符合條件資料！",
+            "zeroRecords": "關鍵字搜尋-無符合條件資料！",
+            "info": "第 _START_ 至 _END_ 筆，共 _TOTAL_ 筆",
+            "infoEmpty": "",
+            "infoFiltered": "（從 _MAX_ 筆資料篩選而出）",
+            "paginate": {
+                "previous": "上一頁",
+                "next": "下一頁",
+                "first": "第一頁",
+                "last": "最後一頁"
+            },
+            "select": {
+                "rows": {
+                    "_": "您選擇了 %d 筆資料！",
+                    "0": ""
+                }
+            },
+            "processing": "Loading..."
+        };
+    } else {
+        DataTable.defaults.language = {
+            "search": "Keyword search:",
+            "processing": "Loading..."
+        };
+    }
+
+    $(document).ready(function() {
+        if ($.validator && $.validator.methods) {
+            if (!$.validator.methods.minNumber) {
+                $.validator.addMethod('minNumber', function(value, element, param) {
+                    var returnVal = true;
+                    inputZ = value;
+                    var ArrMen = inputZ.split('.'); //截取字符串
+                    if (ArrMen.length == 2) {
+                        if (ArrMen[1].length > param) { //判斷小數點後面的字符串長度
+                            returnVal = false;
+                        }
+                    }
+                    return returnVal;
+                });
+            }
+            if (!$.validator.methods.datetimeCheck) {
+                $.validator.addMethod('datetimeCheck', function(value, element, param) {
+                    if (!value) {
+                        return true;
+                    }
+                    let date = new Date(value);
+                    if (isNaN(date)) {
+                        return false;
+                    }
+                    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    let day = date.getDate().toString().padStart(2, '0');
+                    let strDate = date.getFullYear() + '-' + month + '-' + day;
+                    if (param == 'date') {
+                        if (strDate == value) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    let hours = date.getHours().toString().padStart(2, '0');
+                    let minutes = date.getMinutes().toString().padStart(2, '0');
+                    let strTime = hours + ':' + minutes;
+                    let str = strDate + ' ' + strTime;
+                    if (str == value) {
+                        return true;
+                    }
+                    return false;
+                });
+            }
+        }
+        $(document).on('collapsed.lte.pushmenu shown.lte.pushmenu', function() {
+            setTimeout(function() {
+                $(window).trigger('resize');
+            }, 400);
+        });
+        var scrollSetting = {
+            height: 'calc(100% - 2rem)'
+        };
+
+        var pathName = window.location.pathname
+        var menuNumber = pathName.split('/')[2]
+        var vir = 'gst01130'
+
+        if (menuNumber != undefined) {
+            menuNumber = menuNumber.split('_')[0]
+            if (vir != undefined && vir != '') {
+                menuNumber = vir
+            }
+            var target = $("#" + menuNumber)
+            if (target.val() != undefined) {
+                scrollSetting['start'] = target;
+            }
+        }
+
+        checkTimeOutAlert();
+
+        $("#sidebar").slimScroll(scrollSetting);
+    });
+
+    function checkTimeOutAlert() {
+        var lifetime = 60 - 2;
+        var time = lifetime * 60 * 1000; //19 (m) * 60 (s) * 1000 (ms)
+
+        setTimeout(function() {
+            var SwalFire = {
+                type: "warning",
+                title: '您於此畫面閒置過久，系統即將自動登出',
+                showCancelButton: true,
+            };
+            setSweetAlert(SwalFire)
+        }, time);
+    }
+
+    $.ajaxSetup({
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+            if (jqXHR.status == 419) {
+                location.href = window.location.pathname;
+            } else if (jqXHR.status == 0 || jqXHR.status == 200) {
+                //頁面已經跳轉或跳轉太快、瀏覽器輸入新的url、按鈕立即新的點選等（確定）
+                //不顯示error
+            }
+
+        },
+        complete: function(msg) {
+            LoadingClose();
+        }
+    });
+
+    $.fn.dataTable.Buttons.defaults.dom.button.className = "btn btn-outline-dark";
+    //$.fn.dataTable.Editor.classes.form.button = "btn btn-outline-dark";
+
+    var htmlText = "資料若未「儲存」，系統可能不會儲存您所做的變更！";
+    var titleText = "是否離開此頁面？";
+    var footerText = "當前畫面，已偵測到資料異動行為！";
+
+    $(document).ready(function() {
+        setDefWork();
+    });
+
+    $(window).resize(function() {
+        refDataTables();
+    });
+
+
+    function table_select(id) {
+        let sel_box = $('input[name="' + id + '_select[]"]:checked').val();
+
+        let table = $('#' + id).DataTable();
+
+        if (sel_box == 'all') {
+            table.rows({
+                search: 'applied'
+            }).every(function() {
+                let data = this.data();
+                if (!data['checkboxHidden'] || data['HideCheckBox'] == '0') {
+                    this.select();
+                }
+            });
+        } else {
+            table.rows().deselect();
+        }
+    }
+
+    function table_detail_open(id) {
+        var sel_box = $('input[name="' + id + '_detail[]"]');
+
+        sel_box[0].checked = true;
+
+        table_detail(id);
+    }
+
+    function table_detail(id) {
+        var sel_box = $('input[name="' + id + '_detail[]"]:checked').val();
+
+
+        var table = $('#' + id).DataTable();
+
+        table.rows().every(function() {
+            if (sel_box == 'all') {
+                if (!this.child.isShown()) {
+                    table.settings()[0].responsive._detailsDisplay(this, false);
+                }
+            } else {
+                if (this.child.isShown()) {
+                    table.settings()[0].responsive._detailsDisplay(this, false);
+                }
+            }
+        });
+    }
+
+    function setDefWork() {
+        bsCustomFileInput.init()
+
+        var LockStatus = ["edit", "add"];
+
+        $("a[data-toggle='tab']").on("shown.bs.tab", function(e) {
+            var tabLink = $(e.target).attr('href');
+            localStorage.setItem("activeTab", '');
+            /*
+             *  之前頁籤因為有 超連結 和 非超連結，使用 if判斷，避免 tab 亂跳
+             */
+            if (tabLink.indexOf('http') == -1) {
+                localStorage.setItem("activeTab", $(e.target).attr('href'));
+                $.fn.dataTable.tables({
+                        visible: true,
+                        api: true
+                    })
+                    .columns.adjust()
+                    .responsive.recalc()
+                    .draw();
+            }
+        });
+
+        var activeTab = localStorage.getItem("activeTab");
+        if (activeTab) {
+            $('.nav-tabs a[href="' + activeTab + '"]').tab('show');
+        }
+
+        //控件偵測
+        if ($.inArray(FormStatus, LockStatus) > -1) {
+            $("input").on("change", function() {
+                FormLock = true;
+            });
+            $("select").on("change", function() {
+                FormLock = true;
+            });
+            $("textarea").on("change", function() {
+                FormLock = true;
+            });
+        }
+    }
+
+    async function setHref(Url, form_status = null, menu_number_ref = null) {
+
+        // 假設是點擊新增的按鈕，則自動抓取 srh 陣列的 下拉值到 url。
+        // ?name1=value1&name2=value2&name3=value3
+        // name1 = 下拉的 id.
+        // console.log(Url,form_status)
+
+        /**
+         * 此段程式碼是用來設定虛擬選單session的API呼叫
+         * @argument menu_number_ref 對應的實體選單編號
+         * @author at3211
+         */
+        // if (menu_number_ref != null) {
+        //     await $.ajax({
+        //         type: 'POST',
+        //         url: "https://sis.ncnu.edu.tw/virual/render",
+        //         data: {
+        //             _token: "dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg",
+        //             menu_number: menu_number_ref
+        //         },
+        //         xhrFields: {
+        //             withCredentials: true
+        //         },
+        //         async: true,
+        //         dataType: 'json',
+        //         success: function(data) {
+        //             // window.vir = data[0]['vir'];
+        //             // console.log('Success Ajax!');
+        //             // console.log('--------------------------------');
+        //             // LoadingClose();
+        //         }
+        //     });
+        // }
+
+        var oUrl = null;
+        if (form_status == 'add') {
+            oUrl = new URL(Url);
+            var selectElem = document.getElementsByTagName('select');
+
+            $.each(selectElem, function(index, val) {
+                let match = /srh\[.*\]/
+                //判斷 setCombo 有沒有給id,有的話點擊新增按鈕會將 srh[] 下拉，帶入新增頁面
+                // id 不能空,且 id 不等於 srh[], name 要 = srh 代表下拉
+                if (val.id != '' && match.test(val.id) == false && match.test(val.name) == true) {
+                    oUrl.searchParams.set(val.id, val.value);
+                }
+            })
+        }
+        if (oUrl != null) {
+            Url = oUrl.href;
+        }
+
+        //排除檔案下載問題
+        if (/download/.test(Url)) {
+            FormLock = 0;
+        }
+
+
+
+        if (FormLock) {
+            var SwalFire = {
+                html: htmlText,
+                type: "question",
+                title: titleText,
+                footer: footerText,
+                showCancelButton: true,
+            };
+
+            setSweetAlert(SwalFire, Url, "href");
+        } else {
+            Loading();
+            clearFixUpload();
+            document.location.assign(Url);
+            LoadingClose();
+        }
+
+    }
+    //BaseView->setBtn function 會使用 isValid and IsLoading 參數
+    function setSubmit(e, isLoading, needEng, error_tips = false) {
+        // button status
+        let disabled = false;
+        var form = $("main")
+        needEng = needEng ? needEng : '0';
+
+        //將隱藏的btn event 放到 form
+        $("<input />").attr("type", "hidden").attr("name", e.name).attr("value", e.value).appendTo(e.form);
+
+        //表單如果驗證失敗，顯示錯誤訊息, 刪除按鈕為特例
+        if ($(e.form).valid() || e.value === "remove" || e.value === "clear") {
+            //是否呈現 Loading 效果
+            if (isLoading != '0') {
+                Loading();
+                disabled = true;
+            }
+            e.form.submit();
+        } else {
+            let SwalFire = {};
+            if (error_tips) {
+                // 收集錯誤訊息
+                let errorMessagesHtml = '';
+                let validator = $(e.form).validate();
+
+                $.each(validator.errorList, function(index, error) {
+                    let elementName = error.element.name;
+                    let fieldName = $(`[name="${elementName}"]`).attr('data-error-title') || elementName;
+                    let errorMessage = error.message;
+                    let $errorElement = $(`[name="${elementName}"]`).first(); // 選擇第一個匹配的元素
+
+                    if (errorMessage) {
+                        if ($errorElement.length) {
+                            let errorHref = $errorElement.attr('id') ? $errorElement.attr('id') :
+                                elementName; // 生成超连结 ID
+                            errorMessagesHtml +=
+                                `<li><a href="#${errorHref}" style="color: white;">${fieldName}: ${errorMessage}</a></li>`;
+                        } else {
+                            // 沒有 ID 的情况
+                            errorMessagesHtml += `<li>${fieldName}: ${errorMessage}</li>`;
+                        }
+                    }
+                });
+
+                // 如果有錯誤訊息，將它們包裝在指定的 HTML 結構中
+                if (errorMessagesHtml !== '') {
+                    // 定義一個函數來處理錯誤訊息的插入
+                    function insertErrorTips(id, position, appendOrPrepend) {
+                        let $errorTips = $(`#${id}`);
+                        let errorHtml = `
+                            <div id='${id}' class="alert alert-danger">
+                                <ul style="color: white;">
+                                    ${errorMessagesHtml}
+                                </ul>
+                            </div>
+                        `;
+
+                        if ($errorTips.length > 0) {
+                            $errorTips.html(errorMessagesHtml);
+                        } else {
+                            if (appendOrPrepend == 'append') {
+                                $(position).append(errorHtml);
+                            } else {
+                                $(position).prepend(errorHtml);
+                            }
+                        }
+                    }
+
+                    // 插入錯誤訊息到指定位置
+                    insertErrorTips('SubmitErrorTipsPrepend', 'section.content', 'prepend');
+                    // insertErrorTips('SubmitErrorTipsAppend', 'section.content', 'append');
+                    SwalFire = {
+                        ...SwalFire,
+                        didClose: () => document.getElementById("SubmitErrorTipsPrepend").scrollIntoView({
+                            behavior: "smooth", // Optional: enables smooth scrolling
+                            block: "start" // Scrolls to the top of the element
+                        })
+                    };
+                }
+
+            }
+            if (needEng == '1') {
+                SwalFire = {
+                    ...SwalFire,
+                    html: "請確認輸入資料正確性！ ( Input Data Error! )",
+                    type: "error",
+                    title: "動作執行失敗 ( Action failed )"
+                };
+                setSweetAlert(SwalFire);
+
+            } else {
+                SwalFire = {
+                    ...SwalFire,
+                    html: "請確認輸入資料正確性！( Input Data Error! )",
+                    type: "error",
+                    title: "動作執行失敗( Action failed )"
+                };
+                setSweetAlert(SwalFire);
+            }
+            // if form validation is fail the button will not be disabled
+
+        }
+        // when form is submit then this button will be disabled..
+        $(e).prop('disabled', disabled);
+        $("input[name='event']").remove();
+    }
+
+    function setJumpSel(jumpColumn) {
+        //取得使用者選擇的資訊
+        selList = $("#jump_tb_sel").val();
+        if (!selList || 0 === selList.length) {
+            Swal.fire("錯誤", "請至少選擇一筆資料", "error");
+            return;
+        }
+        selList = $.parseJSON(selList);
+        //下方根據使用者的參數, 帶到上層對應的 HTML, 目前有 d 下拉, t 字串
+        for (target in jumpColumn) {
+            //給多選下拉用的變數
+            selValue = '';
+            for (sel in selList) {
+                Seldata = selList[sel]; //選擇的項目
+
+                var tmpArr, HTML, type, HTMLTargetAttr;
+                HTMLTargetAttr = jumpColumn[target];
+                tmpArr = target.split('-');
+                HTML = tmpArr[0];
+                type = tmpArr[1];
+                tmpData = '';
+                //取物件第一個 value 主要鍵值, Grid 通常第一個值都是 key 值,後續如果需要改成多個 key 值,再進行調整
+                tmpValue = Seldata[Object.keys(Seldata)[0]];
+
+                for (i = 0; i < HTMLTargetAttr.length; i++) {
+                    attrName = HTMLTargetAttr[i];
+                    for (attr in Seldata) {
+                        value = Seldata[attr];
+                        if (attr == attrName) {
+                            if (type == 't') {
+                                tmpData += value + '-';
+                            } else if (type == 'd') {
+                                tmpData += value + '-';
+                            }
+                        }
+                    }
+                }
+                //針對多選與單選下拉的彈跳
+                if (type == 'd') {
+                    tmpData = tmpData.substring(0, tmpData.length - 1);
+                    selValue += "<option value=" + tmpValue + " selected>" + tmpData + "</option>";
+                }
+            }
+            //串接方式會多一個 - , 透過正則移除最後的 - 符號
+            tmpData = tmpData.substring(0, tmpData.length - 1);
+            var HTMLstring = HTML;
+            let element = parent.document.getElementById(HTMLstring);
+            if (element) {
+                if (type == 't') {
+                    element.value = tmpData;
+                } else if (type == 'd') {
+                    element.innerHTML = selValue;
+                }
+            }
+        }
+        parent.refDropDown();
+        parent.setModalClose();
+    }
+
+
+    function setLang(lang) {
+        $("<input />").attr("type", "hidden")
+            .attr("name", "lang_item").attr("value", lang).appendTo($("#language"));
+
+        $("#language").submit();
+        /*
+    language = document.getElementsByName("language");
+alert('sss');
+    $("<input />").attr("type", "hidden").attr("name", "lang_item").attr("value", lang).appendTo(language);
+
+    language.submit();
+    */
+    }
+
+
+
+    //HTML過濾
+    function FilterHtml(Str) {
+        var reg = /<[^>]+>/g;
+
+        return reg.test(Str);
+    }
+
+    var selectedIds = new Set();
+    // 用於儲存所有 DataTable 的狀態
+    let tableStates = {};
+    //DataTables
+    function setDataTables(ID, Set, Sel, pkFields = [], detailOrder = [], IsAjax = false) {
+        // Set.scrollX = true;
+        // Set['scrollX'] = true;
+        // console.log(Set);
+        //儲存Grid狀態(顯示筆數,頁數,欄位orderby)
+        // 將先前查詢之post儲存至localStorage，如有異動則datatable記錄之動作要重置
+        let bHasRequest = '1';
+        let resetParam = false;
+        Set['stateSave'] = true;
+
+        tableStates[ID] = {
+            defaultOrder: detailOrder ?? [],
+            rowDetailOrder: {},
+            DataSel: [],
+            DataCancelSel: []
+        };
+
+        if (bHasRequest) {
+            let lg_key = "request_srh" + ID + 'b09120';
+            let old_request = localStorage.getItem(lg_key);
+            let request = '{"ACADYear":["113"],"Semester":["2"],"DayfgID":[null],"ClassTypeID":[null],"CollegeID":[null],"UnitID":["93"],"Grade":[null],"ClassID":[null],"CourseNo":null,"SemesterCourseNo":null,"Teacher":null,"SemesterCourseName":null,"ClassRoom":[null],"TeaLanguage":[null],"DayKind":[null],"SectionBeg":[null],"SectionEnd":[null]}';
+            if (old_request == null) {
+                localStorage.setItem(lg_key, request);
+                resetParam = false;
+            } else if (old_request == request) {
+                resetParam = false;
+            } else {
+                localStorage.setItem(lg_key, request);
+                resetParam = true;
+            }
+        }
+
+        var SelID = ID + "_sel";
+        var CancelID = ID + "_cancel";
+
+        $("#" + ID).append("<input type='hidden' id='" + SelID + "' name='" + SelID + "'>");
+        $("#" + ID).append("<input type='hidden' id='" + CancelID + "' name='" + CancelID + "'>");
+
+        var SelElem = document.getElementById(SelID);
+        var CancelElem = document.getElementById(CancelID);
+
+        $.each(Set["buttons"], function(kBtns, vBtns) {
+            if (vBtns["action"] != null) {
+                switch (vBtns["action"]) {
+                    case "submit":
+                        vBtns["action"] = function(e, dt, node, config) {
+
+                            var btn = e["currentTarget"];
+                            var newBtn = document.createElement('Button');
+                            btn.setAttribute("name", "event");
+                            btn.setAttribute("value", vBtns["value"]);
+
+                            // 為了 IE 11, 只能使用 button element, 使用 <a> 是無法使用 a.form, 只有 button.form 才行。
+                            // 不然會導致刪除按鈕出現問題。
+                            newBtn.setAttribute("name", "event");
+                            newBtn.setAttribute("value", vBtns["value"]);
+                            newBtn.style.display = "none";
+                            $("#" + ID).append(newBtn);
+
+                            if (vBtns["value"] == "remove" || vBtns["alertmsg"] != null) {
+                                let callback = function() {
+                                    setSubmit(newBtn, vBtns['isLoading']);
+                                };
+
+                                dataTableRemoveAlert(callback, vBtns["alertmsg"])
+                            } else {
+                                setSubmit(newBtn, vBtns['isLoading']);
+                            }
+                        };
+                        break;
+                    case "href":
+                        vBtns["action"] = function(e, dt, node, config) {
+                            setHref(vBtns["href"]);
+                        };
+                        break;
+                    case "jumpSel":
+                        vBtns["action"] = function(e, dt, node, config) {
+                            setJumpSel(vBtns['jumpColumn'])
+                        }
+                        break;
+                    case "customJs":
+                        vBtns["action"] = function(e, dt, node, config) {
+                            //Call User Custom Blade Js Function
+                            var functionName = vBtns['value'];
+                            window[functionName]();
+                        }
+                        break;
+                }
+            }
+        });
+        if (Set['rowGroup']) {
+            $.extend(Set, {
+                rowGroup: window[Set['rowGroup']]()
+            });
+        }
+
+        // TODO: 偉州
+        // $.extend(Set, {
+        // "stateLoadCallback": function (settings, data) {
+        //     // Send an Ajax request to the server with the state object
+        //     $.ajax({
+        //         url: 'https://sis.ncnu.edu.tw/example/e00307',
+        //         type: 'post',
+        //         dataType: 'json',
+        //         data: data,
+        //     });
+        // }
+        // "initComplete": function(settings, json) {
+        //   alert( 'DataTables has finished its initialisation.' );
+        // }
+        // });
+
+        // $(document).on('preInit.dt', function (e, settings) {
+        //     var api = new $.fn.dataTable.Api(settings);
+        //     api.page.len(25);
+        // } );
+        $.extend(Set, {
+            rowCallback: function(row, data) {
+                if (data['checkboxHidden'] == true) {
+                    let memo = data['checkboxHiddenMemo'];
+                    let selectCheckboxCell = $(row).children('td.select-checkbox');
+                    if (memo != null) {
+                        selectCheckboxCell.html(memo);
+                    }
+                    selectCheckboxCell.removeClass('select-checkbox');
+                    $(row).addClass('ignoreme');
+                }
+            },
+            stateLoadParams: function(settings, data) {
+                data.select = undefined;
+                if (resetParam) {
+                    const pageLength = data.length;
+                    data.start = 0; // 重置到第一頁
+                    data.search.search = ''; // 清除搜尋條件
+                    data.order = []; // 清除排序
+                    data.columns.forEach(column => {
+                        column.search.search = ''; // 清除欄位搜尋
+                    });
+                    data.length = pageLength;
+                }
+            },
+            drawCallback: function() {
+                // 在表格繪製完成後觸發
+                tableReloadInputRules(ID);
+                refDropDown();
+            },
+            initComplete: function(settings) {
+                if (Sel.length != 0) {
+                    this.api().rows(Sel).select();
+
+                    var DataInfo = this.api().rows({
+                        selected: true
+                    }).data().toArray();
+
+                    $.each(DataInfo, function(kSel, vSel) {
+                        var DataObj = {};
+
+                        $.each(vSel, function(kData, vData) {
+                            if (!(FilterHtml(vData))) {
+                                DataObj[kData] = vData;
+                            }
+                        });
+
+                        tableStates[ID].DataSel.push(DataObj);
+                    });
+
+                    SelElem.value = JSON.stringify(tableStates[ID].DataSel);
+                }
+            }
+        })
+        $.extend(Set['ajax'], {
+            error: function(msg) {
+                console.log(msg);
+                if (msg.status == 419) {
+                    location.href = window.location.pathname;
+                } else if (msg.status == 0 || msg.status == 200) {
+                    //頁面已經跳轉或跳轉太快、瀏覽器輸入新的url、按鈕立即新的點選等（確定）
+                    //不顯示error
+                } else {
+                    // Swal.fire({
+                    //         icon: 'error',
+                    //         title: '系統異常，請稍後重新送出申請',
+                    // });
+                }
+
+            },
+            complete: function(msg) {
+                DisplayEUDCForID(ID);
+            }
+        })
+        $.extend(Set['responsive']['details'], {
+            renderer: function(api, rowIdx, columns) {
+                var data = $.map(columns, function(col, i) {
+                    // 只處理隱藏欄位
+                    if (!col.hidden) {
+                        return ''; // 非隱藏欄位不渲染到細節中
+                    }
+                    let $html = $('<div/>').html(col.data);
+
+                    $html.find('input').each(function() {
+                        let $input = $(this);
+                        let originalId = $input.attr('id');
+                        if (originalId) {
+                            let cleanOriginalId = originalId.replace(/\\/g, '');
+                            let detailId = "detail_" + cleanOriginalId;
+                            let originalName = $input.attr('name');
+
+                            $input.attr('original-id', cleanOriginalId);
+                            $input.attr('id', detailId);
+                            $input.attr('data-target', "#" + detailId);
+                            $input.attr('name', "detail_" + originalName);
+
+                            let $originalInput = $(
+                                `#${originalId.replace(/([\[\]])/g, "\\$1")}`);
+                            if ($input.attr('type') === 'checkbox') {
+                                if ($originalInput.prop('checked')) {
+                                    $input.prop('checked', true);
+                                }
+                            } else {
+                                if ($originalInput.length) {
+                                    let currentValue = $originalInput.val();
+                                    $input.val(currentValue); // 設置初始值
+                                    $input.attr('value', currentValue);
+                                }
+                            }
+                            let $label = $html.find(`label[for="${originalId}"]`);
+                            if ($label.length) {
+                                $label.attr('for', detailId);
+                            }
+                        }
+                    });
+
+                    $html.find('select').each(function() {
+                        let $select = $(this);
+                        let originalId = $select.attr('id');
+                        if (originalId) {
+                            let cleanOriginalId = originalId.replace(/\\/g, '');
+                            let detailId = "detail_" + cleanOriginalId;
+                            let originalName = $select.attr('name');
+
+                            let $originalSelect = $(
+                                `#${originalId.replace(/([\[\]])/g, "\\$1")}`);
+                            let selectedValue = $originalSelect.val();
+
+                            $select.find('option').each(function() {
+                                $(this).prop('selected', false);
+                            });
+                            if (selectedValue) {
+                                $select.find(`option[value="${selectedValue}"]`).prop(
+                                    'selected', true);
+                            }
+                            $select.attr('original-id', cleanOriginalId);
+                            $select.attr('id', detailId);
+                            $select.attr('name', "detail_" + originalName);
+                        }
+                    });
+
+                    // 拼接標題和內容
+                    return '<div class="dtr-item">' +
+                        '<span class="dtr-title">' + col.title + ': </span>' +
+                        '<span class="dtr-data">' + $html.html() + '</span>' +
+                        '</div>';
+                }).join('');
+
+                // 直接返回拼接後的字符串，不用 <ul>
+                return data;
+            }
+        })
+
+        let Table = $("#" + ID).DataTable(Set);
+        let hasPKFields = pkFields.length > 0;
+
+        if (Set['Selected']) {
+            $.each(Sel, function(i, e) {
+                Table.rows("#" + e).select();
+
+                let rowNode = Table.rows("#" + e).node();
+                let nextRow = $(rowNode).next('tr');
+                if (nextRow.hasClass('dtrg-group')) {
+                    nextRow.addClass('selected'); // 添加 selected 類
+                    if (e) {
+                        selectedIds.add(ID + '_' + e);
+                    }
+                }
+            })
+        }
+        Table.on('responsive-display', function(e, datatable, row, showHide, update) {
+            if (showHide) {
+                // 當細節展開時
+                syncInputValues(ID);
+            }
+        });
+
+        Table.on("select", function(e, dt, type, indexes) {
+            if (type === 'row') {
+                var rows = Table.rows(indexes).nodes().to$();
+                $.each(rows, function() {
+                    if ($(this).hasClass('ignoreme'))
+                        Table.row($(this)).deselect();
+                })
+                indexes.forEach(function(index) {
+                    let newData = getRowData(Table.row(index).data());
+                    for (let key in newData) {
+                        if ((FilterHtml(newData[key]))) {
+                            delete newData[key];
+                        }
+                    }
+                    if (!tableStates[ID].DataSel.some(item => isEqualData(item, newData))) {
+                        tableStates[ID].DataSel.push(newData);
+                        SelElem.value = JSON.stringify(tableStates[ID].DataSel);
+                        tableStates[ID].DataCancelSel = tableStates[ID].DataCancelSel.filter(item => !
+                            isEqualData(item, newData));
+                        if (Object.keys(tableStates[ID].DataCancelSel).length === 0) {
+                            CancelElem.value = null;
+                        } else {
+                            CancelElem.value = JSON.stringify(tableStates[ID].DataCancelSel);
+                        }
+                    }
+                    let rowNode = Table.row(index).node();
+                    let nextRow = $(rowNode).next('tr');
+                    // 檢查下一個 tr 是否包含 dtrg-group 類
+                    if (nextRow.hasClass('dtrg-group')) {
+                        nextRow.addClass('selected'); // 添加 selected 類
+                        let rowId = $(rowNode).attr('id');
+                        if (rowId) {
+                            selectedIds.add(ID + '_' + rowId);
+                        }
+                    }
+                });
+            }
+        });
+
+        Table.on("deselect", function(e, dt, type, indexes) {
+            if (type === 'row') {
+                indexes.forEach(function(index) {
+                    let newData = getRowData(Table.row(index).data());
+                    for (let key in newData) {
+                        if ((FilterHtml(newData[key]))) {
+                            delete newData[key];
+                        }
+                    }
+                    if (!tableStates[ID].DataCancelSel.some(item => isEqualData(item, newData))) {
+                        tableStates[ID].DataCancelSel.push(newData);
+                        CancelElem.value = JSON.stringify(tableStates[ID].DataCancelSel);
+                        tableStates[ID].DataSel = tableStates[ID].DataSel.filter(item => !isEqualData(
+                            item, newData));
+                        if (Object.keys(tableStates[ID].DataSel).length === 0) {
+                            SelElem.value = null;
+                        } else {
+                            SelElem.value = JSON.stringify(tableStates[ID].DataSel);
+                        }
+                    }
+                    let rowNode = Table.row(index).node();
+                    let nextRow = $(rowNode).next('tr');
+                    if (nextRow.hasClass('dtrg-group') && nextRow.hasClass('selected')) {
+                        nextRow.removeClass('selected');
+                        let rowId = $(rowNode).attr('id');
+                        if (rowId) {
+                            selectedIds.delete(ID + '_' + rowId);
+                        }
+                    }
+                });
+            }
+        });
+
+        function getRowData(row) {
+            if (pkFields.length > 0) {
+                return pkFields.reduce(function(pk, field) {
+                    if (row.hasOwnProperty(field)) {
+                        pk[field] = row[field];
+                    }
+                    return pk;
+                }, {});
+            } else {
+                // 如果沒有設定 pkFields，返回整行數據
+                return Object.assign({}, row);
+            }
+        }
+
+        function isEqualData(data1, data2) {
+            return JSON.stringify(data1) === JSON.stringify(data2);
+        }
+        Table.on('draw', function() {
+            // 在重繪後重新應用 selected 類
+            Table.rows().every(function() {
+                let rowNode = this.node();
+                let rowId = $(rowNode).attr('id');
+
+                if (rowId && selectedIds.has(ID + '_' + rowId)) {
+                    let nextRow = $(rowNode).next('tr');
+                    if (nextRow.hasClass('dtrg-group')) {
+                        nextRow.addClass('selected');
+                    }
+                }
+            });
+        });
+        if (IsAjax) {
+            var requestEvent = null;
+            var oldEvent = null;
+            var IstoPageDef = requestEvent == "remove" || oldEvent == "remove" ? true : false;
+            //起始筆數>總筆數 重設成0
+            if (Table.page.info().start > Table.page.info().recordsTotal) {
+                IstoPageDef = true;
+            }
+
+            Table.ajax.reload(null, IstoPageDef);
+        }
+    }
+
+    function setDataTablesEditor(ID, EditSet, Set) {
+        var InsOrUpdID = ID + "_ins_upd";
+        var DelID = ID + "_del";
+
+        $("#" + ID).append("<input type='hidden' id='" + InsOrUpdID + "' name='" + InsOrUpdID + "'>");
+        $("#" + ID).append("<input type='hidden' id='" + DelID + "' name='" + DelID + "'>");
+
+        var InsOrUpdElem = document.getElementById(InsOrUpdID);
+        var InsOrUpd = [];
+
+        var DelElem = document.getElementById(DelID);
+        var Del = [];
+
+        var editor = new $.fn.dataTable.Editor({
+            table: "#" + ID,
+            idSrc: "DT_RowId",
+            fields: EditSet,
+            i18n: {
+                create: {
+                    title: "資料新增",
+                    submit: "儲存"
+                },
+                edit: {
+                    title: "資料編輯",
+                    submit: "儲存"
+                },
+                remove: {
+                    title: "資料刪除",
+                    submit: "刪除",
+                    confirm: "是否刪除資料？（共選擇 %d 筆資料）",
+                },
+                error: {
+                    system: "動作執行失敗，請重新整理頁面後，再次嘗試！"
+                },
+                datetime: {
+                    months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    weekdays: ["一", "二", "三", "四", "五", "六", "七"]
+                },
+                multi: {
+                    title: "資料含有多個值",
+                    info: "所選資料，該欄位含有複數值，若確認要將其同步，請點擊此處方可編輯！",
+                    restore: "取消同步",
+                    noMulti: "動作執行失敗，請重新整理頁面後，再次嘗試！"
+                },
+            }
+        });
+
+        //新增後觸發
+        editor.on("create", function(e, json, data) {
+            InsOrUpd.push(data);
+
+            InsOrUpdElem.value = JSON.stringify(InsOrUpd);
+        });
+
+        //刪除前觸發
+        editor.on("preRemove", function(e, json, ids) {
+            var SelInfo = Table.rows({
+                selected: true
+            }).data().toArray();
+            var Sel = [];
+            var Tmp = [];
+
+            $.each(SelInfo, function(kSel, vSel) {
+                var DataObj = {};
+
+                $.each(vSel, function(kData, vData) {
+                    if (vData && !(FilterHtml(vData))) {
+                        DataObj[kData] = vData;
+                    }
+                });
+
+                $.each(InsOrUpd, function(kIns, vIns) {
+                    if (!(vSel["DT_RowId"] === vIns["DT_RowId"])) {
+                        Tmp.push(InsOrUpd[kIns]);
+                    }
+                });
+
+                if (isNaN(vSel["DT_RowId"])) {
+                    Sel.push(DataObj);
+                }
+            });
+
+            InsOrUpd = Tmp;
+
+            DelElem.value = JSON.stringify(Sel);
+            InsOrUpdElem.value = JSON.stringify(InsOrUpd);
+        });
+
+        editor.on("preSubmit", function(e, data, action) {
+            var fields = new Array();
+            var tb = this;
+            $.each(EditSet, function(index, item) {
+                var max = item.max;
+                var min = item.min;
+                var req = item.req;
+
+                fields[index] = tb.field(item.name);
+                //if (!fields[index].isMultiValue()) {
+                if (req == true && !fields[index].val()) {
+                    fields[index].error('※必填資訊！');
+                }
+                if (item.max != null && fields[index].val().length > item.max) {
+                    fields[index].error('※字數不得大於 ' + item.max + ' 字！');
+                }
+                if (item.min != null && fields[index].val().length < item.min) {
+                    fields[index].error('※字數不得小於 ' + item.min + ' 字！');
+                }
+                //  }
+            });
+
+            if (this.inError()) {
+                return false;
+            }
+            FormLock = true;
+        });
+
+        /*
+        editor.on("preSubmit", function (e, data, action) {
+            var Data = data["data"];
+
+            $.each(Data, function (kData, vData) {
+                 alert(kData);
+                alert( JSON.stringify(vData));
+                switch (action) {
+                    case "add":
+                        break;
+                    case "edit":
+                        break;
+                    case "remove":
+                        break;
+                }
+            });
+        });
+        */
+        /* editor.on( 'preEdit', function ( e, json, data, id) {
+             var tbName = this.s.table;
+
+             var rownum = id.split("_");
+             $(tbName).DataTable().rows(rownum[1]).select();
+         });*/
+        //編輯後觸發
+        editor.on("edit", function(e, json, data, id) {
+            var InArray = false;
+
+
+            $.each(InsOrUpd, function(key, value) {
+                if (data["DT_RowId"] === value["DT_RowId"]) {
+                    InsOrUpd.splice(key, 1, data);
+                    InArray = true;
+                }
+            });
+
+            if (!InArray) {
+                InsOrUpd.push(data);
+            }
+
+            InsOrUpdElem.value = JSON.stringify(InsOrUpd);
+        });
+
+        $("#" + ID).on("click", "tbody td:not(:first-child)", function(e) {
+            editor.inline(this, {
+                onBlur: "submit"
+            });
+        });
+
+        $.each(Set["columns"], function(kCols, vCols) {
+            if (typeof(vCols["render"]) === "object") {
+                if (Object.keys(vCols["render"]).length > 0) {
+                    var Option = vCols["render"];
+
+                    vCols["render"] = function(val, type, row) {
+                        var Value = "";
+
+                        $.each(Option, function(kOption, vOption) {
+                            if (val === vOption["value"]) {
+                                Value = vOption["text"];
+                            }
+                        });
+
+                        return Value;
+                    }
+                }
+            }
+
+        });
+
+        $.each(Set["buttons"], function(kBtns, vBtns) {
+            switch (vBtns["extend"]) {
+                case "create":
+                case "edit":
+                case "remove":
+                    vBtns["editor"] = editor;
+                    break;
+            }
+
+            if (vBtns["action"] != null) {
+                switch (vBtns["action"]) {
+                    case "submit":
+                        vBtns["action"] = function(e, dt, node, config) {
+                            var btn = e["currentTarget"];
+                            var newBtn = document.createElement('Button');
+                            btn.setAttribute("name", "event");
+                            btn.setAttribute("value", vBtns["value"]);
+
+                            // 為了 IE 11, 只能使用 button element, 使用 <a> 是無法使用 a.form, 只有 button.form 才行。
+                            // 不然會導致刪除按鈕出現問題。
+                            newBtn.setAttribute("name", "event");
+                            newBtn.setAttribute("value", vBtns["value"]);
+                            newBtn.style.display = "none";
+                            $("#" + ID).append(newBtn);
+                            if (vBtns["value"] == "remove") {
+                                let callback = function() {
+                                    setSubmit(newBtn, vBtns['isLoading']);
+                                };
+
+                                dataTableRemoveAlert(callback, vBtns["alertmsg"])
+                            } else {
+                                setSubmit(newBtn, vBtns['isLoading']);
+                            }
+
+                        };
+                        break;
+                    case "href":
+                        vBtns["action"] = function(e, dt, node, config) {
+                            setHref(vBtns["href"]);
+                        };
+                        break;
+                }
+            }
+        });
+
+        var Table = $("#" + ID).DataTable(Set);
+    }
+
+    async function handleDetailClick(button) {
+        let tr = $(button).closest('tr');
+        // 檢查是否為 RWD 的 child 子行
+        if (tr.hasClass('child')) {
+            // 如果是 child，找到前一個主行
+            tr = tr.prev('tr:not(.child)');
+        }
+        let buttonType = $(button).data('type');
+        let table = $(button).closest('table'); // 找到最近的 <table>
+        let tableId = table.attr('id'); // 提取表格的 ID
+
+        if (!tableId || !tableStates[tableId]) {
+            console.error('Table ID not found or not initialized:', tableId);
+            return;
+        }
+
+        await clickDataTableDetails({
+            tr: tr,
+            buttonType: buttonType,
+            rowDetailOrder: tableStates[tableId].rowDetailOrder,
+            defaultOrder: tableStates[tableId].defaultOrder,
+            table: table.DataTable() // 可選
+        })
+    }
+
+    // DataTable 展開明細表格
+    /*其他情況下手動呼叫
+    let someRow = $('#' + ID + ' tbody tr:eq(0)'); // 例如第一行
+    clickDataTableDetails({
+        tr: someRow,
+        buttonType: 'someType',
+        rowDetailOrder: rowDetailOrder,
+        defaultOrder: defaultOrder,
+        table: $('#' + ID).DataTable() // 可選
+    });
+    */
+    async function clickDataTableDetails(options) {
+        let {
+            tr,
+            buttonType,
+            rowDetailOrder,
+            defaultOrder,
+            table
+        } = options;
+
+        table = table || $(tr).closest('table').DataTable();
+        let tableColumnCount = table.columns().count();
+        let row = table.row(tr);
+        let className = 'details-child-row-' + buttonType;
+        let isDetailsShown = tr.hasClass(className + '-shown');
+        let rowIndex = row.index();
+
+        // 初始化該行的展開狀態
+        if (!rowDetailOrder[rowIndex]) {
+            rowDetailOrder[rowIndex] = [];
+        }
+        let orderList = rowDetailOrder[rowIndex];
+
+        if (isDetailsShown) {
+            // 只移除特定的子行
+            $('#details-row-' + rowIndex + '-' + buttonType).remove();
+            tr.removeClass(className + '-shown');
+            orderList.splice(orderList.indexOf(buttonType), 1);
+        } else {
+            // 添加新類型到 orderList
+            if (orderList.indexOf(buttonType) === -1) {
+                orderList.push(buttonType);
+            }
+
+            if (dataTableHandler.formatDetailsCallback && typeof dataTableHandler.formatDetailsCallback ===
+                'function') {
+                // 根據 defaultOrder 找到正確的插入位置
+                let insertPosition = findInsertPosition(tr, rowIndex, buttonType, defaultOrder, orderList);
+                let rowId = 'details-row-' + rowIndex + '-' + buttonType;
+                let newRow;
+                try {
+                    const detailsContent = await dataTableHandler.formatDetailsCallback(row.data(), rowIndex,
+                        buttonType);
+                    newRow = $(
+                        '<tr id="' + rowId + '" class="' + className + '" data-parent="' + rowIndex + '">' +
+                        '<td colspan="' + tableColumnCount + '">' +
+                        '<div class="details-child">' + detailsContent + '</div></td></tr>'
+                    );
+                } catch (error) {
+                    console.log('錯誤:', error);
+                    newRow = $(
+                        '<tr id="' + rowId + '" class="' + className + '" data-parent="' + rowIndex + '">' +
+                        '<td colspan="' + tableColumnCount + '">' +
+                        '<div class="details-child">無資料</div></td></tr>'
+                    );
+                }
+
+                if (insertPosition.next) {
+                    insertPosition.element.before(newRow);
+                } else {
+                    insertPosition.element.after(newRow);
+                }
+            }
+            tr.addClass(className + '-shown');
+
+            // 只在需要時調用渲染回調
+            if (dataTableHandler.renderDetailsCallback && typeof dataTableHandler.renderDetailsCallback ===
+                'function') {
+                await dataTableHandler.renderDetailsCallback(row.data(), rowIndex, [buttonType]);
+            }
+        }
+    }
+
+    function findInsertPosition(tr, rowIndex, buttonType, defaultOrder, orderList) {
+        // 1. 確定基本的插入參考點
+        //    - 預設是點擊的 tr
+        //    - 但如果 tr 的下一個兄弟節點是該群組的結束列 (dtrg-end)，則參考點應為該結束列
+        let baseInsertElement = tr;
+        let nextSibling = tr.next();
+        if (nextSibling.hasClass('child')) {
+            nextSibling = nextSibling.next();
+        }
+        // 檢查下一個兄弟節點是否存在，並且是否為 rowGroup 的結束列
+        if (nextSibling.length && nextSibling.hasClass('dtrg-group') && nextSibling.hasClass('dtrg-end')) {
+            // console.log(`Row ${rowIndex} is the last in its group. Inserting after dtrg-end.`);
+            baseInsertElement = nextSibling; // 更新參考點為 dtrg-end 列
+        }
+
+        // 2. 根據 defaultOrder 決定相對位置 (如果有的話)
+        if (defaultOrder && defaultOrder.length > 0) {
+            let buttonTypeIndex = defaultOrder.indexOf(buttonType);
+
+            if (buttonTypeIndex !== -1) { // 確保 buttonType 在 defaultOrder 中
+                // 向前找第一個已存在的、順序較小的 detail row
+                for (let i = buttonTypeIndex - 1; i >= 0; i--) {
+                    let prevType = defaultOrder[i];
+                    if (orderList.includes(prevType)) {
+                        let prevRow = $('#details-row-' + rowIndex + '-' + prevType);
+                        if (prevRow.length) {
+                            // 找到了，插在此 detail row 之後
+                            // console.log(`Inserting ${buttonType} after ${prevType}`);
+                            return {
+                                element: prevRow,
+                                next: false
+                            };
+                        }
+                    }
+                }
+
+                // 向後找第一個已存在的、順序較大的 detail row
+                for (let i = buttonTypeIndex + 1; i < defaultOrder.length; i++) {
+                    let nextType = defaultOrder[i];
+                    if (orderList.includes(nextType)) {
+                        let nextRow = $('#details-row-' + rowIndex + '-' + nextType);
+                        if (nextRow.length) {
+                            // 找到了，插在此 detail row 之前
+                            // console.log(`Inserting ${buttonType} before ${nextType}`);
+                            return {
+                                element: nextRow,
+                                next: true
+                            };
+                        }
+                    }
+                }
+            }
+        }
+
+        // 3. Fallback 處理 (沒有 defaultOrder 或 沒找到相對位置)
+        //    - 尋找該 rowIndex 下最後一個已存在的 detail row
+        let lastDetailRow = $(`tr[id^='details-row-${rowIndex}-']`).last(); // 使用更精確的選擇器
+
+        if (lastDetailRow.length) {
+            // 如果已存在其他 detail row，插在最後一個 detail row 之後
+            // console.log(`Inserting ${buttonType} after the last detail row`);
+            return {
+                element: lastDetailRow,
+                next: false
+            };
+        } else {
+            // 如果這是該 rowIndex 的第一個 detail row，則插在 baseInsertElement 之後
+            // (這個 baseInsertElement 可能是 tr 或 dtrg-end row)
+            // console.log(`Inserting ${buttonType} as the first detail row after base element`);
+            return {
+                element: baseInsertElement,
+                next: false
+            };
+        }
+    }
+
+    // 產生簡易版table
+    function generateTableHtml(titles, data, tableId = "detailsTable", tableTitle = null, $tableClass = "") {
+        let detailsTable = '<table border="1" id="' + tableId + '" style="width:100%;" class="' + $tableClass + '">';
+
+        if (tableTitle) {
+            detailsTable = '<h4>' + tableTitle + '</h4>' + detailsTable;
+        }
+        detailsTable += '<thead><tr>';
+        titles.forEach(function(title) {
+            detailsTable += '<th>' + title.head + '</th>';
+        });
+        detailsTable += '</tr></thead>' +
+            '<tbody>';
+        data.forEach(function(item) {
+            detailsTable += '<tr>';
+            titles.forEach(function(title) {
+                detailsTable += '<td>' + item[title.name] + '</td>';
+            });
+            detailsTable += '</tr>';
+        });
+        detailsTable += '</tbody></table>';
+        return detailsTable;
+    }
+
+    function refDataTables() {
+        $("table.dataTable").each(function() {
+            let table = $(this).DataTable();
+            table.columns.adjust().responsive.recalc();
+        });
+    }
+
+    function MergeGridCells(TableID, rCols) {
+        //https://stackoverflow.com/questions/33514341/jquery-datatables-merge-same-row-data
+        if (rCols == null || rCols.length == 0) {
+            return;
+        }
+        let dimension_col = null;
+        $("#" + TableID).removeClass('hover').addClass('table-responsive').attr('border', 1);
+        for (Col in rCols) {
+            dimension_col = Col;
+            let compareCols = rCols[Col];
+            // first_instance holds the first instance of identical td
+            let first_Hash = "";
+            let first_instance = null;
+            let rowspan = 1;
+
+            $("#" + TableID).find('tr').each(function() {
+                // find the td of the correct column (determined by the dimension_col set above)
+                let dimension_td = $(this).find('td:nth-child(' + dimension_col + ')');
+
+                let dim_Hash = "";
+                for (compareColsIndex in compareCols) {
+                    dim_Hash += $(this).find('td:nth-child(' + compareCols[compareColsIndex] + ')').text();
+                }
+
+                if (first_instance === null) {
+                    // must be the first row
+                    first_instance = dimension_td;
+                } else if (dimension_td.text() === first_instance.text() && first_Hash === dim_Hash) {
+                    // the current td is identical to the previous AND the Hashes are as well
+                    // remove the current td
+                    // dimension_td.remove();
+                    dimension_td.attr('hidden', true);
+                    ++rowspan;
+                    // increment the rowspan attribute of the first instance
+                    first_instance.attr('rowspan', rowspan);
+                } else {
+                    // this cell is different from the last
+                    first_instance = dimension_td;
+                    first_Hash = dim_Hash;
+                    rowspan = 1;
+                }
+            });
+        }
+    }
+
+    function removeMergeGrid(TableID) {
+        $("#" + TableID).addClass('hover').removeClass('table-responsive').removeAttr('border');
+        $("#" + TableID).find('tr').each(function() {
+            // 在当前tr内部查找所有设置了hidden属性的元素，并移除该属性
+            $(this).find('[hidden]').removeAttr('hidden');
+
+            // 在当前tr内部查找所有设置了rowspan属性的元素，并移除该属性
+            $(this).find('[rowspan]').removeAttr('rowspan');
+        });
+    }
+
+    function resizeDataTables(TableID, rCols) {
+        removeMergeGrid(TableID);
+        $("#" + TableID).DataTable().draw(false);
+        MergeGridCells(TableID, rCols);
+    }
+
+    function setTable(ID, Set) {
+        if (Set['createdRow']) {
+            $.extend(Set, {
+                createdRow: window[Set['createdRow']]
+            });
+        }
+        return $("#" + ID).DataTable(Set);
+    }
+
+    function tableReloadInputRules(tableId) {
+        $("#" + tableId).find('[data-validation-rules]').each(function() {
+            let element = $(this);
+            let validrules = element.attr('data-validation-rules');
+            if (validrules != null && validrules != '') {
+                try {
+                    let rules = JSON.parse(validrules);
+                    element.rules('add', rules);
+                } catch (e) {
+                    console.log(validrules);
+                    console.log(e);
+                }
+            }
+        });
+        $("#" + tableId).find('[data-real-type]').each(function() {
+            let element = $(this);
+            let realType = element.attr('data-real-type');
+            if (realType != null && realType != '') {
+                let id = element.attr('id');
+                if (realType == 'date') {
+                    baseViewDateBox(id);
+                } else if (realType == 'datemul') {
+                    baseViewDateBoxMUL(id);
+                } else if (realType == 'time') {
+                    baseViewTimeBox(id);
+                } else {
+                    baseViewDateTimeBox(id);
+                }
+            }
+        });
+    }
+
+    function syncInputValues(tableId) {
+        $('#' + tableId + ' input[id^="detail_"]').each(function() {
+            let $el = $(this);
+            let originalId = $el.attr('original-id');
+            if (originalId) {
+                $el.off('input');
+                $el.on('input', function() {
+                    let value = $(this).val();
+                    let escapedId = originalId.replace(/([\[\]])/g, "\\$1");
+                    $('#' + escapedId).val(value);
+                });
+                let validrules = $el.attr('data-validation-rules');
+                if (validrules != null && validrules != '') {
+                    try {
+                        let rules = JSON.parse(validrules);
+                        $el.rules('add', rules);
+                    } catch (e) {
+                        console.log(validrules);
+                        console.log(e);
+                    }
+                }
+            }
+        });
+        // 同步 checkbox
+        $('#' + tableId + ' input[id^="detail_"][type="checkbox"]').each(function() {
+            let $detailInput = $(this);
+            let originalId = $detailInput.attr('original-id');
+            let escapedOriginalId = originalId.replace(/([\[\]])/g, "\\$1");
+            let $originalInput = $(`#${escapedOriginalId}`);
+
+            if ($originalInput.length) {
+                // 初始同步（原始 -> 細節）
+                $detailInput.prop('checked', $originalInput.prop('checked'));
+
+                // 監聽細節變更並同步到原始
+                $detailInput.off('change').on('change', function() {
+                    let isChecked = $detailInput.prop('checked');
+                    $originalInput.prop('checked', isChecked);
+                });
+            }
+        });
+        // 同步 select
+        $('#' + tableId + ' select[id^="detail_"]').each(function() {
+            let $detailSelect = $(this);
+            let originalId = $detailSelect.attr('original-id');
+            let escapedOriginalId = originalId.replace(/([\[\]])/g, "\\$1");
+            let $originalSelect = $(`#${escapedOriginalId}`);
+
+            // 初始同步（確保展開時一致）
+            let selectedValue = $originalSelect.val();
+            $detailSelect.find('option').prop('selected', false);
+            if (selectedValue) {
+                if (Array.isArray(selectedValue)) {
+                    selectedValue.forEach(val => $detailSelect.find(`option[value="${val}"]`).prop('selected',
+                        true));
+                } else {
+                    $detailSelect.find(`option[value="${selectedValue}"]`).prop('selected', true);
+                }
+            }
+
+            // 監聽細節變更並同步到原始
+            $detailSelect.off('change').on('change', function() {
+                let newValue = $detailSelect.val();
+                $originalSelect.val(newValue);
+            });
+        });
+        refreshDateBox();
+        refDropDown();
+    }
+
+    function clearCurrentPageDataTables() {
+        if (Object.keys(tableStates).length === 0) {
+            return;
+        }
+
+        const tableIds = Object.keys(tableStates).filter(id => typeof id === 'string' && id);
+        if (tableIds.length === 0) {
+            return;
+        }
+        tableIds.forEach(id => {
+            let clearTable = $(`#${id}`).DataTable();
+            clearTable.state.clear();
+            clearTable.search('').order([]).page(0).draw();
+        });
+    }
+
+    //檔案上傳
+    function setCustomFileInput(Elem, Set) {
+
+        let def = {
+            theme: 'fas',
+            showUpload: true,
+            showCaption: true,
+            dropZoneEnabled: false,
+            fileActionSettings: {
+                showZoom: function(config) {
+                    if (config.type === 'pdf' || config.type === 'image') {
+                        return true;
+                    }
+                    return false;
+                },
+                showUpload: false,
+            }
+        };
+        $.extend(true, def, Set);
+        return $("#" + Elem).fileinput(def);
+    }
+
+
+    //檔案上傳
+    function setFileInput(Elem, Set) {
+        //$.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+        let zoomPreviewSrc = {};
+        // 取得HTML元素的name
+        var DomName = $("#" + Elem)[0].name.split('[]')[0];
+        var DbFileSize = Set.DbFileSize;
+        var cusRule = Set.cusRule;
+        var cusRuleArgs = Set.cusRuleArgs;
+
+        var extraData = {
+            'DomName': DomName,
+            'SourceRoute': 'b09120',
+            'UploadToken': '',
+            'api_token': 'PwO1GvmqnbuJHqsTWQ18Gq73QsbTGC96oioDfUCCzEy7SUzyztyIVsDArd6H',
+            'DbFileSize': DbFileSize,
+            'cusRule': cusRule,
+            'cusRuleArgs': cusRuleArgs,
+        }
+        extraData['moveToTempDir'] = Set.moveToTempDir;
+        $.extend(Set, {
+            initialPreviewAsData: true,
+            theme: 'fas',
+            showCaption: false,
+            dropZoneEnabled: false,
+            // enableResumableUpload: true, //
+            overwriteInitial: false,
+            // UploadToken => 上傳驗證用
+            uploadExtraData: extraData,
+            uploadUrl: "https://sis.ncnu.edu.tw/ajaxUpload",
+            // initialPreviewConfig: [],
+            showCancel: false,
+            uploadAsync: false,
+            // 
+            disabledPreviewTypes: ['text'],
+        });
+        // call back function ...
+        $("#" + Elem).fileinput(Set).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
+            // $('#input-100').parents('form').submit();
+            // console.log('!!');
+            $.ajax({
+                url: 'https://sis.ncnu.edu.tw/ajaxRmTmp',
+                type: 'POST',
+                data: {
+                    UploadToken: '',
+                    //api_token: 'PwO1GvmqnbuJHqsTWQ18Gq73QsbTGC96oioDfUCCzEy7SUzyztyIVsDArd6H',
+                },
+                success: function(e) {
+                    //window.location.reload();
+                    //console.log('Success');
+                },
+                error: function(e) {
+                    //console.log(e);
+                }
+            });
+        }).on('fileloaded', function(event, file, previewId, index, reader) {
+            document.dispatchEvent(new Event('FilePreviewFinished'));
+        }).on('filebatchuploadsuccess', function(event, data, previewId, index) {
+            zoomPreviewSrc = data.response.zoomPreviewSrc;
+        }).on('filebeforedelete', function() {
+            // console.log('beforeDelete!');
+        }).on('filedeleted', function() {
+            // console.log('filedeleted!');
+        }).on('fileclear', function() {
+            $.ajax({
+                url: 'https://sis.ncnu.edu.tw/ajaxFileDelete',
+                type: 'POST',
+                data: {
+                    UploadToken: '',
+                    api_token: 'PwO1GvmqnbuJHqsTWQ18Gq73QsbTGC96oioDfUCCzEy7SUzyztyIVsDArd6H',
+                },
+                success: function(e) {
+                    window.location.reload();
+                },
+                error: function(e) {
+
+                }
+            });
+        }).on('filezoomshow', function(event, params) {
+            let previewId = params.previewId;
+            let index = previewId.match(/-(\d+)$/);
+            let previewElement = $('#' + previewId);
+            if (previewElement.data('template') === 'office') {
+                let zoomPreview = params.modal.find('.file-preview-office');
+                zoomPreview.attr('src', zoomPreviewSrc[index[1]]);
+            }
+        }).on('filezoomnext', function(event, params) {
+            let previewId = params.previewId;
+            let index = previewId.match(/-(\d+)$/);
+            let nextIndex = parseInt(index[1]) + 1;
+            let newPreviewId = previewId.replace(/-(\d+)$/, `-${nextIndex}`);
+            let previewElement = $('#' + newPreviewId);
+            if (previewElement.data('template') === 'office') {
+                let zoomPreview = params.modal.find('.file-preview-office');
+                zoomPreview.attr('src', zoomPreviewSrc[nextIndex]);
+            }
+        }).on('filezoomprev', function(event, params) {
+            let previewId = params.previewId;
+            let index = previewId.match(/-(\d+)$/);
+            let prevIndex = parseInt(index[1]) - 1;
+            let prevPreviewId = previewId.replace(/-(\d+)$/, `-${prevIndex}`);
+            let previewElement = $('#' + prevPreviewId);
+            if (previewElement.data('template') === 'office') {
+                let zoomPreview = params.modal.find('.file-preview-office');
+                zoomPreview.attr('src', zoomPreviewSrc[prevIndex]);
+            }
+        }).on('filezoomshown', function(event, params) {
+            requestAnimationFrame(() => {
+                let $filePrevewBord = params.modal.find('.btn-borderless');
+                if (!$filePrevewBord.hasClass('active')) {
+                    $filePrevewBord.trigger('click');
+                }
+            });
+        });
+    }
+
+    //檔案預覽
+    function setFilePreview(Elem, Set) {
+        $.ajax({
+            url: "https://sis.ncnu.edu.tw/ajaxPreview",
+            type: 'POST',
+            data: Set,
+            dataType: 'json',
+            success: function(data) {
+                $("#" + Elem).fileinput({
+                    theme: 'fas', // 設定樣式
+                    showUpload: false, // 隱藏上傳按鈕
+                    showRemove: false, // 隱藏移除按鈕
+                    showCancel: false, // 隱藏取消按鈕
+                    showBrowse: false, // 隱藏瀏覽按鈕
+                    showCaption: false, // 隱藏標題行
+                    initialPreview: data.initialPreview,
+                    initialPreviewAsData: data.initialPreviewAsData, // 顯示為預覽模式
+                    initialPreviewConfig: data.initialPreviewConfig,
+                    browseOnZoneClick: false, // 禁止點擊選取檔案
+                    overwriteInitial: true, // 覆蓋初始化預覽
+                    dropZoneEnabled: false, // 禁用拖放功能
+                    fileActionSettings: Set.fileActionSettings
+                }).on('filezoomshow', function(event, params) {
+                    let previewId = params.previewId;
+                    let index = previewId.match(/-(\d+)$/);
+                    let previewElement = $('#' + previewId);
+                    if (previewElement.data('template') === 'office') {
+                        let zoomPreview = params.modal.find('.file-preview-office');
+                        zoomPreview.attr('src', data.zoomPreview[index[1]]);
+                    }
+                }).on('filezoomnext', function(event, params) {
+                    let previewId = params.previewId;
+                    let index = previewId.match(/-(\d+)$/);
+                    let nextIndex = parseInt(index[1]) + 1;
+                    let newPreviewId = previewId.replace(/-(\d+)$/, `-${nextIndex}`);
+                    let previewElement = $('#' + newPreviewId);
+                    if (previewElement.data('template') === 'office') {
+                        let zoomPreview = params.modal.find('.file-preview-office');
+                        zoomPreview.attr('src', data.zoomPreview[nextIndex]);
+                    }
+                }).on('filezoomprev', function(event, params) {
+                    let previewId = params.previewId;
+                    let index = previewId.match(/-(\d+)$/);
+                    let prevIndex = parseInt(index[1]) - 1;
+                    let prevPreviewId = previewId.replace(/-(\d+)$/, `-${prevIndex}`);
+                    let previewElement = $('#' + prevPreviewId);
+                    if (previewElement.data('template') === 'office') {
+                        let zoomPreview = params.modal.find('.file-preview-office');
+                        zoomPreview.attr('src', data.zoomPreview[prevIndex]);
+                    }
+                }).on('filezoomshown', function(event, params) {
+                    let $filePrevewBord = params.modal.find('.btn-borderless');
+                    if (!$filePrevewBord.hasClass('active')) {
+                        $filePrevewBord.trigger('click');
+                    }
+                });
+                document.dispatchEvent(new Event('FilePreviewFinished'));
+            },
+            error: function(xhr) {}
+        });
+    }
+
+    function jsLoadFile(btn) {
+        let baseUrl = "https://sis.ncnu.edu.tw/loadFile/__VALUE__";
+        let url = baseUrl.replace('__VALUE__', btn.value);
+        let w = window.open(url,
+            '', 'resizable=yes,scrollbars=yes', '_blank');
+        w.resizeTo((screen.availWidth), (screen.availHeight));
+        w.moveTo(0, 0);
+    }
+
+    function refreshDateBox() {
+        $(".custom-datetimepicker-input").each(function() {
+            let realType = $(this).attr('data-real-type');
+            if (realType && realType != '') {
+                let Set = getDateTimeSetting(realType);
+                setDateTimePicker(this, Set);
+            }
+        });
+    }
+
+    function getDateTimeSetting(realType) {
+        switch (realType) {
+            case 'date':
+                return {
+                    format: 'YYYY-MM-DD',
+                };
+            case 'datemul':
+                return {
+                    format: 'YYYY-MM-DD',
+                        allowMultidate: true,
+                        multidateSeparator: ','
+                };
+            case 'time':
+                return {
+                    format: 'LT',
+                };
+            case 'datetime':
+                return {
+                    format: 'YYYY-MM-DD LT',
+                };
+        }
+        return {};
+    }
+
+    function baseViewDateBox(id) {
+        var Elem = document.getElementById(id);
+        let Set = getDateTimeSetting('date');
+        setDateTimePicker(Elem, Set);
+    }
+
+    function baseViewDateBoxMUL(id) {
+        var Elem = document.getElementById(id);
+        let Set = getDateTimeSetting('datemul');
+        setDateTimePicker(Elem, Set);
+    }
+
+    function baseViewTimeBox(id) {
+        var Elem = document.getElementById(id);
+        let Set = getDateTimeSetting('time');
+        setDateTimePicker(Elem, Set);
+    }
+
+    function baseViewDateTimeBox(id) {
+        var Elem = document.getElementById(id);
+        let Set = getDateTimeSetting('datetime');
+        setDateTimePicker(Elem, Set);
+    }
+    //DateTimePicker
+    function setDateTimePicker(Elem, Set) {
+
+        let LockStatus = ["edit", "add"];
+        $.extend(Set, {
+            buttons: {
+                showClear: true,
+                showClose: true
+            },
+            icons: {
+                time: 'fas fa-clock',
+                date: 'fas fa-calendar',
+                up: 'fas fa-arrow-up',
+                down: 'fas fa-arrow-down',
+                previous: 'fas fa-chevron-left',
+                next: 'fas fa-chevron-right',
+                today: 'fas fa-calendar-check',
+                clear: 'fas fa-trash',
+                close: 'fas fa-times'
+            }
+        });
+
+        $(Elem).datetimepicker(Set);
+
+        $(Elem).on("change.datetimepicker", function(e) {
+
+            if ($.inArray(FormStatus, LockStatus) > -1) {
+                FormLock = true;
+            } else {
+                FormLock = false;
+            }
+        });
+    }
+
+    function setDatePicker(Elem, Set) {
+        $.extend(Set, {
+            buttons: {
+                showClear: true,
+                showClose: true
+            },
+            icons: {
+                time: 'fas fa-clock',
+                date: 'fas fa-calendar',
+                up: 'fas fa-arrow-up',
+                down: 'fas fa-arrow-down',
+                previous: 'fas fa-chevron-left',
+                next: 'fas fa-chevron-right',
+                today: 'fas fa-calendar-check',
+                clear: 'fas fa-trash',
+                close: 'fas fa-times'
+            },
+
+        });
+        $(Elem).datepickerTW(Set);
+    }
+
+    function setDateTimePickerClose(e) {
+        $("#" + e.id).datetimepicker("hide");
+    }
+
+    //SweetAlert
+    function setSweetAlertTime(SwalFire, Content, Act) {
+        if (!SwalFire.icon && SwalFire.type) {
+            // 如果不存在，則把 type 的值给 icon
+            SwalFire.icon = SwalFire.type;
+            // 删除 type 属性
+            delete SwalFire.type;
+        }
+        Swal.fire(
+            SwalFire
+        ).then(function(result) {
+            switch (Act) {
+                case "href":
+                    document.location.href = Content;
+                    break;
+            }
+        })
+    }
+
+    function setSweetAlert(SwalFire, Content, Act) {
+        $.extend(SwalFire, {
+            confirmButtonText: "確認",
+            cancelButtonText: "取消",
+            /*
+            buttonsStyling: false,
+            confirmButtonClass: "btn btn-info btn-lg btn-block",
+            cancelButtonClass: "btn btn-danger btn-lg btn-block",
+            */
+        });
+        if (!SwalFire.icon && SwalFire.type) {
+            // 如果不存在，則把 type 的值给 icon
+            SwalFire.icon = SwalFire.type;
+            // 删除 type 属性
+            delete SwalFire.type;
+        }
+        Swal.fire(
+            SwalFire
+        ).then(function(result) {
+            if (result.value) {
+                switch (Act) {
+                    case "href":
+                        Loading();
+                        clearFixUpload();
+                        document.location.replace(Content);
+                        break;
+                    case "submit":
+                        Content();
+                        break;
+                }
+            }
+        })
+    }
+
+    //Logout
+    function setLogout() {
+        var SwalFire = {
+            type: "question",
+            title: "是否執行登出系統？",
+            showCancelButton: true,
+        };
+
+        setSweetAlert(SwalFire, "https://sis.ncnu.edu.tw/logout", "href");
+    }
+
+    //Bootstrap Select
+    function refDropDown() {
+        $(".selectpicker").selectpicker("refresh");
+    }
+
+    function updateDropdownAndPreserveSelection($select, newOptions) {
+        let selectedValue = $select.val();
+        $select.empty();
+        $.each(newOptions, function(i, item) {
+            $select.append($('<option></option>').val(item.value).text(item.text));
+        });
+        if (newOptions.length > 0) {
+            if (newOptions.some(option => option.value === selectedValue)) {
+                $select.val(selectedValue);
+            } else {
+                $select.val(newOptions[0].value); // 設置為第一個選項的值
+            }
+        } else {
+            $select.val(''); // 如果沒有選項，設置為空值
+        }
+
+        $select.selectpicker('refresh');
+    }
+
+    //Model
+    function setModalOpen(Var) {
+        var data = jQuery.parseJSON(Var);
+        let param = "?head=" + data.head + "&href=" + data.href;
+        let target = data.target ? data.target : '#modal';
+
+        $(`${target}`).load("https://sis.ncnu.edu.tw/Jump/modal/default" + param, function() {
+            $(this).modal("show");
+        });
+    }
+
+    function setModalClose() {
+        // $(`${target}`).modal("hide");
+        $("#modal").modal("hide");
+    }
+
+    function toggleModal(id) {
+        $(`${id}`).modal('toggle');
+    }
+
+    //連動下拉
+    function getCombo() {
+        var selectElement = document.getElementsByTagName('select');
+        var param = {}
+        $.each(selectElement, function(index, val) {
+
+            if (val.id === 'StudyCourseCategoryNo') {
+                if (val.dataset.category == null) {
+                    param[val.id] = {
+                        "value": val.value,
+                        'StudyCourseCategoryNo': null
+                    }
+                } else {
+                    let catelist = val.dataset.category.includes('|') ? val.dataset.category.split('|') : val
+                        .dataset.category;
+                    param[val.id] = {
+                        "value": val.value,
+                        'Category': catelist
+                    }
+                }
+            } else if (val.id === 'ClassTypeID') {
+                if (val.dataset.classtypekind == null) {
+                    param[val.id] = {
+                        "value": val.value,
+                        'ClassTypeKind': null
+                    }
+                } else {
+                    let classtypekindlist = val.dataset.classtypekind.split('|');
+                    param[val.id] = {
+                        "value": val.value,
+                        'ClassTypeKind': classtypekindlist
+                    }
+                }
+
+            } else if (val.id === 'UnitID') {
+                if (val.dataset.unitidrange == null) {
+                    param[val.id] = {
+                        "value": val.value,
+                        'UnitIDRange': null
+                    }
+                } else {
+                    let unitidrangelist = val.dataset.unitidrange.split('|');
+                    param[val.id] = {
+                        "value": val.value,
+                        'UnitIDRange': unitidrangelist
+                    }
+                }
+            } else if (val.id != '') {
+                param[val.id] = {
+                    "value": val.value
+                }
+            }
+
+
+        })
+
+        var AjaxSelAll = document.getElementsByName('AjaxSelAll');
+        var AjaxSelAllName = document.getElementsByName('AjaxSelAllName');
+        param['AjaxSelAll'] = []
+        $.each(AjaxSelAll, function(index, val) {
+            param['AjaxSelAll'].push(val.value)
+        })
+        $.each(AjaxSelAllName, function(index, val) {
+            param['AjaxSelAllName'] = val.value
+        })
+
+        $.ajax({
+            url: 'https://sis.ncnu.edu.tw/ajaxOptionApi',
+            type: 'POST',
+            data: JSON.stringify(param),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            async: true,
+            dataType: 'JSON',
+            contentType: "applicarion/json;charset=utf-8",
+            traditional: true,
+            success: function(dataJSON) {
+                $.each(dataJSON, function(index, value) {
+                    $("#" + index).html("")
+                    $.each(value.option, function(key, val) {
+                        $("#" + index).append('<option value="' + val.value + '">' + val
+                            .text + "</option>");
+                    })
+                    $("#" + index + "  option[value='" + value.value + "']").prop("selected", true)
+                })
+                refDropDown();
+
+            },
+            // error: function(msg){
+            // 	console.log('Ajax Error!');
+            // }
+        });
+    }
+
+    // when giveup the form edit then upload file will be delete after leave form ..
+    function clearFixUpload() {
+        $.ajax({
+            url: 'https://sis.ncnu.edu.tw/ajaxFileDelete',
+            type: 'POST',
+            async: false,
+            data: {
+                clearToken: 'b09120/UploadToken',
+                UploadToken: '',
+            }
+        });
+    }
+    // emailTample insert
+    function insertAtCursor(input) {
+        var instDrop = $("#instDrop").val();
+        // console.log($("#instDrop").val());
+        let editor = $("textarea[data-role='editor']").data("kendoEditor");
+        editor.value(editor.value() + instDrop);
+    }
+
+    function SubmitConfirm(obj, bLoading, needEng, msg) {
+        Swal.fire({
+            icon: "warning",
+            title: '警告',
+            html: msg,
+            showCancelButton: true,
+            confirmButtonText: '確認',
+            cancelButtonText: '取消'
+        }).then(function(result) {
+            if (result.value) {
+                setSubmit(obj, bLoading, needEng);
+            } else {
+                return;
+            }
+        });
+    }
+
+    function dataTableRemoveAlert(callback, alertmsg) {
+        i18n_meg = "是否真的要刪除資料？";
+        alertmsg = alertmsg == null ? i18n_meg : alertmsg;
+        var SwalFire = {
+            type: "warning",
+            title: alertmsg,
+            showCancelButton: true,
+        };
+
+        setSweetAlert(SwalFire, callback, "submit");
+    }
+
+
+    async function getFileByAjax(btn) {
+        let id = btn.value;
+        let form = new FormData(btn.form);
+        form.append("event", id);
+
+        $("#event").remove();
+        Loading();
+        btn.disabled = true;
+
+        try {
+            let response = await fetch(window.location.pathname, {
+                method: "POST",
+                body: form
+            });
+
+            // 取得 Content-Type
+            const contentType = response.headers.get("Content-Type");
+
+            // 處理錯誤狀況
+            if (!response.ok) {
+                if (contentType && contentType.includes("application/json")) {
+                    let json = await response.json();
+                    Swal.fire({
+                        icon: json.status || "error",
+                        title: json.title || "錯誤",
+                        text: json.message || "發生未知錯誤"
+                    });
+                } else {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return; // 錯誤時停止執行
+            }
+
+            // 下載 檔案
+            let blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+
+            // 取得檔名
+            let filename = "download.xlsx"; // 預設檔名
+            const contentDisposition = response.headers.get("Content-Disposition");
+            if (contentDisposition) {
+                const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
+                if (matches && matches[1]) {
+                    filename = decodeURIComponent(matches[1]).replace(/['"]/g, "");
+                }
+            }
+
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+
+            // 清理
+            window.URL.revokeObjectURL(url);
+            a.remove();
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                icon: "error",
+                title: "系統異常",
+                text: error.message
+            });
+        } finally {
+            LoadingClose();
+            btn.disabled = false;
+            $("#event").remove();
+        }
+    }
+
+
+
+    $('select[name*="ACADYear"]').on('loaded.bs.select', function(e, clickedIndex, isSelected, previousValue) {
+        setAcadYearComboTypeAndSearch();
+
+    });
+
+    //讓學年的下拉選項可以打字搜尋
+    function setAcadYearComboTypeAndSearch() {
+
+        var fatherElem = $("select[name='srh[ACADYear][]']");
+
+        if (fatherElem.length == 0) {
+            fatherElem = $("select[name='ACADYear[]'");
+        }
+
+        if (fatherElem.length == 0) {
+            return;
+        }
+        let changeEvent = $(fatherElem).attr('onchange') ?? "getCombo()";
+
+        var main_element = fatherElem.parent().find('.bs-searchbox').children();
+        var placeholderText = "輸入3碼後按Enter";
+
+        try {
+            main_element[0].type = 'number';
+            main_element.attr("placeholder", placeholderText);
+            main_element.attr("minlength", "3");
+            main_element.attr("min", "0");
+            main_element.attr("maxlength", "3");
+            main_element.attr("onchange", changeEvent);
+        } catch (error) {
+            console.error(main_element);
+
+        }
+
+        main_element.on('keydown', (function(e) {
+            var code = e.key;
+            var key_val = main_element.val();
+
+            if (code === "Enter") {
+                /// jquerify the DOM object 'o' so we can use the html method
+                if (key_val.length === 3) {
+                    var o = new Option(key_val, key_val, true, true);
+                    $(o).html(key_val);
+
+                    fatherElem.append(o);
+                    fatherElem.selectpicker('refresh');
+                }
+            }
+
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || (e.keyCode > 57 && e.keyCode != 189 && e.keyCode !=
+                    190))) &&
+                (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+            // 如果使用者輸入-，先判斷現在的值有沒有-，如果有，就不允許輸入
+            if (e.keyCode == 189 && /-/g.test(this.value)) {
+                e.preventDefault();
+            }
+            // 如果使用者輸入.，先判斷現在的值有沒有.，如果有，就不允許輸入
+            if (e.keyCode == 190 && /\./g.test(this.value)) {
+                e.preventDefault();
+            }
+        }));
+    }
+
+    function getOptionAjax(data) {
+        Loading();
+        $.ajax({
+            type: 'POST',
+            url: data.url,
+            data: {
+                _token: "dXX2PYHLLELcn0luw0dixAEnecCLGDax7g6UWkMg",
+                ...data.params
+            },
+            dataType: 'json',
+            success: function(res) {
+                $(`${data.target}`).empty();
+                $(`${data.target}`).append(new Option('-', '', false));
+
+                $.each(res, function(_key, _value) {
+                    let selected;
+
+                    if (_value['value'] == data.targetValue) {
+                        selected = true;
+                    }
+
+                    $(`${data.target}`).append(new Option(_value['text'], _value['value'], false,
+                        selected));
+                });
+
+                refDropDown();
+                $('.dropdown-menu').prop('style', false);
+                LoadingClose();
+            }
+        });
+    }
+
+    function setEditorValue(value) {
+        let editor = $("textarea[data-role='editor']").data("kendoEditor");
+        editor.value(value);
+    }
+
+    function setIdEditorValue(id, value) {
+        let editor = $("#" + id).data("kendoEditor");
+        editor.value(value);
+    }
+
+    function historyGo(value) {
+        history.go(value);
+    }
+</script>
+
+            </body>
+    <script>
+        EmbedAstar('', false);
+
+        let vh = window.innerHeight * 0.01; // 取得手機高度後轉換成百分比
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener('resize', () => {
+            vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+    </script>
+
+    </html>
+

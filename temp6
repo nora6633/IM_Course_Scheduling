@@ -1,0 +1,39 @@
+final {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Cookie: 'XSRF-TOKEN=eyJpdiI6Ijc5Y1grNVlvMmV3R3l0RzhkUWl6ZWc9PSIsInZhbHVlIjoiZ1hheUl2NEIwOEJOQTVQQUFBYWhqaWwwRDBRNGE4U2F3VTYwOFp1bVhCQVZxZ3Rwd1lBbXdmdnRVRDB3Mll6WSIsIm1hYyI6IjhmMTdkNGVjMTEzNzg4ZjA3NGY2ODM5ZGRmNGJkODI3NzcxNDQ2ZjgzZWRjYTUwMmFkMzRjNjk4ZmQ5MWQxNTIiLCJ0YWciOiIifQ%3D%3D; _session=eyJpdiI6IkVObGxTTVdLMHE0RW12ZnRkenMrblE9PSIsInZhbHVlIjoiU0dEb21tdFQza29mMkxFcXE2cFg5VEVxQVdqU1RZTEZaVEZrQmFmcDB5RTR5YzJudjFQSVJFRUZvSExUSGJBZWtrODdGUlo0K0VYTWI1d0laVGRsTWtFUWo2cGY2T3FqMmN6OG1lTG4rTC9NaGJPUDVXUWt1RWFYVW1OUnV4d0IiLCJtYWMiOiJmZmE2NzUyMmYyZTM4MTRlNjY3ZTZmNzEzNmI4NmE2MzNlNzNhN2EzNzBjMDc0M2E5MGQwZGRmZjU4ZTk1NGUyIiwidGFnIjoiIn0%3D',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    Origin: 'https://sis.ncnu.edu.tw',
+    Referer: 'https://sis.ncnu.edu.tw/b09/b09120'
+  },
+  body: '_token=jiF04dXaEKmg8IFhrmZMkIHu30oxmvJ2eFNBQbAx&srh%5BACADYear%5D%5B%5D=113&srh%5BSemester%5D%5B%5D=2&srh%5BDayfgID%5D%5B%5D=&srh%5BClassTypeID%5D%5B%5D=&srh%5BCollegeID%5D%5B%5D=&srh%5BUnitID%5D%5B%5D=40&srh%5BGrade%5D%5B%5D=&srh%5BClassID%5D%5B%5D=&srh%5BCourseNo%5D=&srh%5BSemesterCourseNo%5D=&srh%5BTeacher%5D=&srh%5BSemesterCourseName%5D=&srh%5BClassRoom%5D%5B%5D=&srh%5BTeaLanguage%5D%5B%5D=&srh%5BDayKind%5D%5B%5D=&srh%5BSectionBeg%5D%5B%5D=&srh%5BSectionEnd%5D%5B%5D=&tb_length=2000&tb_sel=&tb_cancel='
+}
+<!doctype html>
+<title>登入時發生問題</title>
+<style>
+  /* body { text-align: left; padding: 150px; } */
+  h1 { font-size: 50px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 750px; margin: 0 auto; }
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }
+</style>
+
+<article>
+        <h1>頁面逾時過久</h1>
+
+    <h1>目前時間 2025-06-10 17:23:59 #1</h1>
+    <div>
+        <p>頁面過期，目前為了提升使用者體驗，請點選下方連結重新登入，如果需要，您可以隨時與我們聯繫。</p>
+        <p>&mdash; 計算機中心</p>
+
+        <a href="/">若沒有自動跳轉，請點我</a>
+
+        <script>window.location = "https://sis.ncnu.edu.tw/home";</script>
+    </div>
+</article>
+
+Set-Cookie headers: [
+  '_session=eyJpdiI6ImFtZXRGM2JHL0ZIc3o0MHA0WTZUOEE9PSIsInZhbHVlIjoiYUtvM0tJTDMwdnpPdEVFRkJreUR3TEtKZjdSa2NzS0d3RTJYUlJwRFhsKy9hZlZMbFhYQ3NKbUIvRVIwNDVGZTJBU0RiYXdGRFE5bEpsR2htN2NCZ0JCS1IwUTBLV3dLQXdadXpEa3ppbVRXOWI0eVFobVBOT0p6SEVVdjlUcjIiLCJtYWMiOiIwMmU0YTI0MTRmMGY3OWUzZjYyMTEzNjNmNGU2NWQzMmI0MGM0ZDA3OTA4NzM5ZTYxYWY2NTI0NjMyMjQxZjNmIiwidGFnIjoiIn0%3D; path=/; secure; httponly'
+]
