@@ -36,6 +36,9 @@ const TOKEN="RUXwa5YT8xmRmuEr0NRWALtebPPhYgCDUsH45qGf";
 const XSRF_TOKEN="eyJpdiI6IkZwbURPSm00UXNJcVk4MnEydTM2TEE9PSIsInZhbHVlIjoibnZjbWhwMzRnQm03eENhZUxUT3U4TkxxMkRBUWg3Uy9tcHA4Si82TEQ5ZkNKejlRTU04bFA3a0xtczNvd0d4KyIsIm1hYyI6IjNjZWJmMzQ2YmY3MjUyMTg3ZmQyOTQ4MWRlMzUzMmM5ZDRmMDI5OWJkNmQ2OTAxMTI3M2YzODBkYTNhZDUwNTkiLCJ0YWciOiIifQ%3D%3D"
 const SESSION="eyJpdiI6IjNpeTMzejQxclpWTDJ4OVQ1aExMS0E9PSIsInZhbHVlIjoiZWhQNHR5endLWTZtQUVPTFpVOTVHOWJoWklMWnYxWml1Qk1BQUNoNlRWNzNHeU5iVDVESjN3ZmFnZ1BhcktlTjg0bm9IaGcyQ2xtTldWeDdub25qZ1BpdDNzRkg4U3hMUHZoN1g5ZHRNcXhSK3FNbjU4UHB2elN6RFNkUUMyWjgiLCJtYWMiOiJhOTgyYWEwNmRhZGRmMDViMjEwMDU1MDE5ZGMxNWY1ZDQwM2IyN2Y4OWQ3NzMwMjM5ZGJkY2Q5NDBjNWZmZTVhIiwidGFnIjoiIn0%3D"
 */
+const XSRF_TOKEN="eyJpdiI6IkYrLzNNVTJrS0VIeEZzQjd0WWZucmc9PSIsInZhbHVlIjoiSVRQQzhLeGtYb1RyZHgvR1ZKdnpCM3pwQmJPN2hCc1QvK1N0bS8ya0tTRkl1OFQ1S3VnUllBeFpwenhZTThQV1Y5U3dxM3daR3pGMWl1azdBS3RLQStIR1o4WUIrQ2xOL1hlUFRhUExROUJyUzFZd3FRUFMvQXE1Qzk1Qk1DZ1giLCJtYWMiOiI3NTUzNWQ3MDExY2E0YTdlZDBkMmEyZmRmYzg0NGNmZjc1NzBhM2Q2YWZhMDQ2OWU0MDQyNWFkZWNiNmViOGEzIiwidGFnIjoiIn0%3D"
+const SESSION="eyJpdiI6IkZXWEtEZ2xrR2N6NnNTUVd5NmM3S1E9PSIsInZhbHVlIjoiMExZbFQ5SlpSR3lTaXhPRkZITlRlUnhyOW5iNzR4bEtDVzladTZaZUlBOGdwbWZxdHl2STlwME9mRFhTaXN4SjUwaEMyUUQ5TG8zcDZ6N0Nnd1czNGNtd1lCZXU2UnlyeVp0VTVwZmF6dzJzZVlvSE9wMXRTTmhJREpGeWIzakwiLCJtYWMiOiJjYzI3NDg0NjlhYjYwNTM3MTc0MTVhOWU4ZGIxZTcyOTYwZjc0MTJmMzZjM2U5MDRkMDJiZGE2YTY3OTAzODdhIiwidGFnIjoiIn0%3D"
+const TOKEN="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM"
 
 // 請求 URL
 const URL = 'https://sis.ncnu.edu.tw/b09/b09120';
@@ -43,12 +46,12 @@ const URL = 'https://sis.ncnu.edu.tw/b09/b09120';
 // 組裝 URLencoded 表單數據
 const formParams = new URLSearchParams();
 formParams.append('_token', TOKEN);
-formParams.append('srh[ACADYear][]', '113');
-formParams.append('srh[Semester][]', '2');
+formParams.append('srh[ACADYear][]', '114');
+formParams.append('srh[Semester][]', '1');
 formParams.append('srh[DayfgID][]', '');
 formParams.append('srh[ClassTypeID][]', '');
 formParams.append('srh[CollegeID][]', '');
-formParams.append('srh[UnitID][]', '40');
+formParams.append('srh[UnitID][]', '93');
 formParams.append('srh[Grade][]', '');
 formParams.append('srh[ClassID][]', '');
 formParams.append('srh[CourseNo]', '');

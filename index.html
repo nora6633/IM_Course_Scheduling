@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>資管系課表 114-1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>國立暨南國際大學資管系 114-1 課表</h1>
+  <div id="legend">
+    <span class="legend cell-must">校必修</span>
+    <span class="legend cell-college">院必修</span>
+    <span class="legend cell-dept">系必修</span>
+    <span class="legend cell-tech">技術次領域</span>
+    <span class="legend cell-mgmt">管理次領域</span>
+    <span class="legend cell-elective">專業選修</span>
+  </div>
+  <div id="schedule"></div>
+  <input type="file" id="csvFile" accept=".csv" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html> 

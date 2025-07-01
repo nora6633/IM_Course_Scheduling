@@ -1,3 +1,14 @@
+final {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Cookie: 'XSRF-TOKEN=eyJpdiI6IkYrLzNNVTJrS0VIeEZzQjd0WWZucmc9PSIsInZhbHVlIjoiSVRQQzhLeGtYb1RyZHgvR1ZKdnpCM3pwQmJPN2hCc1QvK1N0bS8ya0tTRkl1OFQ1S3VnUllBeFpwenhZTThQV1Y5U3dxM3daR3pGMWl1azdBS3RLQStIR1o4WUIrQ2xOL1hlUFRhUExROUJyUzFZd3FRUFMvQXE1Qzk1Qk1DZ1giLCJtYWMiOiI3NTUzNWQ3MDExY2E0YTdlZDBkMmEyZmRmYzg0NGNmZjc1NzBhM2Q2YWZhMDQ2OWU0MDQyNWFkZWNiNmViOGEzIiwidGFnIjoiIn0%3D; _session=eyJpdiI6IkZXWEtEZ2xrR2N6NnNTUVd5NmM3S1E9PSIsInZhbHVlIjoiMExZbFQ5SlpSR3lTaXhPRkZITlRlUnhyOW5iNzR4bEtDVzladTZaZUlBOGdwbWZxdHl2STlwME9mRFhTaXN4SjUwaEMyUUQ5TG8zcDZ6N0Nnd1czNGNtd1lCZXU2UnlyeVp0VTVwZmF6dzJzZVlvSE9wMXRTTmhJREpGeWIzakwiLCJtYWMiOiJjYzI3NDg0NjlhYjYwNTM3MTc0MTVhOWU4ZGIxZTcyOTYwZjc0MTJmMzZjM2U5MDRkMDJiZGE2YTY3OTAzODdhIiwidGFnIjoiIn0%3D',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    Origin: 'https://sis.ncnu.edu.tw',
+    Referer: 'https://sis.ncnu.edu.tw/b09/b09120'
+  },
+  body: '_token=4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM&srh%5BACADYear%5D%5B%5D=114&srh%5BSemester%5D%5B%5D=1&srh%5BDayfgID%5D%5B%5D=&srh%5BClassTypeID%5D%5B%5D=&srh%5BCollegeID%5D%5B%5D=&srh%5BUnitID%5D%5B%5D=93&srh%5BGrade%5D%5B%5D=&srh%5BClassID%5D%5B%5D=&srh%5BCourseNo%5D=&srh%5BSemesterCourseNo%5D=&srh%5BTeacher%5D=&srh%5BSemesterCourseName%5D=&srh%5BClassRoom%5D%5B%5D=&srh%5BTeaLanguage%5D%5B%5D=&srh%5BDayKind%5D%5B%5D=&srh%5BSectionBeg%5D%5B%5D=&srh%5BSectionEnd%5D%5B%5D=&tb_length=2000&tb_sel=&tb_cancel='
+}
 <!DOCTYPE html>
     <html lang="en">
 
@@ -6,7 +17,7 @@
         <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="csrf-token" content=rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk>
+<meta name="csrf-token" content=4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM>
 
 <title>iNCNU</title>
 
@@ -233,7 +244,7 @@
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <em class="fas fa-video"></em>
                 </a>
-                    <input type="hidden" name="_token" value="rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk" autocomplete="off">
+                    <input type="hidden" name="_token" value="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM" autocomplete="off">
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header text-school">教學影片</span>
                     </div>
@@ -244,7 +255,7 @@
                 <em class="fa fa-book"></em>
             </a>
             <form id="manual" method='POST' action="https://sis.ncnu.edu.tw/home">
-                <input type="hidden" name="_token" value="rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk" autocomplete="off">
+                <input type="hidden" name="_token" value="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM" autocomplete="off">
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span class="dropdown-header text-school">操作手冊</span>
                     <a href="https://sis.ncnu.edu.tw/download_local/aU5UVUUg5pON5L2c5LuL6Z2i6Kqq5piOLnBkZg==/WyJtYW51YWwiXQ==" download class="dropdown-item" value="1">
@@ -321,7 +332,7 @@
                 <em class="fas fa-language"></em>
             </a>
             <form id="language" method='POST'>
-                <input type="hidden" name="_token" value="rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk" autocomplete="off">
+                <input type="hidden" name="_token" value="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM" autocomplete="off">
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span class="dropdown-header text-school">繁中/EN</span>
                     <a href="#" class="dropdown-item">
@@ -343,11 +354,26 @@
             </form>
         </li>
         
-                                    <li class="nav-item dropdown" title="登出/Sign Out">
+                            <li class="nav-item dropdown" title="提醒/Remind">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <em class="fa fa-bell">
+                    </em>
+                                    </a>
+
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-header text-school">提醒</span>
+                                            <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <em class="far fa-bell-slash mr-2" style="width: 16px;"></em>
+                            <span>無待簽表單</span>
+                        </a>
+                                    </div>
+            </li>
+                            <li class="nav-item dropdown" title="登出/Sign Out">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <em class="fas fa-sign-out-alt"></em>
                 </a>
-                    <input type="hidden" name="_token" value="rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk" autocomplete="off">
+                    <input type="hidden" name="_token" value="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM" autocomplete="off">
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-header text-school">系統登出</span>
                         <a href="#" class="dropdown-item">
@@ -385,7 +411,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
                 <em class="nav-icon fas fa-user"></em>
-                訪客帳號
+                蔣馥安
             </div>
         </div>
         
@@ -417,55 +443,319 @@
                     <ul class="nav nav-treeview" v-html="searchResult"></ul>
                 </li>
 
-                                    <li class="nav-header">訪客專區</li>
-                                            <li class="nav-item has-treeview   menu-open" style="width:100%;">
+                                    <li class="nav-header">學生專區</li>
+                                            <li class="nav-item has-treeview  " style="width:100%;">
                             <a href="#" class="nav-link ">
                                 <em class="nav-icon fas fa-list"></em>
                                 <p style="width: 80%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
-                                    title="GST01數位服務">
-                                                                            數位服務
+                                    title="STU01個人資訊">
+                                                                            個人資訊
                                                                         <em class="fa fa-angle-left right"></em>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                                                     <li class="nav-item" style="cursor:pointer;">
-                                        <a id="gst01110"
-                                            onclick="setHref('https://sis.ncnu.edu.tw/a01/a01240', '', 'gst01110')"
+                                        <a id="stu01110"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a02/a02260/index', '', 'stu01110')"
                                             class="hvr-grow-shadow nav-link ">
 
                                             <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
-                                                title="GST01110學生學號查詢">
-                                                　學生學號查詢 </p>
+                                                title="STU01110個人學籍資料維護">
+                                                　個人學籍資料維護 </p>
                                         </a>
                                     </li>
                                                                     <li class="nav-item" style="cursor:pointer;">
-                                        <a id="gst01120"
-                                            onclick="setHref('https://sis.ncnu.edu.tw/b05/b05230', '', 'gst01120')"
+                                        <a id="stu01140"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/j01/j01120', '', 'stu01140')"
                                             class="hvr-grow-shadow nav-link ">
 
                                             <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
-                                                title="GST01120校際修課申請">
-                                                　校際修課申請 </p>
+                                                title="STU01140填寫健康資料卡">
+                                                　填寫健康資料卡 </p>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                                            <li class="nav-item has-treeview   menu-open" style="width:100%;">
+                            <a href="#" class="nav-link ">
+                                <em class="nav-icon fas fa-list"></em>
+                                <p style="width: 80%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                    title="STU03線上選課">
+                                                                            線上選課
+                                                                        <em class="fa fa-angle-left right"></em>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03110"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b04/b04210', '', 'stu03110')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03110大學部學生選填通識志願">
+                                                　大學部學生選填通識志願 </p>
                                         </a>
                                     </li>
                                                                     <li class="nav-item" style="cursor:pointer;">
-                                        <a id="gst01130"
-                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09120', '', 'gst01130')"
+                                        <a id="stu03130"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b04/b04241', '', 'stu03130')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03130全校學生登記選課">
+                                                　全校學生登記選課 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03135"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b04/b04263', '', 'stu03135')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03135課程加選授權碼輸入">
+                                                　課程加選授權碼輸入 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03140"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b04/b04250', '', 'stu03140')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03140選課查詢(學生)">
+                                                　選課查詢(學生) </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03150"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09120', '', 'stu03150')"
                                             class="hvr-grow-shadow nav-link active">
 
                                             <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
-                                                title="GST01130公開課表查詢">
+                                                title="STU03150公開課表查詢">
                                                 　公開課表查詢 </p>
                                         </a>
                                     </li>
                                                                     <li class="nav-item" style="cursor:pointer;">
-                                        <a id="gst01131"
-                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09130', '', 'gst01131')"
+                                        <a id="stu03160"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b09/b09130', '', 'stu03160')"
                                             class="hvr-grow-shadow nav-link ">
 
                                             <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
-                                                title="GST01131公開課架查詢">
+                                                title="STU03160公開課架查詢">
                                                 　公開課架查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03170"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b05/b05280', '', 'stu03170')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03170校際選課申請">
+                                                　校際選課申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu03180"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b04/b04290', '', 'stu03180')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU03180申請表列印">
+                                                　申請表列印 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02260"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b06/b06140', '', 'stu02260')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02260停修申請單與查詢">
+                                                　停修申請單與查詢 </p>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                                            <li class="nav-item has-treeview  " style="width:100%;">
+                            <a href="#" class="nav-link ">
+                                <em class="nav-icon fas fa-list"></em>
+                                <p style="width: 80%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                    title="STU02教務資訊">
+                                                                            教務資訊
+                                                                        <em class="fa fa-angle-left right"></em>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02110"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a02/a02262', '', 'stu02110')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02110輔系雙主修申請">
+                                                　輔系雙主修申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02140"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a04/a04213', '', 'stu02140')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02140輔系雙主修放棄申請">
+                                                　輔系雙主修放棄申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02120"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a03/a03210', '', 'stu02120')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02120線上申請學籍異動">
+                                                　線上申請學籍異動 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02130"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a04/a04210', '', 'stu02130')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02130修業進度管制">
+                                                　修業進度管制 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02350"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a04/a04320', '', 'stu02350')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02350通過的通識講座紀錄">
+                                                　通過的通識講座紀錄 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02170"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a04/a04240', '', 'stu02170')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02170畢業審查結果查詢">
+                                                　畢業審查結果查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02175"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a04/a04310', '', 'stu02175')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02175離校查詢">
+                                                　離校查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02190"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a052A0', '', 'stu02190')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02190學期成績查詢">
+                                                　學期成績查詢 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02210"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a052C0', '', 'stu02210')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02210研究生線上申請學位考試">
+                                                　研究生線上申請學位考試 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02230"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a05310', '', 'stu02230')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02230校外抵免本系課程申請">
+                                                　校外抵免本系課程申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02340"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a05356', '', 'stu02340')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02340校外抵免他系課程申請">
+                                                　校外抵免他系課程申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02240"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a05320', '', 'stu02240')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02240校內抵免本系課程申請">
+                                                　校內抵免本系課程申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02250"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/a05/a05340', '', 'stu02250')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02250通識領域校內抵免申請">
+                                                　通識領域校內抵免申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02270"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b08/b08201', '', 'stu02270')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02270學分學程申請">
+                                                　學分學程申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02280"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b08/b08210', '', 'stu02280')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02280學分學程證書申請">
+                                                　學分學程證書申請 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02305"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b16/b16245', '', 'stu02305')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02305期中教學意見填寫">
+                                                　期中教學意見填寫 </p>
+                                        </a>
+                                    </li>
+                                                                    <li class="nav-item" style="cursor:pointer;">
+                                        <a id="stu02310"
+                                            onclick="setHref('https://sis.ncnu.edu.tw/b16/b16240', '', 'stu02310')"
+                                            class="hvr-grow-shadow nav-link ">
+
+                                            <p style="width: 100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"
+                                                title="STU02310期末教學意見填寫">
+                                                　期末教學意見填寫 </p>
                                         </a>
                                     </li>
                                                             </ul>
@@ -489,7 +779,7 @@
             watch,
         } from '/addons/vue.esm-browser.prod.js';
 
-        const menu = [{"text":"\u5b78\u751f\u5b78\u865f\u67e5\u8a62","number":"gst01110","url":"https:\/\/sis.ncnu.edu.tw\/a01\/a01240","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u6821\u969b\u4fee\u8ab2\u7533\u8acb","number":"gst01120","url":"https:\/\/sis.ncnu.edu.tw\/b05\/b05230","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u516c\u958b\u8ab2\u8868\u67e5\u8a62","number":"gst01130","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09120","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"},{"text":"\u516c\u958b\u8ab2\u67b6\u67e5\u8a62","number":"gst01131","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09130","prefix":"gst01","title":"gst01 \u6578\u4f4d\u670d\u52d9"}];
+        const menu = [{"text":"\u500b\u4eba\u5b78\u7c4d\u8cc7\u6599\u7dad\u8b77","number":"stu01110","url":"https:\/\/sis.ncnu.edu.tw\/a02\/a02260\/index","prefix":"stu01","title":"stu01 \u500b\u4eba\u8cc7\u8a0a"},{"text":"\u586b\u5beb\u5065\u5eb7\u8cc7\u6599\u5361","number":"stu01140","url":"https:\/\/sis.ncnu.edu.tw\/j01\/j01120","prefix":"stu01","title":"stu01 \u500b\u4eba\u8cc7\u8a0a"},{"text":"\u5927\u5b78\u90e8\u5b78\u751f\u9078\u586b\u901a\u8b58\u5fd7\u9858","number":"stu03110","url":"https:\/\/sis.ncnu.edu.tw\/b04\/b04210","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u5168\u6821\u5b78\u751f\u767b\u8a18\u9078\u8ab2","number":"stu03130","url":"https:\/\/sis.ncnu.edu.tw\/b04\/b04241","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u8ab2\u7a0b\u52a0\u9078\u6388\u6b0a\u78bc\u8f38\u5165","number":"stu03135","url":"https:\/\/sis.ncnu.edu.tw\/b04\/b04263","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u9078\u8ab2\u67e5\u8a62(\u5b78\u751f)","number":"stu03140","url":"https:\/\/sis.ncnu.edu.tw\/b04\/b04250","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u516c\u958b\u8ab2\u8868\u67e5\u8a62","number":"stu03150","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09120","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u516c\u958b\u8ab2\u67b6\u67e5\u8a62","number":"stu03160","url":"https:\/\/sis.ncnu.edu.tw\/b09\/b09130","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u6821\u969b\u9078\u8ab2\u7533\u8acb","number":"stu03170","url":"https:\/\/sis.ncnu.edu.tw\/b05\/b05280","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u7533\u8acb\u8868\u5217\u5370","number":"stu03180","url":"https:\/\/sis.ncnu.edu.tw\/b04\/b04290","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u505c\u4fee\u7533\u8acb\u55ae\u8207\u67e5\u8a62","number":"stu02260","url":"https:\/\/sis.ncnu.edu.tw\/b06\/b06140","prefix":"stu03","title":"stu03 \u7dda\u4e0a\u9078\u8ab2"},{"text":"\u8f14\u7cfb\u96d9\u4e3b\u4fee\u7533\u8acb","number":"stu02110","url":"https:\/\/sis.ncnu.edu.tw\/a02\/a02262","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u8f14\u7cfb\u96d9\u4e3b\u4fee\u653e\u68c4\u7533\u8acb","number":"stu02140","url":"https:\/\/sis.ncnu.edu.tw\/a04\/a04213","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u7dda\u4e0a\u7533\u8acb\u5b78\u7c4d\u7570\u52d5","number":"stu02120","url":"https:\/\/sis.ncnu.edu.tw\/a03\/a03210","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u4fee\u696d\u9032\u5ea6\u7ba1\u5236","number":"stu02130","url":"https:\/\/sis.ncnu.edu.tw\/a04\/a04210","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u901a\u904e\u7684\u901a\u8b58\u8b1b\u5ea7\u7d00\u9304","number":"stu02350","url":"https:\/\/sis.ncnu.edu.tw\/a04\/a04320","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u7562\u696d\u5be9\u67e5\u7d50\u679c\u67e5\u8a62","number":"stu02170","url":"https:\/\/sis.ncnu.edu.tw\/a04\/a04240","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u96e2\u6821\u67e5\u8a62","number":"stu02175","url":"https:\/\/sis.ncnu.edu.tw\/a04\/a04310","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u5b78\u671f\u6210\u7e3e\u67e5\u8a62","number":"stu02190","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a052A0","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u7814\u7a76\u751f\u7dda\u4e0a\u7533\u8acb\u5b78\u4f4d\u8003\u8a66","number":"stu02210","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a052C0","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u6821\u5916\u62b5\u514d\u672c\u7cfb\u8ab2\u7a0b\u7533\u8acb","number":"stu02230","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a05310","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u6821\u5916\u62b5\u514d\u4ed6\u7cfb\u8ab2\u7a0b\u7533\u8acb","number":"stu02340","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a05356","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u6821\u5167\u62b5\u514d\u672c\u7cfb\u8ab2\u7a0b\u7533\u8acb","number":"stu02240","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a05320","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u901a\u8b58\u9818\u57df\u6821\u5167\u62b5\u514d\u7533\u8acb","number":"stu02250","url":"https:\/\/sis.ncnu.edu.tw\/a05\/a05340","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u5b78\u5206\u5b78\u7a0b\u7533\u8acb","number":"stu02270","url":"https:\/\/sis.ncnu.edu.tw\/b08\/b08201","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u5b78\u5206\u5b78\u7a0b\u8b49\u66f8\u7533\u8acb","number":"stu02280","url":"https:\/\/sis.ncnu.edu.tw\/b08\/b08210","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u671f\u4e2d\u6559\u5b78\u610f\u898b\u586b\u5beb","number":"stu02305","url":"https:\/\/sis.ncnu.edu.tw\/b16\/b16245","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"},{"text":"\u671f\u672b\u6559\u5b78\u610f\u898b\u586b\u5beb","number":"stu02310","url":"https:\/\/sis.ncnu.edu.tw\/b16\/b16240","prefix":"stu02","title":"stu02 \u6559\u52d9\u8cc7\u8a0a"}];
 
         function filterObject(arr, searchKey) {
             const keys = Object.keys(arr[0]).slice(0, -1); // 去掉 title
@@ -590,8 +880,8 @@
                                                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right text-school">
-                                                                                                                        <li class="breadcrumb-item">訪客專區</li>
-                                                                                    <li class="breadcrumb-item">數位服務</li>
+                                                                                                                        <li class="breadcrumb-item">學生專區</li>
+                                                                                    <li class="breadcrumb-item">線上選課</li>
                                                                                     <li class="breadcrumb-item">公開課表查詢</li>
                                                                                                             </ol>
                             </div>
@@ -602,7 +892,7 @@
                 <section class="content">
                     <div class="container-fluid">
                             <form id='main' method='POST' autocomplete='off'>
-        <input type="hidden" name="_token" value="rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk" autocomplete="off">
+        <input type="hidden" name="_token" value="4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM" autocomplete="off">
         <div ><div class='form-row'><div class='form-group text-left col-md-2' >
                 
                 <div class='row'>
@@ -613,7 +903,7 @@
             <div class='input-group'>
                 
                 
-                <select class='form-control form-control-sm selectpicker' id='srh[ACADYear]' name='srh[ACADYear][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學年'><option value='108' >108</option> <option value='109' >109</option> <option value='110' >110</option> <option value='111' >111</option> <option value='112' >112</option> <option value='113' selected>113</option> <option value='114' >114</option> <option value='115' >115</option> <option value='116' >116</option> <option value='117' >117</option> <option value='118' >118</option></select>
+                <select class='form-control form-control-sm selectpicker' id='srh[ACADYear]' name='srh[ACADYear][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學年'><option value='109' >109</option> <option value='110' >110</option> <option value='111' >111</option> <option value='112' >112</option> <option value='113' >113</option> <option value='114' selected>114</option> <option value='115' >115</option> <option value='116' >116</option> <option value='117' >117</option> <option value='118' >118</option> <option value='119' >119</option></select>
             </div>
             <script>
                     $(document).ready(function() {
@@ -637,7 +927,7 @@
             <div class='input-group'>
                 
                 
-                <select class='form-control form-control-sm selectpicker' id='srh[Semester]' name='srh[Semester][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學期'><option value='1' >上學期</option> <option value='2' selected>下學期</option> <option value='3' >暑期</option></select>
+                <select class='form-control form-control-sm selectpicker' id='srh[Semester]' name='srh[Semester][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='學期'><option value='1' selected>上學期</option> <option value='2' >下學期</option> <option value='3' >暑期</option></select>
             </div>
             <script>
                     $(document).ready(function() {
@@ -771,7 +1061,7 @@
             <div class='input-group'>
                 
                 
-                <select class='form-control form-control-sm selectpicker' id='srh[UnitID]' name='srh[UnitID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='系所'><option value='' >-</option> <option value='128' >諮商心理與人力資源發展學系</option> <option value='67' >中國語文學系</option> <option value='125' >國際文教與比較教育學系</option> <option value='113' >社會政策與社會工作學系</option> <option value='122' >外國語文學系</option> <option value='30' >歷史學系</option> <option value='63' >公共行政與政策學系</option> <option value='112' >教育政策與行政學系</option> <option value='65' >東南亞學系</option> <option value='40' >諮商心理與人力資源發展學系終身學習與人力資源發展</option> <option value='46' >經濟學系</option> <option value='103' >國際企業學系</option> <option value='93' selected>資訊管理學系</option> <option value='100' >財務金融學系</option> <option value='138' >高階經營管理碩士學位學程</option> <option value='41' >資訊工程學系</option> <option value='78' >土木工程學系</option> <option value='43' >電機工程學系</option> <option value='96' >應用化學系</option> <option value='88' >應用化學系生物醫學</option> <option value='121' >應用材料及光電工程學系</option> <option value='79' >公共行政與政策學系碩士在職專班</option> <option value='130' >東南亞學系人類學</option> <option value='118' >諮商心理與人力資源發展學系輔導與諮商新加坡境外碩士在職專班</option> <option value='15' >東南亞學系碩士在職專班</option> <option value='51' >課程教學與科技研究所</option> <option value='133' >終身學習與人力資源發展碩士學位學程碩士在職專班</option> <option value='98' >華語文教學碩士學位學程</option> <option value='16' >非營利組織經營管理碩士學位學程在職專班</option> <option value='48' >觀光休閒與餐旅管理學系</option> <option value='106' >觀光休閒與餐旅管理學系餐旅</option> <option value='95' >兩岸高階主管經營管理境外碩士在職學位學程</option> <option value='24' >新興產業策略與發展博士學位學程</option> <option value='47' >原住民文化產業與社會工作學士學位學程原住民族專班</option> <option value='94' >國際文教管理人才博士學位學程</option> <option value='129' >新興產業策略與發展碩士學位學程</option> <option value='54' >區域發展重點產業碩士專班</option> <option value='105' >心理健康與諮詢碩士學位學程在職專班</option> <option value='27' >管理學院學士班</option> <option value='84' >科技學院學士班</option> <option value='58' >教育學院學士班</option> <option value='82' >文化創意與社會行銷碩士學位學程</option> <option value='120' >長期照顧經營管理碩士在職學位學程在職專班</option> <option value='42' >人工智慧與機器人碩士學位學程</option> <option value='92' >心理健康與輔導諮商碩士在職進修新加坡境外專班</option> <option value='123' >地方創生與跨域治理碩士學位學程</option> <option value='83' >護理學系</option> <option value='114' >護理學系原住民族專班</option> <option value='85' >智慧精準農業產學研發博士學位學程</option> <option value='156' >高齡健康與長期照顧管理學士學位學程原住民族專班</option> <option value='241' >光電材料產業碩士專班</option> <option value='249' >智慧暨永續農業學士學位學程</option> <option value='251' >商業管理及資訊科技創新應用全英語碩士學位學程</option> <option value='243' >跨校</option> <option value='80' >體育室</option> <option value='55' >軍訓室</option> <option value='77' >共同科</option> <option value='107' >師資培育中心</option> <option value='115' >遠距教學中心</option> <option value='19' >全校共同選修</option> <option value='135' >全校共同基本必修</option> <option value='246' >全校國文</option> <option value='247' >全校英文</option> <option value='248' >服務學習</option> <option value='32' >通識領域課程</option> <option value='34' >人文學院</option> <option value='91' >管理學院</option> <option value='81' >科技學院</option> <option value='126' >教育學院</option> <option value='157' >教務處課務組</option> <option value='158' >創業育成中心</option> <option value='221' >語文教學中心</option></select>
+                <select class='form-control form-control-sm selectpicker' id='srh[UnitID]' name='srh[UnitID][]' onchange='form.submit()' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='系所'><option value='' >-</option> <option value='128' >諮商心理與人力資源發展學系</option> <option value='67' >中國語文學系</option> <option value='125' >國際文教與比較教育學系</option> <option value='113' >社會政策與社會工作學系</option> <option value='122' >外國語文學系</option> <option value='30' >歷史學系</option> <option value='63' >公共行政與政策學系</option> <option value='112' >教育政策與行政學系</option> <option value='65' >東南亞學系</option> <option value='40' >諮商心理與人力資源發展學系終身學習與人力資源發展</option> <option value='46' >經濟學系</option> <option value='103' >國際企業學系</option> <option value='93' selected>資訊管理學系</option> <option value='100' >財務金融學系</option> <option value='138' >高階經營管理碩士學位學程</option> <option value='41' >資訊工程學系</option> <option value='78' >土木工程學系</option> <option value='43' >電機工程學系</option> <option value='96' >應用化學系</option> <option value='88' >應用化學系生物醫學</option> <option value='121' >應用材料及光電工程學系</option> <option value='97' >光電科技碩士學位學程</option> <option value='79' >公共行政與政策學系碩士在職專班</option> <option value='130' >東南亞學系人類學</option> <option value='118' >諮商心理與人力資源發展學系輔導與諮商新加坡境外碩士在職專班</option> <option value='15' >東南亞學系碩士在職專班</option> <option value='51' >課程教學與科技研究所</option> <option value='133' >終身學習與人力資源發展碩士學位學程碩士在職專班</option> <option value='98' >華語文教學碩士學位學程</option> <option value='16' >非營利組織經營管理碩士學位學程在職專班</option> <option value='48' >觀光休閒與餐旅管理學系</option> <option value='106' >觀光休閒與餐旅管理學系餐旅</option> <option value='95' >兩岸高階主管經營管理境外碩士在職學位學程</option> <option value='24' >新興產業策略與發展博士學位學程</option> <option value='47' >原住民文化產業與社會工作學士學位學程原住民族專班</option> <option value='94' >國際文教管理人才博士學位學程</option> <option value='129' >新興產業策略與發展碩士學位學程</option> <option value='54' >區域發展重點產業碩士專班</option> <option value='105' >心理健康與諮詢碩士學位學程在職專班</option> <option value='27' >管理學院學士班</option> <option value='84' >科技學院學士班</option> <option value='58' >教育學院學士班</option> <option value='82' >文化創意與社會行銷碩士學位學程</option> <option value='120' >長期照顧經營管理碩士在職學位學程在職專班</option> <option value='42' >人工智慧與機器人碩士學位學程</option> <option value='92' >心理健康與輔導諮商碩士在職進修新加坡境外專班</option> <option value='123' >地方創生與跨域治理碩士學位學程</option> <option value='83' >護理學系</option> <option value='114' >護理學系原住民族專班</option> <option value='85' >智慧精準農業產學研發博士學位學程</option> <option value='156' >高齡健康與長期照顧管理學士學位學程原住民族專班</option> <option value='241' >光電材料產業碩士專班</option> <option value='249' >智慧暨永續農業學士學位學程</option> <option value='251' >管理學院商業管理及資訊科技創新應用全英語碩士學位學程</option> <option value='243' >跨校</option> <option value='80' >體育室</option> <option value='55' >軍訓室</option> <option value='77' >共同科</option> <option value='107' >師資培育中心</option> <option value='115' >遠距教學中心</option> <option value='19' >全校共同選修</option> <option value='135' >全校共同基本必修</option> <option value='246' >全校國文</option> <option value='247' >全校英文</option> <option value='248' >服務學習</option> <option value='32' >通識領域課程</option> <option value='34' >人文學院</option> <option value='91' >管理學院</option> <option value='81' >科技學院</option> <option value='126' >教育學院</option> <option value='157' >教務處課務組</option> <option value='158' >創業育成中心</option> <option value='221' >語文教學中心</option></select>
             </div>
             <script>
                     $(document).ready(function() {
@@ -927,7 +1217,7 @@
             <div class='input-group'>
                 
                 
-                <select class='form-control form-control-sm selectpicker' id='srh[ClassRoom]' name='srh[ClassRoom][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='上課教室'><option value='' selected>-</option> <option value='202-1' >202-1</option> <option value='324-2' >324-2</option> <option value='514' >514</option> <option value='A000' >A000</option> <option value='A001' >A001</option> <option value='A100' >A100</option> <option value='A101' >A101</option> <option value='A104' >A104</option> <option value='A105' >A105</option> <option value='A107' >A107</option> <option value='A201' >A201</option> <option value='A201-1' >A201-1</option> <option value='A202' >A202</option> <option value='A203' >A203</option> <option value='A205-1' >A205-1</option> <option value='A206' >A206</option> <option value='A207' >A207</option> <option value='A207-1' >A207-1</option> <option value='A301' >A301</option> <option value='A301-1專業教室' >A301-1專業教室</option> <option value='A302研討室' >A302研討室</option> <option value='A303研討室' >A303研討室</option> <option value='A306' >A306</option> <option value='A307系會議室' >A307系會議室</option> <option value='A308博士班研究室' >A308博士班研究室</option> <option value='A309研討室' >A309研討室</option> <option value='A310研討室' >A310研討室</option> <option value='A311' >A311</option> <option value='A401' >A401</option> <option value='A401-1' >A401-1</option> <option value='A404-2' >A404-2</option> <option value='A407' >A407</option> <option value='A407-1' >A407-1</option> <option value='B01-2' >B01-2</option> <option value='B102' >B102</option> <option value='B103' >B103</option> <option value='B103團體諮商室' >B103團體諮商室</option> <option value='B104' >B104</option> <option value='B203' >B203</option> <option value='B204' >B204</option> <option value='B205' >B205</option> <option value='B301' >B301</option> <option value='B302' >B302</option> <option value='B305' >B305</option> <option value='R127' >R127</option> <option value='人103' >人103</option> <option value='人104' >人104</option> <option value='人105' >人105</option> <option value='人106' >人106</option> <option value='人107' >人107</option> <option value='人110' >人110</option> <option value='人113' >人113</option> <option value='人115' >人115</option> <option value='人118-1' >人118-1</option> <option value='人118-2' >人118-2</option> <option value='人203' >人203</option> <option value='人204-1' >人204-1</option> <option value='人205' >人205</option> <option value='人208' >人208</option> <option value='人215' >人215</option> <option value='人217' >人217</option> <option value='人219' >人219</option> <option value='人303' >人303</option> <option value='人304' >人304</option> <option value='人305-1' >人305-1</option> <option value='人305-2' >人305-2</option> <option value='人306' >人306</option> <option value='人307' >人307</option> <option value='人309-2' >人309-2</option> <option value='人322' >人322</option> <option value='人323' >人323</option> <option value='人324-1' >人324-1</option> <option value='人324-2' >人324-2</option> <option value='人325' >人325</option> <option value='人326' >人326</option> <option value='人327' >人327</option> <option value='人328-1' >人328-1</option> <option value='人328-2' >人328-2</option> <option value='人401' >人401</option> <option value='人402' >人402</option> <option value='人403-1' >人403-1</option> <option value='人403-2' >人403-2</option> <option value='人404' >人404</option> <option value='人405-1' >人405-1</option> <option value='人406' >人406</option> <option value='人418' >人418</option> <option value='人419' >人419</option> <option value='人420' >人420</option> <option value='人B01-1' >人B01-1</option> <option value='人B01-2' >人B01-2</option> <option value='人B04' >人B04</option> <option value='人B05' >人B05</option> <option value='人B07' >人B07</option> <option value='人B08' >人B08</option> <option value='人B09' >人B09</option> <option value='人B12' >人B12</option> <option value='人B14' >人B14</option> <option value='人B15' >人B15</option> <option value='人小個案教室(第二個案教室)' >人小個案教室(第二個案教室)</option> <option value='人院大個案教室' >人院大個案教室</option> <option value='人院小個案教室' >人院小個案教室</option> <option value='人院第一個案教室' >人院第一個案教室</option> <option value='人院第二個案教室' >人院第二個案教室</option> <option value='小個案' >小個案</option> <option value='中科104會議室' >中科104會議室</option> <option value='中科105' >中科105</option> <option value='中科106會議室' >中科106會議室</option> <option value='中科107' >中科107</option> <option value='中科108' >中科108</option> <option value='戶外探索教育中心' >戶外探索教育中心</option> <option value='方形劇場' >方形劇場</option> <option value='方型劇場' >方型劇場</option> <option value='北科大' >北科大</option> <option value='北科大六教326' >北科大六教326</option> <option value='北科大六教726' >北科大六教726</option> <option value='另定' >另定</option> <option value='另訂' >另訂</option> <option value='各實驗室' >各實驗室</option> <option value='行政院人事行政總' >行政院人事行政總</option> <option value='系會議室' >系會議室</option> <option value='系辦會議室' >系辦會議室</option> <option value='東南亞系大會議室' >東南亞系大會議室</option> <option value='東南亞學系大會議室' >東南亞學系大會議室</option> <option value='南投縣政府' >南投縣政府</option> <option value='科一109' >科一109</option> <option value='科一115' >科一115</option> <option value='科一116' >科一116</option> <option value='科一210' >科一210</option> <option value='科一234' >科一234</option> <option value='科一235' >科一235</option> <option value='科一310' >科一310</option> <option value='科一312' >科一312</option> <option value='科一329' >科一329</option> <option value='科一409' >科一409</option> <option value='科一411' >科一411</option> <option value='科一412' >科一412</option> <option value='科一429' >科一429</option> <option value='科一511' >科一511</option> <option value='科一512-2' >科一512-2</option> <option value='科二 533' >科二 533</option> <option value='科二109' >科二109</option> <option value='科二208' >科二208</option> <option value='科二218' >科二218</option> <option value='科二220' >科二220</option> <option value='科二222' >科二222</option> <option value='科二224' >科二224</option> <option value='科二227' >科二227</option> <option value='科二303' >科二303</option> <option value='科二319' >科二319</option> <option value='科二323' >科二323</option> <option value='科二324' >科二324</option> <option value='科二325' >科二325</option> <option value='科二414' >科二414</option> <option value='科二416' >科二416</option> <option value='科二436' >科二436</option> <option value='科二439' >科二439</option> <option value='科二514' >科二514</option> <option value='科二516' >科二516</option> <option value='科二-516' >科二-516</option> <option value='科二531' >科二531</option> <option value='科二小屋' >科二小屋</option> <option value='科三102' >科三102</option> <option value='科三107' >科三107</option> <option value='科三108' >科三108</option> <option value='科三113' >科三113</option> <option value='科三115' >科三115</option> <option value='科三116' >科三116</option> <option value='科三117' >科三117</option> <option value='科三118' >科三118</option> <option value='科三119' >科三119</option> <option value='科三201' >科三201</option> <option value='科三207' >科三207</option> <option value='科三208' >科三208</option> <option value='科三209' >科三209</option> <option value='科三214' >科三214</option> <option value='科三301' >科三301</option> <option value='科三302' >科三302</option> <option value='科三303-右' >科三303-右</option> <option value='科三304-1' >科三304-1</option> <option value='科三305' >科三305</option> <option value='科三307-1' >科三307-1</option> <option value='科三308' >科三308</option> <option value='科三321' >科三321</option> <option value='科三322' >科三322</option> <option value='科三401' >科三401</option> <option value='科三408' >科三408</option> <option value='科三409' >科三409</option> <option value='科三410' >科三410</option> <option value='科三415' >科三415</option> <option value='科四102' >科四102</option> <option value='科四104' >科四104</option> <option value='科四110' >科四110</option> <option value='科四114' >科四114</option> <option value='科四116' >科四116</option> <option value='科四116-2' >科四116-2</option> <option value='科四117' >科四117</option> <option value='科四202-1' >科四202-1</option> <option value='科四206' >科四206</option> <option value='科四319' >科四319</option> <option value='科四322' >科四322</option> <option value='科四404' >科四404</option> <option value='科四412' >科四412</option> <option value='科四417' >科四417</option> <option value='科四419' >科四419</option> <option value='科四419-1' >科四419-1</option> <option value='科四420' >科四420</option> <option value='科四館420' >科四館420</option> <option value='耐震204' >耐震204</option> <option value='射箭場' >射箭場</option> <option value='高爾夫球場' >高爾夫球場</option> <option value='教A104' >教A104</option> <option value='教A105' >教A105</option> <option value='教A301' >教A301</option> <option value='教A311' >教A311</option> <option value='教B102' >教B102</option> <option value='教師研究室' >教師研究室</option> <option value='游泳池' >游泳池</option> <option value='結構實驗室' >結構實驗室</option> <option value='華中科技大學' >華中科技大學</option> <option value='圓形劇場' >圓形劇場</option> <option value='圖資010-1(B1數位教室)' >圖資010-1(B1數位教室)</option> <option value='圖資026' >圖資026</option> <option value='圖資027' >圖資027</option> <option value='圖資028' >圖資028</option> <option value='圖資213無國界教室' >圖資213無國界教室</option> <option value='圖資218' >圖資218(戲劇展演練習室)</option> <option value='圖資222數位教室' >圖資222數位教室</option> <option value='圖資223創意教室' >圖資223創意教室</option> <option value='圖資大樓多功能演講廳' >圖資大樓多功能演講廳</option> <option value='管103' >管103</option> <option value='管104' >管104</option> <option value='管106' >管106</option> <option value='管107' >管107</option> <option value='管112' >管112</option> <option value='管113' >管113</option> <option value='管115' >管115</option> <option value='管125-2' >管125-2</option> <option value='管126' >管126</option> <option value='管127' >管127</option> <option value='管135' >管135</option> <option value='管136' >管136</option> <option value='管203' >管203</option> <option value='管204' >管204</option> <option value='管206' >管206</option> <option value='管207' >管207</option> <option value='管210' >管210</option> <option value='管212' >管212</option> <option value='管213' >管213</option> <option value='管215' >管215</option> <option value='管217' >管217</option> <option value='管226' >管226</option> <option value='管228' >管228</option> <option value='管241' >管241</option> <option value='管255' >管255</option> <option value='管260' >管260</option> <option value='管268' >管268</option> <option value='管304' >管304</option> <option value='管305' >管305</option> <option value='管312' >管312</option> <option value='管316' >管316</option> <option value='管320' >管320</option> <option value='管328' >管328</option> <option value='管329' >管329</option> <option value='管331' >管331</option> <option value='管341' >管341</option> <option value='管342' >管342</option> <option value='管350' >管350</option> <option value='管371' >管371</option> <option value='管427' >管427</option> <option value='管432' >管432</option> <option value='管441' >管441</option> <option value='管443' >管443</option> <option value='管451' >管451</option> <option value='管452' >管452</option> <option value='管457' >管457</option> <option value='管461' >管461</option> <option value='管462' >管462</option> <option value='管5004' >管5004</option> <option value='管5005' >管5005</option> <option value='管5015' >管5015</option> <option value='管5017' >管5017</option> <option value='管5043' >管5043</option> <option value='管5049' >管5049</option> <option value='管5058' >管5058</option> <option value='管5059' >管5059</option> <option value='管5064' >管5064</option> <option value='管5099' >管5099</option> <option value='管5101' >管5101</option> <option value='管5112' >管5112</option> <option value='管5117' >管5117</option> <option value='管B11' >管B11</option> <option value='管B15' >管B15</option> <option value='管B24' >管B24</option> <option value='管R127' >管R127</option> <option value='網球場' >網球場</option> <option value='線上' >線上</option> <option value='壘球場' >壘球場</option> <option value='攝影棚' >攝影棚</option> <option value='體健中心' >體健中心</option> <option value='體健中心有氧教室' >體健中心有氧教室</option> <option value='體健中心室內划船訓練室' >體健中心室內划船訓練室</option> <option value='體健中心綜合球場' >體健中心綜合球場</option> <option value='體健中心綜合球館' >體健中心綜合球館</option> <option value='體健中心韻律教室' >體健中心韻律教室</option></select>
+                <select class='form-control form-control-sm selectpicker' id='srh[ClassRoom]' name='srh[ClassRoom][]' data-style='form-control form-control-sm' data-live-search='true'  data-error-title='上課教室'><option value='' selected>-</option> <option value='202-1' >202-1</option> <option value='324-2' >324-2</option> <option value='514' >514</option> <option value='A000' >A000</option> <option value='A001' >A001</option> <option value='A100' >A100</option> <option value='A101' >A101</option> <option value='A104' >A104</option> <option value='A105' >A105</option> <option value='A107' >A107</option> <option value='A201' >A201</option> <option value='A201-1' >A201-1</option> <option value='A202' >A202</option> <option value='A203' >A203</option> <option value='A205-1' >A205-1</option> <option value='A206' >A206</option> <option value='A207' >A207</option> <option value='A207-1' >A207-1</option> <option value='A301' >A301</option> <option value='A301-1專業教室' >A301-1專業教室</option> <option value='A302研討室' >A302研討室</option> <option value='A303研討室' >A303研討室</option> <option value='A306' >A306</option> <option value='A307系會議室' >A307系會議室</option> <option value='A308博士班研究室' >A308博士班研究室</option> <option value='A309研討室' >A309研討室</option> <option value='A310研討室' >A310研討室</option> <option value='A311' >A311</option> <option value='A401' >A401</option> <option value='A401-1' >A401-1</option> <option value='A404-2' >A404-2</option> <option value='A407' >A407</option> <option value='A407-1' >A407-1</option> <option value='B01-2' >B01-2</option> <option value='B102' >B102</option> <option value='B103' >B103</option> <option value='B103團體諮商室' >B103團體諮商室</option> <option value='B104' >B104</option> <option value='B203' >B203</option> <option value='B204' >B204</option> <option value='B205' >B205</option> <option value='B301' >B301</option> <option value='B302' >B302</option> <option value='B305' >B305</option> <option value='R127' >R127</option> <option value='人103' >人103</option> <option value='人104' >人104</option> <option value='人105' >人105</option> <option value='人106' >人106</option> <option value='人107' >人107</option> <option value='人110' >人110</option> <option value='人113' >人113</option> <option value='人115' >人115</option> <option value='人118-1' >人118-1</option> <option value='人118-2' >人118-2</option> <option value='人203' >人203</option> <option value='人204-1' >人204-1</option> <option value='人205' >人205</option> <option value='人208' >人208</option> <option value='人215' >人215</option> <option value='人217' >人217</option> <option value='人219' >人219</option> <option value='人303' >人303</option> <option value='人304' >人304</option> <option value='人305-1' >人305-1</option> <option value='人305-2' >人305-2</option> <option value='人306' >人306</option> <option value='人307' >人307</option> <option value='人309-2' >人309-2</option> <option value='人322' >人322</option> <option value='人323' >人323</option> <option value='人324-1' >人324-1</option> <option value='人324-2' >人324-2</option> <option value='人325' >人325</option> <option value='人326' >人326</option> <option value='人327' >人327</option> <option value='人328-1' >人328-1</option> <option value='人328-2' >人328-2</option> <option value='人401' >人401</option> <option value='人402' >人402</option> <option value='人403-1' >人403-1</option> <option value='人403-2' >人403-2</option> <option value='人404' >人404</option> <option value='人405-1' >人405-1</option> <option value='人406' >人406</option> <option value='人418' >人418</option> <option value='人419' >人419</option> <option value='人420' >人420</option> <option value='人B01-1' >人B01-1</option> <option value='人B01-2' >人B01-2</option> <option value='人B04' >人B04</option> <option value='人B05' >人B05</option> <option value='人B07' >人B07</option> <option value='人B08' >人B08</option> <option value='人B09' >人B09</option> <option value='人B12' >人B12</option> <option value='人B14' >人B14</option> <option value='人B15' >人B15</option> <option value='人小個案教室(第二個案教室)' >人小個案教室(第二個案教室)</option> <option value='人院大個案教室' >人院大個案教室</option> <option value='人院小個案教室' >人院小個案教室</option> <option value='人院第一個案教室' >人院第一個案教室</option> <option value='人院第二個案教室' >人院第二個案教室</option> <option value='小個案' >小個案</option> <option value='中科104會議室' >中科104會議室</option> <option value='中科105' >中科105</option> <option value='中科106會議室' >中科106會議室</option> <option value='中科107' >中科107</option> <option value='中科108' >中科108</option> <option value='戶外探索教育中心' >戶外探索教育中心</option> <option value='方形劇場' >方形劇場</option> <option value='方型劇場' >方型劇場</option> <option value='北科大' >北科大</option> <option value='北科大六教326' >北科大六教326</option> <option value='北科大六教726' >北科大六教726</option> <option value='另定' >另定</option> <option value='另訂' >另訂</option> <option value='各實驗室' >各實驗室</option> <option value='行政院人事行政總' >行政院人事行政總</option> <option value='系會議室' >系會議室</option> <option value='系辦會議室' >系辦會議室</option> <option value='東南亞系大會議室' >東南亞系大會議室</option> <option value='東南亞學系大會議室' >東南亞學系大會議室</option> <option value='南投縣政府' >南投縣政府</option> <option value='科一109' >科一109</option> <option value='科一115' >科一115</option> <option value='科一116' >科一116</option> <option value='科一210' >科一210</option> <option value='科一234' >科一234</option> <option value='科一235' >科一235</option> <option value='科一310' >科一310</option> <option value='科一312' >科一312</option> <option value='科一329' >科一329</option> <option value='科一409' >科一409</option> <option value='科一410' >科一410</option> <option value='科一411' >科一411</option> <option value='科一412' >科一412</option> <option value='科一429' >科一429</option> <option value='科一511' >科一511</option> <option value='科一512-2' >科一512-2</option> <option value='科二 533' >科二 533</option> <option value='科二109' >科二109</option> <option value='科二208' >科二208</option> <option value='科二218' >科二218</option> <option value='科二220' >科二220</option> <option value='科二222' >科二222</option> <option value='科二224' >科二224</option> <option value='科二227' >科二227</option> <option value='科二303' >科二303</option> <option value='科二319' >科二319</option> <option value='科二323' >科二323</option> <option value='科二324' >科二324</option> <option value='科二325' >科二325</option> <option value='科二414' >科二414</option> <option value='科二416' >科二416</option> <option value='科二436' >科二436</option> <option value='科二439' >科二439</option> <option value='科二514' >科二514</option> <option value='科二516' >科二516</option> <option value='科二-516' >科二-516</option> <option value='科二531' >科二531</option> <option value='科二小屋' >科二小屋</option> <option value='科三102' >科三102</option> <option value='科三107' >科三107</option> <option value='科三108' >科三108</option> <option value='科三113' >科三113</option> <option value='科三115' >科三115</option> <option value='科三116' >科三116</option> <option value='科三117' >科三117</option> <option value='科三118' >科三118</option> <option value='科三119' >科三119</option> <option value='科三201' >科三201</option> <option value='科三207' >科三207</option> <option value='科三208' >科三208</option> <option value='科三209' >科三209</option> <option value='科三214' >科三214</option> <option value='科三301' >科三301</option> <option value='科三302' >科三302</option> <option value='科三303-右' >科三303-右</option> <option value='科三304-1' >科三304-1</option> <option value='科三305' >科三305</option> <option value='科三307-1' >科三307-1</option> <option value='科三308' >科三308</option> <option value='科三321' >科三321</option> <option value='科三322' >科三322</option> <option value='科三401' >科三401</option> <option value='科三408' >科三408</option> <option value='科三409' >科三409</option> <option value='科三410' >科三410</option> <option value='科三415' >科三415</option> <option value='科四102' >科四102</option> <option value='科四104' >科四104</option> <option value='科四110' >科四110</option> <option value='科四114' >科四114</option> <option value='科四116' >科四116</option> <option value='科四116-2' >科四116-2</option> <option value='科四117' >科四117</option> <option value='科四202-1' >科四202-1</option> <option value='科四206' >科四206</option> <option value='科四319' >科四319</option> <option value='科四322' >科四322</option> <option value='科四404' >科四404</option> <option value='科四412' >科四412</option> <option value='科四417' >科四417</option> <option value='科四419' >科四419</option> <option value='科四419-1' >科四419-1</option> <option value='科四420' >科四420</option> <option value='科四館420' >科四館420</option> <option value='耐震204' >耐震204</option> <option value='射箭場' >射箭場</option> <option value='高爾夫球場' >高爾夫球場</option> <option value='教A104' >教A104</option> <option value='教A105' >教A105</option> <option value='教A301' >教A301</option> <option value='教A311' >教A311</option> <option value='教B102' >教B102</option> <option value='教師研究室' >教師研究室</option> <option value='游泳池' >游泳池</option> <option value='結構實驗室' >結構實驗室</option> <option value='華中科技大學' >華中科技大學</option> <option value='圓形劇場' >圓形劇場</option> <option value='圖資010-1(B1數位教室)' >圖資010-1(B1數位教室)</option> <option value='圖資026' >圖資026</option> <option value='圖資027' >圖資027</option> <option value='圖資028' >圖資028</option> <option value='圖資213無國界教室' >圖資213無國界教室</option> <option value='圖資218' >圖資218(戲劇展演練習室)</option> <option value='圖資222數位教室' >圖資222數位教室</option> <option value='圖資223創意教室' >圖資223創意教室</option> <option value='圖資大樓多功能演講廳' >圖資大樓多功能演講廳</option> <option value='管103' >管103</option> <option value='管104' >管104</option> <option value='管106' >管106</option> <option value='管107' >管107</option> <option value='管112' >管112</option> <option value='管113' >管113</option> <option value='管115' >管115</option> <option value='管125-2' >管125-2</option> <option value='管126' >管126</option> <option value='管127' >管127</option> <option value='管135' >管135</option> <option value='管136' >管136</option> <option value='管203' >管203</option> <option value='管204' >管204</option> <option value='管206' >管206</option> <option value='管207' >管207</option> <option value='管210' >管210</option> <option value='管212' >管212</option> <option value='管213' >管213</option> <option value='管215' >管215</option> <option value='管217' >管217</option> <option value='管226' >管226</option> <option value='管228' >管228</option> <option value='管241' >管241</option> <option value='管255' >管255</option> <option value='管260' >管260</option> <option value='管268' >管268</option> <option value='管304' >管304</option> <option value='管305' >管305</option> <option value='管312' >管312</option> <option value='管316' >管316</option> <option value='管320' >管320</option> <option value='管328' >管328</option> <option value='管329' >管329</option> <option value='管331' >管331</option> <option value='管341' >管341</option> <option value='管342' >管342</option> <option value='管350' >管350</option> <option value='管371' >管371</option> <option value='管427' >管427</option> <option value='管432' >管432</option> <option value='管441' >管441</option> <option value='管443' >管443</option> <option value='管451' >管451</option> <option value='管452' >管452</option> <option value='管457' >管457</option> <option value='管461' >管461</option> <option value='管462' >管462</option> <option value='管5004' >管5004</option> <option value='管5005' >管5005</option> <option value='管5015' >管5015</option> <option value='管5017' >管5017</option> <option value='管5043' >管5043</option> <option value='管5049' >管5049</option> <option value='管5058' >管5058</option> <option value='管5059' >管5059</option> <option value='管5064' >管5064</option> <option value='管5099' >管5099</option> <option value='管5101' >管5101</option> <option value='管5112' >管5112</option> <option value='管5117' >管5117</option> <option value='管B11' >管B11</option> <option value='管B15' >管B15</option> <option value='管B24' >管B24</option> <option value='管R127' >管R127</option> <option value='網球場' >網球場</option> <option value='線上' >線上</option> <option value='學生活動中心502' >學生活動中心502</option> <option value='壘球場' >壘球場</option> <option value='攝影棚' >攝影棚</option> <option value='體健中心' >體健中心</option> <option value='體健中心有氧教室' >體健中心有氧教室</option> <option value='體健中心室內划船訓練室' >體健中心室內划船訓練室</option> <option value='體健中心綜合球場' >體健中心綜合球場</option> <option value='體健中心綜合球館' >體健中心綜合球館</option> <option value='體健中心韻律教室' >體健中心韻律教室</option></select>
             </div>
             <script>
                     $(document).ready(function() {
@@ -1069,7 +1359,7 @@
                     $(document).ready(function() {
                         let mergeCell = [];
                         
-                        setDataTables('tb', {"language":{"buttons":{"selectAll":"<span class='' style='' id=''><i class=' text-info far fa-check-square'><\/i> \u5168\u9078<\/span>","selectNone":"<span class='' style='' id=''><i class=' text-info far fa-square'><\/i> \u53d6\u6d88<\/span>","create":"<span class='' style='' id=''><i class=' text-success fas fa-plus'><\/i> \u65b0\u589e<\/span>","edit":"<span class='' style='' id=''><i class=' text-warning fas fa-edit'><\/i> \u7de8\u8f2f<\/span>","remove":"<span class='' style='' id=''><i class=' text-danger fas fa-trash'><\/i> \u522a\u9664<\/span>"}},"rowGroup":"","data":[],"columns":[{"title":"\r\n            <div ><div class='icheck-material-green form-check'>\r\n                    <input class='form-check-input' type='checkbox' id='tb_detail_all' value=all name='tb_detail[]'   onclick=table_detail('tb') data-error-title=''>\r\n                    <label class='form-check-label' for='tb_detail_all'><\/label>\r\n                <\/div><\/div>\r\n            ","data":null,"defaultContent":"","className":"control","width":"1%","searchable":false,"orderable":false},{"title":"\u8ab2\u865f","data":"CourseNo","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u73ed\u7d1a","data":"StudyClassName","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u79d1\u76ee","data":"SemesterCourseName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u79d1\u76ee\u82f1\u6587\u540d\u7a31","data":"SemesterCourseENGName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u4fee\u5225","data":"CourseClassName","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u5b78\u5206","data":"Credit","className":"text-center align-middle ","width":"60","orderable":true,"visible":true},{"title":"\u7cfb\u6240","data":"UnitName","className":"text-left align-middle ","width":"180","orderable":true,"visible":true},{"title":"\u5b78\u5236","data":"DayfgClassTypeName","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u5e74\u7d1a","data":"Grade","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u4efb\u8ab2\u6559\u5e2b","data":"Teacher","className":"text-left align-middle ","width":"120","orderable":true,"visible":true},{"title":"\u4e0a\u8ab2\u6642\u9593","data":"SemCourseTime","className":"text-left align-middle ","width":"120","orderable":false,"visible":true},{"title":"\u4e0a\u8ab2\u6559\u5ba4","data":"ClassRoom","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u5099\u8a3b","data":"Memo","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u6388\u8ab2\u8a9e\u8a00","data":"TeaLanguage","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0b\u9650","data":"StdAmtLow","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0a\u9650","data":"StdAmtUp","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u767b\u8a18\u4eba\u6578","data":"VolCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u4e2d\u9078\u4eba\u6578","data":"VolGetCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u9078\u8ab2\u4eba\u6578","data":"SelAmt","className":"text-left align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u865f","data":"SemesterCourseNo","className":"text-left align-middle none","width":"80","orderable":true,"visible":true},{"title":"\u9078\u5225","data":"Choose","className":"text-left align-middle none","width":"60","orderable":true,"visible":true}],"autoWidth":false,"sort":true,"paging":true,"searching":true,"info":true,"deferLoading":"10","order":[],"pageLength":10,"lengthMenu":[10,25,50,100,200,500,1000,2000],"scrollResize":false,"modifier":{"selected":true},"layout":{"bottom":"inputPaging"},"responsive":{"details":{"target":0,"type":"column"}},"select":false,"buttons":[{"extend":"excelHtml5","title":"Data Export","exportOptions":{"columns":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]},"text":"<i class='far fa-file-excel text-success'><\/i> \u532f\u51faExcel"}]}, [], [], [], false);
+                        setDataTables('tb', {"language":{"buttons":{"selectAll":"<span class='' style='' id=''><i class=' text-info far fa-check-square'><\/i> \u5168\u9078<\/span>","selectNone":"<span class='' style='' id=''><i class=' text-info far fa-square'><\/i> \u53d6\u6d88<\/span>","create":"<span class='' style='' id=''><i class=' text-success fas fa-plus'><\/i> \u65b0\u589e<\/span>","edit":"<span class='' style='' id=''><i class=' text-warning fas fa-edit'><\/i> \u7de8\u8f2f<\/span>","remove":"<span class='' style='' id=''><i class=' text-danger fas fa-trash'><\/i> \u522a\u9664<\/span>"}},"rowGroup":"","data":[{"SemesterCourseID":"89326","CourseNo":"130003","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89326\">\u7a0b\u5f0f\u8a2d\u8a08(\u4e0a)<\/a>","SemesterCourseENGName":"Programming (1)","CourseClassName":"\u57fa\u790e\u9662\u672c\u8ab2\u7a0b\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u912d\u80b2\u8a55","SemCourseTime":"2bcd","ClassRoom":"\u7ba1371","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0184","Choose":"\u5fc5\u4fee","DT_RowId":"row_0"},{"SemesterCourseID":"89327","CourseNo":"130063","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89327\">\u7d93\u6fdf\u5b78\u8207\u5be6\u7fd2(\u4e0a)<\/a>","SemesterCourseENGName":"Economics (1)","CourseClassName":"\u57fa\u790e\u9662\u672c\u8ab2\u7a0b\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u738b\u80b2\u6c11","SemCourseTime":"4bcd","ClassRoom":"\u7ba1371","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0185","Choose":"\u5fc5\u4fee","DT_RowId":"row_1"},{"SemesterCourseID":"89328","CourseNo":"130066","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89328\">\u7d71\u8a08\u5b78\u8207\u5be6\u7fd2(\u4e0a)<\/a>","SemesterCourseENGName":"Statistics (1)","CourseClassName":"\u57fa\u790e\u9662\u672c\u8ab2\u7a0b\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6d2a\u5609\u826f","SemCourseTime":"5bcd","ClassRoom":"\u7ba1226","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0186","Choose":"\u5fc5\u4fee","DT_RowId":"row_2"},{"SemesterCourseID":"89329","CourseNo":"130065","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89329\">\u5fae\u7a4d\u5206\u8207\u5be6\u7fd2(\u4e0a)<\/a>","SemesterCourseENGName":"Calculus (1)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"1","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"3bcd","ClassRoom":"\u7ba1215","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0187","Choose":"\u5fc5\u4fee","DT_RowId":"row_3"},{"SemesterCourseID":"89330","CourseNo":"130021","StudyClassName":"0","SemesterCourseName":"\u8cc7\u6599\u7d50\u69cb\u8207\u6f14\u7b97\u6cd5(\u4e0a)","SemesterCourseENGName":"Data Structures and Algorithms (1)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6e38\u5b50\u5b9c","SemCourseTime":"3bcd","ClassRoom":"\u7ba1371","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0188","Choose":"\u5fc5\u4fee","DT_RowId":"row_4"},{"SemesterCourseID":"89331","CourseNo":"130032","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89331\">\u8cc7\u6599\u5eab\u7ba1\u7406\u7cfb\u7d71<\/a>","SemesterCourseENGName":"Data Base Management System","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5efa\u5b8f","SemCourseTime":"4fgh","ClassRoom":"\u7ba1268","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0189","Choose":"\u5fc5\u4fee","DT_RowId":"row_5"},{"SemesterCourseID":"89332","CourseNo":"130044","StudyClassName":"a","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89332\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)<\/a>","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"3hij","ClassRoom":"\u7ba1B24","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0190","Choose":"\u5fc5\u4fee","DT_RowId":"row_6"},{"SemesterCourseID":"89333","CourseNo":"130031","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89333\">\u8edf\u9ad4\u5de5\u7a0b<\/a>","SemesterCourseENGName":"Software Engineering","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5efa\u5b8f","SemCourseTime":"2bcd","ClassRoom":"\u7ba1241","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0191","Choose":"\u9078\u4fee","DT_RowId":"row_7"},{"SemesterCourseID":"89334","CourseNo":"130040","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89334\">\u4f5c\u696d\u7cfb\u7d71<\/a>","SemesterCourseENGName":"Operating Systems","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u59dc\u7f8e\u73b2","SemCourseTime":"4bcd","ClassRoom":"\u7ba1228","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0192","Choose":"\u9078\u4fee","DT_RowId":"row_8"},{"SemesterCourseID":"89335","CourseNo":"130077","StudyClassName":"0","SemesterCourseName":"\u7db2\u9801\u7a0b\u5f0f\u8a2d\u8a08","SemesterCourseENGName":"Web Programming","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u9673\u5f65\u931a","SemCourseTime":"2ij,3bcd","ClassRoom":"A101,\u7ba1226","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u6b63\u8ab2\u6642\u9593\uff1a3bcd\uff0c\u6559\u5ba4\uff1a\u7ba1226\uff1b\u5be6\u7fd2\u8ab2\u6642\u9593\uff1a2ij\uff0c\u6559\u5ba4\uff1a\u6559A101\uff1b\u5be6\u7fd2\u8ab2\u76f8\u95dc\u8cc7\u8a0a\u8acb\u53c3\u95b1\u8ab2\u7db1\u3002","SemesterCourseNo":"0193","Choose":"\u9078\u4fee","DT_RowId":"row_9"},{"SemesterCourseID":"89336","CourseNo":"130091","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89336\">\u8cc7\u8a0a\u7cfb\u7d71\u958b\u767c\u8207\u5be6\u52d9(\u4e00)<\/a>","SemesterCourseENGName":"Practicum for Information Systems(1)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6234\u69ae\u8ce6","SemCourseTime":"3efg","ClassRoom":"\u7ba1215","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0194","Choose":"\u9078\u4fee","DT_RowId":"row_10"},{"SemesterCourseID":"89337","CourseNo":"130094","StudyClassName":"0","SemesterCourseName":"Linux \u7cfb\u7d71\u7ba1\u7406\u5be6\u52d9\uff08\u4e00\uff0c\u5165\u9580\uff09","SemesterCourseENGName":"Practical Linux System Administration - Level I, Basic","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u7df4\u5586\u660e","SemCourseTime":"4hij","ClassRoom":"\u7ba1228","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"30","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0195","Choose":"\u9078\u4fee","DT_RowId":"row_11"},{"SemesterCourseID":"89338","CourseNo":"130097","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89338\">\u8cc7\u8a0a\u5b89\u5168\u7ba1\u7406\u8207\u6280\u8853<\/a>","SemesterCourseENGName":"Information Security management and Technology","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"4efg","ClassRoom":"\u7ba1241","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"50","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0196","Choose":"\u9078\u4fee","DT_RowId":"row_12"},{"SemesterCourseID":"89339","CourseNo":"130109","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89339\">\u667a\u6167\u8a08\u7b97\u898f\u5283\uff1a\u61c9\u7528\u8207\u7a0b\u5f0f<\/a>","SemesterCourseENGName":"Intelligent Computing Strategy: Application and Programming","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u6e38\u5b50\u5b9c","SemCourseTime":"1bcd","ClassRoom":"\u7ba1203","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"30","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0197","Choose":"\u9078\u4fee","DT_RowId":"row_13"},{"SemesterCourseID":"89340","CourseNo":"130019","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89340\">\u7d44\u7e54\u884c\u70ba<\/a>","SemesterCourseENGName":"Organization Behavior","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u6234\u69ae\u8ce6","SemCourseTime":"1bcd","ClassRoom":"\u7ba1241","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0198","Choose":"\u9078\u4fee","DT_RowId":"row_14"},{"SemesterCourseID":"89341","CourseNo":"130061","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89341\">\u884c\u92b7\u7ba1\u7406<\/a>","SemesterCourseENGName":"Marketing Management","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u6d2a\u5609\u826f","SemCourseTime":"1fgh","ClassRoom":"\u7ba1226","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0199","Choose":"\u9078\u4fee","DT_RowId":"row_15"},{"SemesterCourseID":"89342","CourseNo":"130099","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89342\">\u8cc7\u6599\u8996\u89ba\u5316<\/a>","SemesterCourseENGName":"Data Visualization","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5c0f\u82ac","SemCourseTime":"3efg","ClassRoom":"\u7ba1213","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0200","Choose":"\u9078\u4fee","DT_RowId":"row_16"},{"SemesterCourseID":"89343","CourseNo":"135006","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89343\">\u9ad8\u7b49\u8cc7\u8a0a\u7ba1\u7406<\/a>","SemesterCourseENGName":"Advanced Information Management","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u9673\u5c0f\u82ac","SemCourseTime":"3bcd","ClassRoom":"\u7ba1204","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u5fc5\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0201","Choose":"\u5fc5\u4fee","DT_RowId":"row_17"},{"SemesterCourseID":"89344","CourseNo":"135145","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89344\">\u5c08\u984c\u8a0e\u8ad6(\u4e0a)<\/a>","SemesterCourseENGName":"Seminar(1)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":1,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u9ec3\u4fca\u54f2,\u6797\u5999\u8070,\u4faf\u5b8f\u5f6c","SemCourseTime":"4fgh","ClassRoom":"\u7ba1260","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u5fc5\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0202","Choose":"\u5fc5\u4fee","DT_RowId":"row_18"},{"SemesterCourseID":"89345","CourseNo":"135001","StudyClassName":"0","SemesterCourseName":"\u9ad8\u7b49\u8cc7\u8a0a\u7db2\u8def","SemesterCourseENGName":"Advanced Computer Networks","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u9673\u5f65\u931a","SemCourseTime":"2efg","ClassRoom":"\u7ba1228","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0203","Choose":"\u9078\u4fee","DT_RowId":"row_19"},{"SemesterCourseID":"89346","CourseNo":"135139","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89346\">\u7db2\u8def\u653b\u9632\u8207\u539f\u7406<\/a>","SemesterCourseENGName":"Network Attack, Defense Technology, and Concepts","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u7c21\u5b8f\u5b87","SemCourseTime":"5bcd","ClassRoom":"\u7ba1228","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"40","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0204","Choose":"\u9078\u4fee","DT_RowId":"row_20"},{"SemesterCourseID":"89347","CourseNo":"135144","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89347\">\u4eba\u5de5\u667a\u6167\u8207\u5be6\u52d9\u61c9\u7528(II)<\/a>","SemesterCourseENGName":"Artificial Intelligence and Practical Application (II)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u912d\u80b2\u8a55","SemCourseTime":"1bcd","ClassRoom":"\u7ba1204","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0205","Choose":"\u9078\u4fee","DT_RowId":"row_21"},{"SemesterCourseID":"89348","CourseNo":"135109","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89348\">\u7cfb\u7d71\u601d\u8003\u8207\u7cfb\u7d71\u52d5\u614b\u5b78<\/a>","SemesterCourseENGName":"Introduction to Systems Thinking and System Dynamics","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u674e\u5065\u83c1,\u9673\u5efa\u5b8f","SemCourseTime":"4bcd","ClassRoom":"\u7ba1226","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002","SemesterCourseNo":"0206","Choose":"\u9078\u4fee","DT_RowId":"row_22"},{"SemesterCourseID":"89349","CourseNo":"130085","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89349\">\u4f01\u696d\u5be6\u7fd2(\u4e00)<\/a>","SemesterCourseENGName":"Enterprise Internship (I)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"","ClassRoom":"","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u6027\u8cea\u7279\u6b8a\u8ab2\u7a0b(1131)","SemesterCourseNo":"0207","Choose":"\u9078\u4fee","DT_RowId":"row_23"},{"SemesterCourseID":"89350","CourseNo":"130086","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89350\">\u4f01\u696d\u5be6\u7fd2(\u4e8c)<\/a>","SemesterCourseENGName":"Enterprise Internship (II)","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9ec3\u4fca\u54f2","SemCourseTime":"","ClassRoom":"","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"10","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"\u6027\u8cea\u7279\u6b8a\u8ab2\u7a0b(1141)","SemesterCourseNo":"0208","Choose":"\u9078\u4fee","DT_RowId":"row_24"},{"SemesterCourseID":"89351","CourseNo":"130093","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89351\">3D\u5be6\u5883\u61c9\u7528\u958b\u767c<\/a>","SemesterCourseENGName":"Development of 3D-Reality Applications","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"2","Teacher":"\u9673\u5efa\u5b8f,\u9ad8\u7af9\u8abc","SemCourseTime":"3efg","ClassRoom":"\u7ba1241","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0209","Choose":"\u9078\u4fee","DT_RowId":"row_25"},{"SemesterCourseID":"89352","CourseNo":"130105","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89352\">\u7b56\u7565\u8207\u7ba1\u7406\u7684\u7cfb\u7d71\u601d\u7dad<\/a>","SemesterCourseENGName":"Systems Thinking in Business Strategy and Management","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"3","Teacher":"\u8a31\u666f\u660e","SemCourseTime":"5efg","ClassRoom":"\u7ba1228","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0210","Choose":"\u9078\u4fee","DT_RowId":"row_26"},{"SemesterCourseID":"89353","CourseNo":"130044","StudyClassName":"b","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89353\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)<\/a>","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u6d2a\u5609\u826f","SemCourseTime":"3hij","ClassRoom":"\u7ba1451","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0211","Choose":"\u5fc5\u4fee","DT_RowId":"row_27"},{"SemesterCourseID":"89354","CourseNo":"130044","StudyClassName":"c","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89354\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)<\/a>","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u9ec3\u4fca\u54f2,\u9f94\u69ae\u767c","SemCourseTime":"3hij","ClassRoom":"\u7ba1203","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0212","Choose":"\u5fc5\u4fee","DT_RowId":"row_28"},{"SemesterCourseID":"89355","CourseNo":"130044","StudyClassName":"d","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89355\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)<\/a>","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u9673\u5efa\u5b8f","SemCourseTime":"3hij","ClassRoom":"\u7ba1204","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0213","Choose":"\u5fc5\u4fee","DT_RowId":"row_29"},{"SemesterCourseID":"89356","CourseNo":"130044","StudyClassName":"e","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/89356\">\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)<\/a>","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u9673\u5f65\u931a,\u9673\u5c0f\u82ac","SemCourseTime":"3hij","ClassRoom":"\u7ba1136","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0214","Choose":"\u5fc5\u4fee","DT_RowId":"row_30"},{"SemesterCourseID":"89357","CourseNo":"130044","StudyClassName":"f","SemesterCourseName":"\u8cc7\u8a0a\u7ba1\u7406\u5c08\u984c\u8207\u500b\u6848(\u4e0b)","SemesterCourseENGName":"Project(II)","CourseClassName":"\u5c08\u696d\u5fc5\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u5b78\u58eb\u73ed","Grade":"4","Teacher":"\u6234\u69ae\u8ce6,\u912d\u80b2\u8a55","SemCourseTime":"3hij","ClassRoom":"\u7ba1106","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"","SemesterCourseNo":"0215","Choose":"\u5fc5\u4fee","DT_RowId":"row_31"},{"SemesterCourseID":"90059","CourseNo":"135147","StudyClassName":"0","SemesterCourseName":"<a href=\"https:\/\/sis.ncnu.edu.tw\/b09\/b09120\/view\/90059\">\u6578\u4f4d\u884c\u92b7<\/a>","SemesterCourseENGName":"Digital Martketing","CourseClassName":"\u5c08\u696d\u9078\u4fee","Credit":3,"UnitName":"\u8cc7\u8a0a\u7ba1\u7406\u5b78\u7cfb","DayfgClassTypeName":"\u78a9\u58eb\u73ed","Grade":"1","Teacher":"\u53f8\u99ac\u6dfb","SemCourseTime":"5efg","ClassRoom":"\u7ba1443","StageSelDisplay":"","TeaLanguage":"\u570b\u8a9e","StdAmtLow":"0","StdAmtUp":"999","SelAmt":"0","VolCnt":0,"VolGetCnt":0,"Memo":"1. \u70ba\u78a9\u58eb\u73ed\u9078\u4fee\u8ab2\uff0c\u5b78\u58eb\u73ed\u5927\u4e09\u4ee5\u4e0a\u5b78\u751f\u53ef\u81ea\u7531\u9078\u64c7\u662f\u5426\u4fee\u7fd2\u3002\r\n2. \u5168\u82f1\u8a9e\u6388\u8ab2\/English-Taught Course","SemesterCourseNo":"0898","Choose":"\u9078\u4fee","DT_RowId":"row_32"}],"columns":[{"title":"\r\n            <div ><div class='icheck-material-green form-check'>\r\n                    <input class='form-check-input' type='checkbox' id='tb_detail_all' value=all name='tb_detail[]'   onclick=table_detail('tb') data-error-title=''>\r\n                    <label class='form-check-label' for='tb_detail_all'><\/label>\r\n                <\/div><\/div>\r\n            ","data":null,"defaultContent":"","className":"control","width":"1%","searchable":false,"orderable":false},{"title":"\u8ab2\u865f","data":"CourseNo","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u73ed\u7d1a","data":"StudyClassName","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u79d1\u76ee","data":"SemesterCourseName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u79d1\u76ee\u82f1\u6587\u540d\u7a31","data":"SemesterCourseENGName","className":"text-left align-middle ","width":"200","orderable":true,"visible":true},{"title":"\u4fee\u5225","data":"CourseClassName","className":"text-left align-middle ","width":"80","orderable":true,"visible":true},{"title":"\u5b78\u5206","data":"Credit","className":"text-center align-middle ","width":"60","orderable":true,"visible":true},{"title":"\u7cfb\u6240","data":"UnitName","className":"text-left align-middle ","width":"180","orderable":true,"visible":true},{"title":"\u5b78\u5236","data":"DayfgClassTypeName","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u5e74\u7d1a","data":"Grade","className":"text-center align-middle ","width":"50","orderable":true,"visible":true},{"title":"\u4efb\u8ab2\u6559\u5e2b","data":"Teacher","className":"text-left align-middle ","width":"120","orderable":true,"visible":true},{"title":"\u4e0a\u8ab2\u6642\u9593","data":"SemCourseTime","className":"text-left align-middle ","width":"120","orderable":false,"visible":true},{"title":"\u4e0a\u8ab2\u6559\u5ba4","data":"ClassRoom","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u5099\u8a3b","data":"Memo","className":"text-left align-middle ","width":"100","orderable":true,"visible":true},{"title":"\u6388\u8ab2\u8a9e\u8a00","data":"TeaLanguage","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0b\u9650","data":"StdAmtLow","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u4eba\u6578\u4e0a\u9650","data":"StdAmtUp","className":"text-center align-middle none","width":"0","orderable":true,"visible":true},{"title":"\u767b\u8a18\u4eba\u6578","data":"VolCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u4e2d\u9078\u4eba\u6578","data":"VolGetCnt","className":"text-center align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u9078\u8ab2\u4eba\u6578","data":"SelAmt","className":"text-left align-middle none","width":"5%","orderable":true,"visible":true},{"title":"\u958b\u8ab2\u865f","data":"SemesterCourseNo","className":"text-left align-middle none","width":"80","orderable":true,"visible":true},{"title":"\u9078\u5225","data":"Choose","className":"text-left align-middle none","width":"60","orderable":true,"visible":true}],"autoWidth":false,"sort":true,"paging":true,"searching":true,"info":true,"deferLoading":"10","order":[],"pageLength":10,"lengthMenu":[10,25,50,100,200,500,1000,2000],"scrollResize":false,"modifier":{"selected":true},"layout":{"bottom":"inputPaging"},"responsive":{"details":{"target":0,"type":"column"}},"select":false,"buttons":[{"extend":"excelHtml5","title":"Data Export","exportOptions":{"columns":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]},"text":"<i class='far fa-file-excel text-success'><\/i> \u532f\u51faExcel"}]}, [], [], [], false);
         ;
                         MergeGridCells('tb', mergeCell);
                     });
@@ -1429,7 +1719,7 @@
 
         var pathName = window.location.pathname
         var menuNumber = pathName.split('/')[2]
-        var vir = 'gst01130'
+        var vir = 'stu03150'
 
         if (menuNumber != undefined) {
             menuNumber = menuNumber.split('_')[0]
@@ -1600,7 +1890,7 @@
         //         type: 'POST',
         //         url: "https://sis.ncnu.edu.tw/virual/render",
         //         data: {
-        //             _token: "rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk",
+        //             _token: "4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM",
         //             menu_number: menu_number_ref
         //         },
         //         xhrFields: {
@@ -1874,7 +2164,7 @@ alert('sss');
         if (bHasRequest) {
             let lg_key = "request_srh" + ID + 'b09120';
             let old_request = localStorage.getItem(lg_key);
-            let request = '{"ACADYear":["113"],"Semester":["2"],"DayfgID":[null],"ClassTypeID":[null],"CollegeID":[null],"UnitID":["93"],"Grade":[null],"ClassID":[null],"CourseNo":null,"SemesterCourseNo":null,"Teacher":null,"SemesterCourseName":null,"ClassRoom":[null],"TeaLanguage":[null],"DayKind":[null],"SectionBeg":[null],"SectionEnd":[null]}';
+            let request = '{"ACADYear":["114"],"Semester":["1"],"DayfgID":[null],"ClassTypeID":[null],"CollegeID":[null],"UnitID":["93"],"Grade":[null],"ClassID":[null],"CourseNo":null,"SemesterCourseNo":null,"Teacher":null,"SemesterCourseName":null,"ClassRoom":[null],"TeaLanguage":[null],"DayKind":[null],"SectionBeg":[null],"SectionEnd":[null]}';
             if (old_request == null) {
                 localStorage.setItem(lg_key, request);
                 resetParam = false;
@@ -2938,7 +3228,7 @@ alert('sss');
             'DomName': DomName,
             'SourceRoute': 'b09120',
             'UploadToken': '',
-            'api_token': 'Ez4o6uVkK44M0ILZDNTQ2nJNujV4hDQ00UwtlHu9VwzDrFURLuFyEupraAU3',
+            'api_token': 'euQ9tO4ygiJHVFhSV9wdguerzvY1c49d5CJdzJRMk5FCbjJNsFLLXGbVOllo',
             'DbFileSize': DbFileSize,
             'cusRule': cusRule,
             'cusRuleArgs': cusRuleArgs,
@@ -2969,7 +3259,7 @@ alert('sss');
                 type: 'POST',
                 data: {
                     UploadToken: '',
-                    //api_token: 'Ez4o6uVkK44M0ILZDNTQ2nJNujV4hDQ00UwtlHu9VwzDrFURLuFyEupraAU3',
+                    //api_token: 'euQ9tO4ygiJHVFhSV9wdguerzvY1c49d5CJdzJRMk5FCbjJNsFLLXGbVOllo',
                 },
                 success: function(e) {
                     //window.location.reload();
@@ -2993,7 +3283,7 @@ alert('sss');
                 type: 'POST',
                 data: {
                     UploadToken: '',
-                    api_token: 'Ez4o6uVkK44M0ILZDNTQ2nJNujV4hDQ00UwtlHu9VwzDrFURLuFyEupraAU3',
+                    api_token: 'euQ9tO4ygiJHVFhSV9wdguerzvY1c49d5CJdzJRMk5FCbjJNsFLLXGbVOllo',
                 },
                 success: function(e) {
                     window.location.reload();
@@ -3633,7 +3923,7 @@ alert('sss');
             type: 'POST',
             url: data.url,
             data: {
-                _token: "rTSqydG8TFMHp6DaL0gDFqcSSigspjGLPWUt8Ysk",
+                _token: "4eumwgtPhahTk59zrgE0sgPxWX6q3y5liE8AR4FM",
                 ...data.params
             },
             dataType: 'json',
@@ -3687,3 +3977,8 @@ alert('sss');
     </script>
 
     </html>
+
+Set-Cookie headers: [
+  'XSRF-TOKEN=eyJpdiI6IlFSM0UwZVN6U0tUMXVZTTRvejFHMWc9PSIsInZhbHVlIjoienNXT2x6enNaMmxCREtBaFFTVVZ5bFJpZ0VmWXFLMGRYdmVxVHRsbjhOYUszc3hSSXdUekovNjJzaW9DSXF3eVNmN1JkR0hSZHBPb3RXaVZEMHlJb1BPdUlRSlFVeU91ZFJzeVgwU3IxZDQvUlBVSFdUaEduQkZRWkF4SGlDRkciLCJtYWMiOiJhYWZjZTZhYmMxN2NiZWYwNmIxMzQzZmUyNjdlODliY2FjMmU5Y2Y5OTcxNDU2OWYxMmQ5Y2ViYzc1YmM5Y2UyIiwidGFnIjoiIn0%3D; expires=Wed, 25 Jun 2025 09:26:30 GMT; Max-Age=3600; path=/; secure',
+  '_session=eyJpdiI6Ik1UM2tRdllybjRyemxWbFJwYzdBVGc9PSIsInZhbHVlIjoiZjZkN3ppYVRKOVZNZ0YvQi83dXlvLzlIK3VFeWtmZGxZRW5wdkovS2tTNFI1bVBQbE9HNUpHU2NuUnNzQ3JtbldSa2lNMnVkSXprNm1XM3lnS25IQjRMY3M1ZFJIMEhYcFp2bTFMME9HQ3puSlNKWlFQTEFNR3YyYzFqWkpjY0oiLCJtYWMiOiI0YzkyYTVkYTlhNGFlMTQ3ZDg2MzAxNmVmZGM4YTYwN2JiOTE1ODc4ODlhNDJiOWZkZjU1MmRmYjljMjM2MjFhIiwidGFnIjoiIn0%3D; path=/; secure; httponly'
+]

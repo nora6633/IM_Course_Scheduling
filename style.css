@@ -1,0 +1,12 @@
+#legend { margin-bottom: 1em; }
+.legend { display: inline-block; padding: 0.3em 1em; margin-right: 0.5em; border-radius: 4px; color: #333; font-weight: bold; }
+.cell-must { background: #f7cac9; }
+.cell-college { background: #f9e79f; }
+.cell-dept { background: #b7e1cd; }
+.cell-tech { background: #b5d8f6; }
+.cell-mgmt { background: #f7d6b3; }
+.cell-elective { background: #f7f7f7; }
+.schedule-table { border-collapse: collapse; width: 100%; }
+.schedule-table th, .schedule-table td { border: 1px solid #ccc; text-align: center; min-width: 100px; min-height: 60px; }
+.schedule-table th { background: #e9ecef; }
+.schedule-table td > div { padding: 0.2em; border-radius: 4px; margin: 2px 0; font-size: 0.95em; } 
