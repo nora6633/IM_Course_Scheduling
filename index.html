@@ -2,22 +2,221 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>資管系課表 114-1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>國立暨南國際大學資管系 114-1 課表</h1>
-  <div id="legend">
-    <span class="legend cell-must">校必修</span>
-    <span class="legend cell-college">院必修</span>
-    <span class="legend cell-dept">系必修</span>
-    <span class="legend cell-tech">技術次領域</span>
-    <span class="legend cell-mgmt">管理次領域</span>
-    <span class="legend cell-elective">專業選修</span>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>國立暨南國際大學資管系 114-1 課表</h1>
+      <div id="file-upload-block">
+        <input type="file" id="csvFile" accept=".csv" />
+      </div>
+    </header>
+    <main class="schedule-main">
+      <div class="table-outer-border">
+        <div id="schedule"></div>
+      </div>
+    </main>
+    <div id="legend">
+      <span class="legend cell-must">校必修</span>
+      <span class="legend cell-college">院必修</span>
+      <span class="legend cell-dept">系必修</span>
+      <span class="legend cell-tech">技術次領域</span>
+      <span class="legend cell-mgmt">管理次領域</span>
+      <span class="legend cell-elective">專業選修</span>
+    </div>
   </div>
-  <div id="schedule"></div>
-  <input type="file" id="csvFile" accept=".csv" />
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script src="main.js"></script>
+  <script>
+    const periodTimes = {
+      'A': ['8:10', '9:00'], 'B': ['9:10', '10:00'], 'C': ['10:10', '11:00'], 'D': ['11:10', '12:00'],
+      'Z': ['12:10', '13:00'], 'E': ['13:10', '14:00'], 'F': ['14:10', '15:00'], 'G': ['15:10', '16:00'],
+      'H': ['16:10', '17:00'], 'I': ['17:10', '18:00'], 'J': ['18:10', '19:00']
+    };
+
+    const typeColorMap = {
+      '基礎院本課程必修': 'cell-college',
+      '專業必修': 'cell-dept',
+      '專業選修': 'cell-elective',
+      '校必修': 'cell-must',
+      '院必修': 'cell-college',
+      '系必修': 'cell-dept',
+      '技術次領域': 'cell-tech',
+      '管理次領域': 'cell-mgmt',
+    };
+
+    const weekDays = ['一', '二', '三', '四', '五'];
+    const periods = ['A', 'B', 'C', 'D', 'Z', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+    function parseCourseTimes(timeStr) {
+      if (!timeStr) return [];
+      return timeStr.split(',').map(t => {
+        const m = t.match(/(\d)([a-zA-Z]+)/);
+        if (!m) return null;
+        return { dayIdx: parseInt(m[1], 10) - 1, periods: m[2].toUpperCase().split('') };
+      }).filter(Boolean);
+    }
+
+    document.getElementById('csvFile').addEventListener('change', function(e) {
+      if (!e.target.files.length) return;
+      document.getElementById('file-upload-block').style.display = 'none';
+      Papa.parse(e.target.files[0], {
+        header: true,
+        encoding: "UTF-8",
+        complete: function(results) {
+          renderSchedule(results.data);
+        }
+      });
+    });
+
+    function renderSchedule(data) {
+      const table = document.createElement('table');
+      table.className = 'schedule-table';
+      let thead = '<tr><th></th>' + weekDays.map(d => `<th>星期${d}</th>`).join('') + '</tr>';
+      table.innerHTML = thead;
+      const tableBody = document.createElement('tbody');
+      for (let p of periods) {
+        let timeBlock = '';
+        if (periodTimes[p]) {
+          timeBlock = `<span class="period-time">${periodTimes[p][0]}<br>-<br>${periodTimes[p][1]}</span>`;
+        }
+        if (p === 'Z') {
+          // Z 列顯示午間休息，合併所有欄位
+          let row = `<tr><th class="period-header">${p}<br>${timeBlock}</th><td class="lunch-break" colspan="${weekDays.length}">午間休息</td></tr>`;
+          tableBody.innerHTML += row;
+          continue;
+        }
+        let row = `<tr><th class="period-header">${p}<br>${timeBlock}</th>`;
+        for (let d = 0; d < weekDays.length; d++) {
+          row += `<td id="cell-${p}-${d}"></td>`;
+        }
+        row += '</tr>';
+        tableBody.innerHTML += row;
+      }
+      table.appendChild(tableBody);
+
+      const groupedCourses = {};
+      data.forEach(course => {
+        if (!course['課程名稱']) return;
+        const times = parseCourseTimes(course['上課時間']);
+        times.forEach(({ dayIdx, periods }) => {
+          if (periods.length === 0) return;
+          const startPeriod = periods[0];
+          const key = `${dayIdx}-${startPeriod}`;
+          if (!groupedCourses[key]) {
+            groupedCourses[key] = [];
+          }
+          groupedCourses[key].push({ ...course, periods });
+        });
+      });
+
+      const cellsToRemove = new Set();
+      for (const key in groupedCourses) {
+        const originalCourses = groupedCourses[key];
+        if (originalCourses.length === 0) continue;
+
+        let rowspan = 0;
+        let longestCoursePeriods = [];
+        for (const c of originalCourses) {
+          if (c.periods && c.periods.length > rowspan) {
+            rowspan = c.periods.length;
+            longestCoursePeriods = c.periods;
+          }
+        }
+        
+        const specialCourseName = '資訊管理專題與個案';
+        const specialCourses = originalCourses.filter(c => c['課程名稱']?.startsWith(specialCourseName));
+        const otherCourses = originalCourses.filter(c => !c['課程名稱']?.startsWith(specialCourseName));
+        
+        let finalCourses = otherCourses;
+
+        if (specialCourses.length > 0) {
+          const firstSpecial = specialCourses[0];
+          const combinedTeachers = specialCourses
+            .map(c => `${c['班級']}-${c['任課教師']}/${c['上課教室']}`)
+            .join('<br>');
+          
+          const combinedCourse = {
+            ...firstSpecial,
+            '任課教師': combinedTeachers,
+            isCombined: true,
+          };
+          finalCourses.push(combinedCourse);
+        }
+
+        const dayIdx = parseInt(key.split('-')[0], 10);
+        const startPeriod = key.split('-')[1];
+        
+        const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
+        if (!startCell) continue;
+
+        startCell.rowSpan = rowspan;
+        startCell.classList.add('has-course');
+
+        // 決定這個格子是否要加下邊框（如果它的rowspan延伸到最後一列）
+        const periodIndex = periods.indexOf(startPeriod);
+        let isBottomBorder = false;
+        if (periodIndex > -1 && (periodIndex + rowspan === periods.length)) {
+          startCell.classList.add('cell-bottom-border');
+        }
+
+        let innerContent = '';
+        finalCourses.forEach(course => {
+            let blockContent = '';
+            // 課名與括號合併不換行
+            const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
+            if (course.isCombined) {
+                blockContent = `${courseName}<br>(${course['學分']})<br>${course['任課教師']}`;
+            } else {
+                blockContent = `${courseName}<br>${course['任課教師']}<br>${course['上課教室']}`;
+            }
+            innerContent += `<div class="course-block ${typeColorMap[course['修別']] || 'cell-elective'}">
+                            ${blockContent}
+                        </div>`;
+        });
+        startCell.innerHTML = `<div class="cell-content-wrapper">${innerContent}</div>`;
+        
+        for (let i = 1; i < rowspan; i++) {
+            const periodToRemove = longestCoursePeriods[i];
+            if (periodToRemove) {
+                cellsToRemove.add(`cell-${periodToRemove}-${dayIdx}`);
+            }
+        }
+      }
+
+      cellsToRemove.forEach(cellId => {
+        const cell = table.querySelector(`#${cellId}`);
+        if (cell) cell.remove();
+      });
+
+      const scheduleDiv = document.getElementById('schedule');
+      scheduleDiv.innerHTML = '';
+      scheduleDiv.appendChild(table);
+
+      // 補強右下角外框：動態補齊每一欄最後一個 td 的下邊框
+      const trs = table.querySelectorAll('tr');
+      const lastRowIndex = trs.length - 1;
+      const colCount = weekDays.length + 1; // +1 for period header
+      for (let col = 1; col < colCount; col++) { // 從1開始，0是節次
+        let lastCell = null;
+        let rowSum = 0;
+        for (let row = 0; row < trs.length; row++) {
+          const tds = trs[row].querySelectorAll('td, th');
+          let cell = tds[col];
+          if (!cell) continue;
+          const rowspan = parseInt(cell.getAttribute('rowspan') || '1', 10);
+          if (row + rowspan > trs.length - 1) {
+            lastCell = cell;
+            break;
+          }
+        }
+        if (lastCell) {
+          lastCell.style.borderBottom = '2px solid #bcbcbc';
+        }
+      }
+    }
+  </script>
 </body>
 </html> 
