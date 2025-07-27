@@ -9,9 +9,20 @@
 <body>
   <div class="page-container">
     <header class="page-header">
-      <h1>國立暨南國際大學資管系 114-1 課表</h1>
+      <h1 id="schedule-title">國立暨南國際大學資管系課程資訊</h1>
       <div id="file-upload-block">
         <input type="file" id="csvFile" accept=".csv,.json" />
+      </div>
+      <div class="grade-filter">
+        <button class="grade-btn active" data-grade="all">總覽</button>
+        <button class="grade-btn" data-grade="1">大一</button>
+        <button class="grade-btn" data-grade="2">大二</button>
+        <button class="grade-btn" data-grade="3">大三</button>
+        <button class="grade-btn" data-grade="4">大四</button>
+        <button class="grade-btn" data-grade="master">碩班</button>
+      </div>
+      <div class="instruction-text">
+        若想了解該課程詳細資訊,請點選「檢視」即可查看。含為推薦「學士班學生預修碩士班課程申請」者可以修習。
       </div>
     </header>
     <main class="schedule-main">
@@ -61,6 +72,13 @@
       }).filter(Boolean);
     }
 
+    // 測試時間解析
+    function testTimeParsing() {
+      const testTime = '4hij';
+      const result = parseCourseTimes(testTime);
+      console.log('測試時間解析:', testTime, '結果:', result);
+    }
+
     document.getElementById('csvFile').addEventListener('change', function(e) {
       if (!e.target.files.length) return;
       document.getElementById('file-upload-block').style.display = 'none';
@@ -71,7 +89,9 @@
         const reader = new FileReader();
         reader.onload = function(e) {
           const jsonData = JSON.parse(e.target.result);
-          renderSchedule(jsonData.courses);
+          allCourses = jsonData.courses; // 儲存所有課程資料
+          setupGradeFilter(); // 設定年級篩選功能
+          filterCourses('all'); // 預設顯示所有課程
         };
         reader.readAsText(file);
       } else {
@@ -80,13 +100,102 @@
           header: true,
           encoding: "UTF-8",
           complete: function(results) {
-            renderSchedule(results.data);
+            allCourses = results.data; // 儲存所有課程資料
+            setupGradeFilter(); // 設定年級篩選功能
+            filterCourses('all'); // 預設顯示所有課程
           }
         });
       }
     });
 
+    let allCourses = []; // 儲存所有課程資料
+    let currentFilter = 'all'; // 目前選中的篩選條件
+
+    // 年級篩選功能
+    function setupGradeFilter() {
+      const gradeButtons = document.querySelectorAll('.grade-btn');
+      gradeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // 移除所有按鈕的 active 狀態
+          gradeButtons.forEach(b => b.classList.remove('active'));
+          // 為當前按鈕添加 active 狀態
+          this.classList.add('active');
+          
+          const grade = this.getAttribute('data-grade');
+          currentFilter = grade;
+          filterCourses(grade);
+        });
+      });
+    }
+
+    // 篩選課程
+    function filterCourses(grade) {
+      if (grade === 'all') {
+        renderSchedule(allCourses);
+        return;
+      }
+
+      let filteredCourses = [];
+      
+      if (grade === 'master') {
+        // 碩班課程：開課年級包含碩士班相關資訊
+        filteredCourses = allCourses.filter(course => {
+          const gradeInfo = course['開課年級'] || '';
+          const courseType = course['學制'] || '';
+          const isMaster = courseType.includes('碩士班') || gradeInfo.includes('碩');
+          
+          // 特別檢查 Linux 課程
+          if (course['課程名稱'] && course['課程名稱'].includes('Linux')) {
+            console.log('Linux 課程篩選檢查:', {
+              courseName: course['課程名稱'],
+              gradeInfo: gradeInfo,
+              courseType: courseType,
+              isMaster: isMaster
+            });
+          }
+          
+          return isMaster;
+        });
+      } else {
+        // 大學部課程：根據開課年級篩選
+        filteredCourses = allCourses.filter(course => {
+          const gradeInfo = course['開課年級'] || '';
+          return gradeInfo.toString() === grade;
+        });
+      }
+
+      renderSchedule(filteredCourses);
+    }
+
+    // 更新標題
+    function updateScheduleTitle() {
+      const titleElement = document.getElementById('schedule-title');
+      let title = '國立暨南國際大學資管系課程資訊';
+      
+      if (currentFilter !== 'all') {
+        const gradeNames = {
+          '1': '大一',
+          '2': '大二', 
+          '3': '大三',
+          '4': '大四',
+          'master': '碩班'
+        };
+        title = `國立暨南國際大學資管系${gradeNames[currentFilter]}課程資訊`;
+      }
+      
+      titleElement.textContent = title;
+    }
+
     function renderSchedule(data) {
+      // 更新標題
+      updateScheduleTitle();
+      
+      // 測試時間解析
+      testTimeParsing();
+      
+      console.log('渲染課程資料:', data.length, '筆');
+      console.log('課程範例:', data.slice(0, 3));
+      
       const table = document.createElement('table');
       table.className = 'schedule-table';
       let thead = '<tr><th></th>' + weekDays.map(d => `<th>星期${d}</th>`).join('') + '</tr>';
@@ -114,12 +223,29 @@
 
       const groupedCourses = {};
       data.forEach(course => {
-        if (!course['課程名稱']) return;
+        if (!course['課程名稱']) {
+          console.log('跳過無課程名稱的資料:', course);
+          return;
+        }
         const times = parseCourseTimes(course['上課時間']);
+        console.log('課程:', course['課程名稱'], '時間:', course['上課時間'], '解析結果:', times);
+        
+        // 特別檢查 Linux 課程
+        if (course['課程名稱'] && course['課程名稱'].includes('Linux')) {
+          console.log('=== Linux 課程詳細資訊 ===');
+          console.log('課程名稱:', course['課程名稱']);
+          console.log('上課時間:', course['上課時間']);
+          console.log('解析結果:', times);
+          console.log('開課年級:', course['開課年級']);
+          console.log('任課教師:', course['任課教師']);
+          console.log('上課教室:', course['上課教室']);
+          console.log('=======================');
+        }
         times.forEach(({ dayIdx, periods }) => {
           if (periods.length === 0) return;
           const startPeriod = periods[0];
           const key = `${dayIdx}-${startPeriod}`;
+          console.log('課程:', course['課程名稱'], '分配到格子:', key, 'dayIdx:', dayIdx, 'periods:', periods);
           if (!groupedCourses[key]) {
             groupedCourses[key] = [];
           }
@@ -127,10 +253,14 @@
         });
       });
 
+      console.log('分組後的課程:', groupedCourses);
+
       const cellsToRemove = new Set();
       for (const key in groupedCourses) {
         const originalCourses = groupedCourses[key];
         if (originalCourses.length === 0) continue;
+
+        console.log('處理課程組:', key, originalCourses.map(c => c['課程名稱']));
 
         let rowspan = 0;
         let longestCoursePeriods = [];
@@ -165,7 +295,12 @@
         const startPeriod = key.split('-')[1];
         
         const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
-        if (!startCell) continue;
+        if (!startCell) {
+          console.log('找不到格子:', `#cell-${startPeriod}-${dayIdx}`);
+          continue;
+        }
+
+        console.log('渲染課程到格子:', `#cell-${startPeriod}-${dayIdx}`, finalCourses.map(c => c['課程名稱']));
 
         startCell.rowSpan = rowspan;
         startCell.classList.add('has-course');
@@ -182,8 +317,13 @@
             let blockContent = '';
             // 課名與括號合併不換行
             const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
+            
+            // 取得開課年級資訊
+            const gradeInfo = course['開課年級'] || '';
+            
             if (course.isCombined) {
-                blockContent = `${courseName}<br>(${course['學分']})<br>${course['任課教師']}`;
+                // 專題課程不顯示學分數
+                blockContent = `${courseName}<br>(${gradeInfo})<br>${course['任課教師']}`;
             } else {
                 // 從 SemesterCourseName 中提取連結
                 let courseUrl = '';
@@ -193,7 +333,7 @@
                         courseUrl = match[1];
                     }
                 }
-                blockContent = `${courseName}<br>${course['任課教師']}<br>${course['上課教室']}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
+                blockContent = `${courseName}<br>(${gradeInfo})<br>${course['任課教師']}<br>${course['上課教室']}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
             }
             innerContent += `<div class="course-block ${typeColorMap[course['修別']] || 'cell-elective'}">
                             ${blockContent}
