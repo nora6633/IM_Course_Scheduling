@@ -1,0 +1,35 @@
+課程編號,課程名稱,英文名稱,班級,修別,學分,系所,學制,開課年級,任課教師,上課時間,上課教室,授課語言,選別,備註,SemesterCourseName
+130003,程式設計(上),Programming (1),0,基礎院本課程必修,3,資訊管理學系,學士班,1,鄭育評,2bcd,管371,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89326"">程式設計(上)</a>"
+130063,經濟學與實習(上),Economics (1),0,基礎院本課程必修,3,資訊管理學系,學士班,1,王育民,4bcd,管371,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89327"">經濟學與實習(上)</a>"
+130066,統計學與實習(上),Statistics (1),0,基礎院本課程必修,3,資訊管理學系,學士班,2,洪嘉良,5bcd,管226,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89328"">統計學與實習(上)</a>"
+130065,微積分與實習(上),Calculus (1),0,專業必修,3,資訊管理學系,學士班,1,黃俊哲,3bcd,管215,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89329"">微積分與實習(上)</a>"
+130021,資料結構與演算法(上),Data Structures and Algorithms (1),0,專業必修,3,資訊管理學系,學士班,2,游子宜,3bcd,管371,國語,必修,,資料結構與演算法(上)
+130032,資料庫管理系統,Data Base Management System,0,專業必修,3,資訊管理學系,學士班,2,陳建宏,4fgh,管268,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89331"">資料庫管理系統</a>"
+130044,資訊管理專題與個案(下),Project(II),a,專業必修,3,資訊管理學系,學士班,4,簡宏宇,3hij,管B24,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89332"">資訊管理專題與個案(下)</a>"
+130031,軟體工程,Software Engineering,0,專業選修,3,資訊管理學系,學士班,3,陳建宏,2bcd,管241,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89333"">軟體工程</a>"
+130040,作業系統,Operating Systems,0,專業選修,3,資訊管理學系,學士班,3,姜美玲,4bcd,管228,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89334"">作業系統</a>"
+130077,網頁程式設計,Web Programming,0,專業選修,3,資訊管理學系,學士班,3,陳彥錚,"2ij,3bcd","A101,管226",國語,選修,正課時間：3bcd，教室：管226；實習課時間：2ij，教室：教A101；實習課相關資訊請參閱課綱。,網頁程式設計
+130091,資訊系統開發與實務(一),Practicum for Information Systems(1),0,專業選修,3,資訊管理學系,學士班,2,戴榮賦,3efg,管215,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89336"">資訊系統開發與實務(一)</a>"
+130094,Linux 系統管理實務（一，入門）,"Practical Linux System Administration - Level I, Basic",0,專業選修,3,資訊管理學系,學士班,3,練喆明,4hij,管228,國語,選修,,Linux 系統管理實務（一，入門）
+130097,資訊安全管理與技術,Information Security management and Technology,0,專業選修,3,資訊管理學系,學士班,3,簡宏宇,4efg,管241,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89338"">資訊安全管理與技術</a>"
+130109,智慧計算規劃：應用與程式,Intelligent Computing Strategy: Application and Programming,0,專業選修,3,資訊管理學系,學士班,2,游子宜,1bcd,管203,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89339"">智慧計算規劃：應用與程式</a>"
+130019,組織行為,Organization Behavior,0,專業選修,3,資訊管理學系,學士班,3,戴榮賦,1bcd,管241,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89340"">組織行為</a>"
+130061,行銷管理,Marketing Management,0,專業選修,3,資訊管理學系,學士班,3,洪嘉良,1fgh,管226,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89341"">行銷管理</a>"
+130099,資料視覺化,Data Visualization,0,專業選修,3,資訊管理學系,學士班,2,陳小芬,3efg,管213,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89342"">資料視覺化</a>"
+135006,高等資訊管理,Advanced Information Management,0,專業必修,3,資訊管理學系,碩士班,1,陳小芬,3bcd,管204,國語,必修,為碩士班必修課，學士班大三以上學生可自由選擇是否修習。,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89343"">高等資訊管理</a>"
+135145,專題討論(上),Seminar(1),0,專業必修,1,資訊管理學系,碩士班,1,"""黃俊哲,林妙聰,侯宏彬""",4fgh,管260,國語,必修,為碩士班必修課，學士班大三以上學生可自由選擇是否修習。,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89344"">專題討論(上)</a>"
+135001,高等資訊網路,Advanced Computer Networks,0,專業選修,3,資訊管理學系,碩士班,1,陳彥錚,2efg,管228,國語,選修,為碩士班選修課，學士班大三以上學生可自由選擇是否修習。,高等資訊網路
+135139,網路攻防與原理,"Network Attack, Defense Technology, and Concepts",0,專業選修,3,資訊管理學系,碩士班,1,簡宏宇,5bcd,管228,國語,選修,為碩士班選修課，學士班大三以上學生可自由選擇是否修習。,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89346"">網路攻防與原理</a>"
+135144,人工智慧與實務應用(II),Artificial Intelligence and Practical Application (II),0,專業選修,3,資訊管理學系,碩士班,1,鄭育評,1bcd,管204,國語,選修,為碩士班選修課，學士班大三以上學生可自由選擇是否修習。,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89347"">人工智慧與實務應用(II)</a>"
+135109,系統思考與系統動態學,Introduction to Systems Thinking and System Dynamics,0,專業選修,3,資訊管理學系,碩士班,1,"""李健菁,陳建宏""",4bcd,管226,國語,選修,為碩士班選修課，學士班大三以上學生可自由選擇是否修習。,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89348"">系統思考與系統動態學</a>"
+130085,企業實習(一),Enterprise Internship (I),0,專業選修,3,資訊管理學系,學士班,2,黃俊哲,,,國語,選修,性質特殊課程(1131),"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89349"">企業實習(一)</a>"
+130086,企業實習(二),Enterprise Internship (II),0,專業選修,3,資訊管理學系,學士班,2,黃俊哲,,,國語,選修,性質特殊課程(1141),"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89350"">企業實習(二)</a>"
+130093,3D實境應用開發,Development of 3D-Reality Applications,0,專業選修,3,資訊管理學系,學士班,2,"""陳建宏,高竹誼""",3efg,管241,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89351"">3D實境應用開發</a>"
+130105,策略與管理的系統思維,Systems Thinking in Business Strategy and Management,0,專業選修,3,資訊管理學系,學士班,3,許景明,5efg,管228,國語,選修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89352"">策略與管理的系統思維</a>"
+130044,資訊管理專題與個案(下),Project(II),b,專業必修,3,資訊管理學系,學士班,4,洪嘉良,3hij,管451,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89353"">資訊管理專題與個案(下)</a>"
+130044,資訊管理專題與個案(下),Project(II),c,專業必修,3,資訊管理學系,學士班,4,"""黃俊哲,龔榮發""",3hij,管203,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89354"">資訊管理專題與個案(下)</a>"
+130044,資訊管理專題與個案(下),Project(II),d,專業必修,3,資訊管理學系,學士班,4,陳建宏,3hij,管204,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89355"">資訊管理專題與個案(下)</a>"
+130044,資訊管理專題與個案(下),Project(II),e,專業必修,3,資訊管理學系,學士班,4,"""陳彥錚,陳小芬""",3hij,管136,國語,必修,,"<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/89356"">資訊管理專題與個案(下)</a>"
+130044,資訊管理專題與個案(下),Project(II),f,專業必修,3,資訊管理學系,學士班,4,"""戴榮賦,鄭育評""",3hij,管106,國語,必修,,資訊管理專題與個案(下)
+135147,數位行銷,Digital Martketing,0,專業選修,3,資訊管理學系,碩士班,1,司馬添,5efg,管443,國語,選修,"1. 為碩士班選修課，學士班大三以上學生可自由選擇是否修習。
+2. 全英語授課/English-Taught Course","<a href=""https://sis.ncnu.edu.tw/b09/b09120/view/90059"">數位行銷</a>"

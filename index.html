@@ -11,7 +11,7 @@
     <header class="page-header">
       <h1>國立暨南國際大學資管系 114-1 課表</h1>
       <div id="file-upload-block">
-        <input type="file" id="csvFile" accept=".csv" />
+        <input type="file" id="csvFile" accept=".csv,.json" />
       </div>
     </header>
     <main class="schedule-main">
@@ -47,6 +47,8 @@
       '管理次領域': 'cell-mgmt',
     };
 
+
+
     const weekDays = ['一', '二', '三', '四', '五'];
     const periods = ['A', 'B', 'C', 'D', 'Z', 'E', 'F', 'G', 'H', 'I', 'J'];
 
@@ -62,13 +64,26 @@
     document.getElementById('csvFile').addEventListener('change', function(e) {
       if (!e.target.files.length) return;
       document.getElementById('file-upload-block').style.display = 'none';
-      Papa.parse(e.target.files[0], {
-        header: true,
-        encoding: "UTF-8",
-        complete: function(results) {
-          renderSchedule(results.data);
-        }
-      });
+      
+      const file = e.target.files[0];
+      if (file.name.endsWith('.json')) {
+        // 讀取 JSON 檔案
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const jsonData = JSON.parse(e.target.result);
+          renderSchedule(jsonData.courses);
+        };
+        reader.readAsText(file);
+      } else {
+        // 讀取 CSV 檔案
+        Papa.parse(file, {
+          header: true,
+          encoding: "UTF-8",
+          complete: function(results) {
+            renderSchedule(results.data);
+          }
+        });
+      }
     });
 
     function renderSchedule(data) {
@@ -170,7 +185,15 @@
             if (course.isCombined) {
                 blockContent = `${courseName}<br>(${course['學分']})<br>${course['任課教師']}`;
             } else {
-                blockContent = `${courseName}<br>${course['任課教師']}<br>${course['上課教室']}`;
+                // 從 SemesterCourseName 中提取連結
+                let courseUrl = '';
+                if (course['SemesterCourseName'] && course['SemesterCourseName'].includes('href=')) {
+                    const match = course['SemesterCourseName'].match(/href="([^"]+)"/);
+                    if (match) {
+                        courseUrl = match[1];
+                    }
+                }
+                blockContent = `${courseName}<br>${course['任課教師']}<br>${course['上課教室']}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
             }
             innerContent += `<div class="course-block ${typeColorMap[course['修別']] || 'cell-elective'}">
                             ${blockContent}
