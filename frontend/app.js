@@ -274,43 +274,51 @@ function renderSchedule(data) {
     if (cell) cell.remove();
   });
 
-  // 先將表格添加到 DOM
-  scheduleDiv.appendChild(table);
-
-  // 在表格添加到 DOM 後再檢查和修復邊框
-  const allRows = table.querySelectorAll('tr');
-  console.log('表格總行數:', allRows.length);
+  // 確保表格有完整的邊框結構
+  const tbody = table.querySelector('tbody');
+  const rows = tbody.querySelectorAll('tr');
   
-  // 找到最後一行的最後一個單元格（應該是資料單元格，不是表頭）
-  if (allRows.length > 0) {
-    const lastTableRow = allRows[allRows.length - 1];
-    const lastTableCells = lastTableRow.querySelectorAll('td, th');
-    console.log('最後一行的單元格數量:', lastTableCells.length);
-    
-    if (lastTableCells.length > 0) {
-      // 找到最後一個單元格（應該是 td，不是 th）
-      const bottomRightCell = lastTableCells[lastTableCells.length - 1];
-      console.log('找到右下角單元格:', bottomRightCell);
-      
-      // 強制設置邊框樣式
-      bottomRightCell.style.borderRight = '2px solid #bcbcbc';
-      bottomRightCell.style.borderBottom = '2px solid #bcbcbc';
-      console.log('已設置右下角邊框樣式');
-      
-      // 檢查邊框是否真的被設置
-      console.log('邊框樣式檢查:', bottomRightCell.style.borderRight, bottomRightCell.style.borderBottom);
+  // 確保最後一行的每個單元格都有下邊框
+  if (rows.length > 0) {
+    const lastRow = rows[rows.length - 1];
+    const lastRowCells = lastRow.querySelectorAll('td, th');
+    lastRowCells.forEach(cell => {
+      cell.style.borderBottom = '2px solid #bcbcbc';
+    });
+  }
+  
+  // 確保最後一列的每個單元格都有右邊框
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td, th');
+    if (cells.length > 0) {
+      const lastCell = cells[cells.length - 1];
+      lastCell.style.borderRight = '2px solid #bcbcbc';
+    }
+  });
+
+  // 特別處理右下角邊框
+  const lastRow = rows[rows.length - 1];
+  if (lastRow) {
+    const lastCell = lastRow.querySelector('td:last-child, th:last-child');
+    if (lastCell) {
+      lastCell.style.borderRight = '2px solid #bcbcbc';
+      lastCell.style.borderBottom = '2px solid #bcbcbc';
     }
   }
 
-  // 檢查所有行的單元格數量
-  allRows.forEach((row, index) => {
-    const cells = row.querySelectorAll('td, th');
-    console.log(`第 ${index + 1} 行有 ${cells.length} 個單元格`);
-    if (cells.length > 0) {
-      const lastCell = cells[cells.length - 1];
-      console.log(`第 ${index + 1} 行最後一個單元格:`, lastCell.tagName, lastCell.textContent);
+  // 調試：檢查表格結構
+  console.log('表格行數:', rows.length);
+  console.log('最後一行:', lastRow);
+  if (lastRow) {
+    console.log('最後一行的單元格數量:', lastRow.querySelectorAll('td, th').length);
+    const lastCell = lastRow.querySelector('td:last-child, th:last-child');
+    console.log('最後一個單元格:', lastCell);
+    if (lastCell) {
+      console.log('最後一個單元格的邊框樣式:', lastCell.style.borderRight, lastCell.style.borderBottom);
     }
-  });
+  }
+
+  scheduleDiv.appendChild(table);
 }
 
 // 更新標題
