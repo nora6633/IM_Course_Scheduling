@@ -84,12 +84,12 @@ body { font-family: sans-serif; }
   vertical-align: middle;
 }
 
-.cell-must { background-color: #ffdddd; }
-.cell-college { background-color: #fffacd; }
-.cell-dept { background-color: #d4edda; }
-.cell-tech { background-color: #d1ecf1; }
-.cell-mgmt { background-color: #ffe8d6; }
-.cell-elective { background-color: #e9ecef; }
+.cell-must { background-color: #D0E0F0; }      /* 校必修 - 淺灰藍色 */
+.cell-college { background-color: #FFDAB9; }   /* 院必修 - 淺橘色 */
+.cell-dept { background-color: #EAD1DC; }     /* 系必修 - 淺粉米色 */
+.cell-tech { background-color: #B2C9EF; }     /* 技術次領域 - 淺藍色 */
+.cell-mgmt { background-color: #DFF0D8; }     /* 管理次領域 - 淺綠色 */
+.cell-elective { background-color: #FFF8DC; }  /* 專業選修 - 淺米色 */
 
 .table-outer-border {
   border: 2px solid #bcbcbc;

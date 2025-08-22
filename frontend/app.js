@@ -10,26 +10,29 @@ let currentData = null;
 // 課程類型顏色映射 - 根據選別欄位
 const typeColorMap = {
   // 必修課程
-  '基礎院本課程必修': 'cell-college',
-  '專業必修': 'cell-dept',
-  '必修': 'cell-dept',
+  '校必修': 'cell-must',           // 淺灰藍色 (#D0E0F0)
+  '院必修': 'cell-college',        // 淺橘色 (#FFDAB9)
+  '基礎院本課程必修': 'cell-college', // 淺橘色 (#FFDAB9)
+  '系必修': 'cell-dept',           // 淺粉米色 (#EAD1DC)
+  '專業必修': 'cell-dept',         // 淺紫粉色 (#F0E6FA)
+  '必修': 'cell-dept',             // 淺紫粉色 (#F0E6FA)
   
   // 選修課程
-  '專業選修': 'cell-elective',
-  '選修': 'cell-elective',
+  '專業選修': 'cell-elective',     // 淺米色 (#FFF8DC)
+  '選修': 'cell-elective',         // 淺米色 (#FFF8DC)
   
   // 次領域課程
-  '技術次領域': 'cell-tech',
-  '「技術」次領域選修': 'cell-tech',
-  '技術次領域選修': 'cell-tech',
-  '管理次領域': 'cell-mgmt',
-  '「管理」次領域選修': 'cell-mgmt',
-  '管理次領域選修': 'cell-mgmt',
+  '技術次領域': 'cell-tech',       // 淺藍色 (#B2C9EF)
+  '「技術」次領域選修': 'cell-tech', // 淺藍色 (#B2C9EF)
+  '技術次領域選修': 'cell-tech',   // 淺藍色 (#B2C9EF)
+  '管理次領域': 'cell-mgmt',       // 淺綠色 (#DFF0D8)
+  '「管理」次領域選修': 'cell-mgmt', // 淺綠色 (#DFF0D8)
+  '管理次領域選修': 'cell-mgmt',   // 淺綠色 (#DFF0D8)
   
   // 其他類型
-  '通識': 'cell-elective',
-  '體育': 'cell-elective',
-  '軍訓': 'cell-elective',
+  '通識': 'cell-elective',         // 淺米色 (#FFF8DC)
+  '體育': 'cell-elective',         // 淺米色 (#FFF8DC)
+  '軍訓': 'cell-elective',         // 淺米色 (#FFF8DC)
 };
 
 // 星期和時段
@@ -319,6 +322,10 @@ function renderSchedule(data) {
         courseType = course['選別'] || course['修別'] || '';
         console.log(`課程 ${courseName} (編號: ${course['課程編號']}) 使用原始選別: ${courseType}`);
       }
+      
+      // 除錯：檢查選別值和顏色映射
+      console.log(`課程 ${courseName} 的選別值: "${courseType}"`);
+      console.log(`對應的顏色類別: ${typeColorMap[courseType] || 'cell-elective (預設)'}`);
       
       const colorClass = typeColorMap[courseType] || 'cell-elective';
       
