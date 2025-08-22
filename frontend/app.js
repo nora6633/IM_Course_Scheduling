@@ -2,20 +2,34 @@
 const API_BASE_URL = 'http://localhost:3000/api';
 
 // 全域變數
-let allCourses = [];
+let allCourses = []; // 從 CSV 上傳的課程資料
+let courseSelectionData = {}; // 從 Excel 上傳的選別資料
 let currentFilter = 'all';
 let currentData = null;
 
-// 課程類型顏色映射
+// 課程類型顏色映射 - 根據選別欄位
 const typeColorMap = {
+  // 必修課程
   '基礎院本課程必修': 'cell-college',
   '專業必修': 'cell-dept',
+  '必修': 'cell-dept',
+  
+  // 選修課程
   '專業選修': 'cell-elective',
-  '校必修': 'cell-must',
-  '院必修': 'cell-college',
-  '系必修': 'cell-dept',
+  '選修': 'cell-elective',
+  
+  // 次領域課程
   '技術次領域': 'cell-tech',
+  '「技術」次領域選修': 'cell-tech',
+  '技術次領域選修': 'cell-tech',
   '管理次領域': 'cell-mgmt',
+  '「管理」次領域選修': 'cell-mgmt',
+  '管理次領域選修': 'cell-mgmt',
+  
+  // 其他類型
+  '通識': 'cell-elective',
+  '體育': 'cell-elective',
+  '軍訓': 'cell-elective',
 };
 
 // 星期和時段
@@ -37,12 +51,18 @@ const periodTimes = {
   'J': ['18:10', '19:00']
 };
 
-// API 函數
+// API 函數 - 上傳課程資料檔案
 async function uploadFile(file) {
   const formData = new FormData();
   formData.append('file', file);
 
-  const endpoint = file.name.endsWith('.json') ? '/upload-json' : '/upload-csv';
+  let endpoint = '/upload-csv'; // 預設為 CSV
+  
+  if (file.name.endsWith('.json')) {
+    endpoint = '/upload-json';
+  } else if (file.name.endsWith('.xlsx') || file.name.endsWith('.xls')) {
+    endpoint = '/upload-excel';
+  }
   
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
@@ -58,6 +78,31 @@ async function uploadFile(file) {
     return result;
   } catch (error) {
     console.error('檔案上傳錯誤:', error);
+    throw error;
+  }
+}
+
+// 上傳選別資料 Excel 檔案
+async function uploadSelectionFile(file) {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  try {
+    console.log('準備上傳到:', `${API_BASE_URL}/upload-excel`);
+    const response = await fetch(`${API_BASE_URL}/upload-excel`, {
+      method: 'POST',
+      body: formData
+    });
+    console.log('API 回應狀態:', response.status);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('選別檔案上傳錯誤:', error);
     throw error;
   }
 }
@@ -96,7 +141,22 @@ function parseCourseTimes(timeStr) {
 
 // 渲染課表
 function renderSchedule(data) {
-  const scheduleDiv = document.getElementById('schedule');
+  console.log('開始渲染課表，資料筆數:', data.length);
+  
+  // 確保 schedule 元素存在
+  let scheduleDiv = document.getElementById('schedule');
+  if (!scheduleDiv) {
+    console.log('schedule 元素不存在，創建新的 schedule-container');
+    const scheduleContainer = document.getElementById('schedule-container');
+    if (scheduleContainer) {
+      scheduleContainer.innerHTML = '<div id="schedule"></div>';
+      scheduleDiv = document.getElementById('schedule');
+    } else {
+      console.error('schedule-container 也不存在');
+      return;
+    }
+  }
+  
   scheduleDiv.innerHTML = '';
 
   const table = document.createElement('table');
@@ -247,7 +307,22 @@ function renderSchedule(data) {
       const gradeDisplay = gradeInfo ? `(${gradeInfo})` : '';
       const blockContent = `${courseName}${creditDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
       
-      innerContent += `<div class="course-block ${typeColorMap[course['修別']] || 'cell-elective'}">
+      // 根據選別資料決定顏色
+      let courseType = '';
+      
+      // 優先使用 Excel 上傳的選別資料（根據課程編號匹配）
+      if (courseSelectionData[course['課程編號']]) {
+        courseType = courseSelectionData[course['課程編號']];
+        console.log(`課程 ${courseName} (編號: ${course['課程編號']}) 使用 Excel 選別: ${courseType}`);
+      } else {
+        // 如果沒有選別資料，則使用課程本身的選別或修別欄位
+        courseType = course['選別'] || course['修別'] || '';
+        console.log(`課程 ${courseName} (編號: ${course['課程編號']}) 使用原始選別: ${courseType}`);
+      }
+      
+      const colorClass = typeColorMap[courseType] || 'cell-elective';
+      
+      innerContent += `<div class="course-block ${colorClass}">
                         ${blockContent}
                       </div>`;
     });
@@ -278,31 +353,42 @@ function renderSchedule(data) {
   const tbody = table.querySelector('tbody');
   const rows = tbody.querySelectorAll('tr');
   
-  // 確保最後一行的每個單元格都有下邊框
+  // 強制處理所有邊框 - 使用更可靠的方法
+  let lastRow = null; // 先宣告變數
+  
   if (rows.length > 0) {
-    const lastRow = rows[rows.length - 1];
+    // 處理最後一行的下邊框
+    lastRow = rows[rows.length - 1];
     const lastRowCells = lastRow.querySelectorAll('td, th');
     lastRowCells.forEach(cell => {
-      cell.style.borderBottom = '2px solid #bcbcbc';
+      // 強制設置下邊框
+      cell.style.setProperty('border-bottom', '2px solid #bcbcbc', 'important');
+      // 如果是最後一列，也強制設置右邊框
+      if (cell === lastRowCells[lastRowCells.length - 1]) {
+        cell.style.setProperty('border-right', '2px solid #bcbcbc', 'important');
+      }
     });
-  }
-  
-  // 確保最後一列的每個單元格都有右邊框
-  rows.forEach(row => {
-    const cells = row.querySelectorAll('td, th');
-    if (cells.length > 0) {
-      const lastCell = cells[cells.length - 1];
-      lastCell.style.borderRight = '2px solid #bcbcbc';
-    }
-  });
-
-  // 特別處理右下角邊框
-  const lastRow = rows[rows.length - 1];
-  if (lastRow) {
-    const lastCell = lastRow.querySelector('td:last-child, th:last-child');
+    
+    // 處理每一行的右邊框
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td, th');
+      if (cells.length > 0) {
+        const lastCell = cells[cells.length - 1];
+        lastCell.style.setProperty('border-right', '2px solid #bcbcbc', 'important');
+      }
+    });
+    
+    // 特別強制處理右下角
+    const lastCell = lastRowCells[lastRowCells.length - 1];
     if (lastCell) {
+      // 使用多重方法確保邊框顯示
       lastCell.style.borderRight = '2px solid #bcbcbc';
       lastCell.style.borderBottom = '2px solid #bcbcbc';
+      lastCell.style.setProperty('border-right', '2px solid #bcbcbc', 'important');
+      lastCell.style.setProperty('border-bottom', '2px solid #bcbcbc', 'important');
+      
+      // 添加內聯樣式作為最後手段
+      lastCell.setAttribute('style', lastCell.getAttribute('style') + '; border-right: 2px solid #bcbcbc !important; border-bottom: 2px solid #bcbcbc !important;');
     }
   }
 
@@ -321,6 +407,39 @@ function renderSchedule(data) {
   scheduleDiv.appendChild(table);
 }
 
+// 處理選別資料匹配
+function processSelectionData(selectionData) {
+  courseSelectionData = {};
+  
+  console.log('開始處理選別資料，資料筆數:', selectionData.length);
+  console.log('第一筆資料範例:', selectionData[0]);
+  
+  // 建立課程編號到選別的映射
+  selectionData.forEach(course => {
+    // 支援多種可能的欄位名稱
+    const courseCode = course['課程編號'] || course['課號'] || course['Course Code'];
+    const selection = course['選別'] || course['Selection'];
+    
+    if (courseCode && selection) {
+      courseSelectionData[courseCode] = selection;
+      console.log(`課程編號 ${courseCode} 對應選別: ${selection}`);
+    } else {
+      console.log(`跳過資料: 課程編號=${courseCode}, 選別=${selection}`);
+    }
+  });
+  
+  console.log('選別資料處理完成，共處理', Object.keys(courseSelectionData).length, '筆資料');
+  console.log('選別資料映射:', courseSelectionData);
+  
+  // 如果有課程資料，重新渲染以應用選別顏色
+  if (allCourses.length > 0) {
+    console.log('開始重新渲染課表...');
+    renderSchedule(allCourses);
+  } else {
+    console.log('沒有課程資料可渲染');
+  }
+}
+
 // 更新標題
 function updateScheduleTitle(grade) {
   const titleElement = document.getElementById('schedule-title');
@@ -336,7 +455,10 @@ function updateScheduleTitle(grade) {
 }
 
 // 事件處理
-document.getElementById('csvFile').addEventListener('change', async function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+  const csvFileInput = document.getElementById('csvFile');
+  if (csvFileInput) {
+    csvFileInput.addEventListener('change', async function(e) {
   if (!e.target.files.length) return;
   
   const file = e.target.files[0];
@@ -348,14 +470,100 @@ document.getElementById('csvFile').addEventListener('change', async function(e) 
     if (result.success) {
       allCourses = result.data;
       currentData = result;
-      setupGradeFilter();
-      renderSchedule(allCourses);
-      updateScheduleTitle('all');
+      
+      // 顯示成功訊息
+      alert('課程資料上傳成功！現在請上傳選別資料 Excel 檔案。');
+      
+      // 隱藏課程資料上傳區域，但保留選別資料上傳區域
+      document.querySelector('.upload-section:first-child').style.display = 'none';
+      
+      // 更新選別資料上傳區域的標題
+      const selectionTitle = document.querySelector('#selection-upload-block h3');
+      if (selectionTitle) {
+        selectionTitle.textContent = '步驟 2: 上傳選別資料 (必要)';
+      }
+      
+      // 顯示提示訊息
+      const noteElement = document.querySelector('#selection-upload-block .note:last-child');
+      if (noteElement) {
+        noteElement.textContent = '此步驟為必要步驟，必須上傳選別資料才能顯示課程表';
+        noteElement.style.color = '#e74c3c';
+        noteElement.style.fontWeight = 'bold';
+      }
+      
+      // 顯示等待提示和 Excel 上傳區域
+      const scheduleContainer = document.getElementById('schedule-container');
+      if (scheduleContainer) {
+        scheduleContainer.innerHTML = `
+          <div style="text-align: center; padding: 40px; color: #666;">
+            <h3>課程資料已上傳成功！</h3>
+            <p>請在下方上傳選別資料 Excel 檔案，課程表將在選別資料上傳後顯示。</p>
+            <div style="margin: 20px 0;">
+              <span style="background: #e74c3c; color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;">
+                等待選別資料上傳...
+              </span>
+            </div>
+          </div>
+          
+          <!-- 強制顯示 Excel 上傳區域 -->
+          <div id="excel-upload-section" style="margin: 40px auto; max-width: 600px; padding: 20px; border: 2px solid #e74c3c; border-radius: 8px; background-color: #fff5f5; box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);">
+            <h3 style="color: #e74c3c; margin-bottom: 15px;">步驟 2: 上傳選別資料 (必要)</h3>
+            <input type="file" id="excelFile" accept=".xlsx,.xls" style="margin: 10px 0; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white; width: 100%;" />
+            <p style="margin: 5px 0; color: #666; font-size: 14px;">請選擇 Excel 檔案 (.xlsx 或 .xls)，包含「選別」欄位</p>
+            <p style="margin: 5px 0; color: #e74c3c; font-size: 12px; font-style: italic; font-weight: bold;">注意：Excel 檔案必須包含「課程編號」和「選別」兩個欄位</p>
+            <p style="margin: 5px 0; color: #e74c3c; font-size: 12px; font-style: italic; font-weight: bold;">此步驟為必要步驟，必須上傳選別資料才能顯示課程表</p>
+          </div>
+        `;
+        
+        // 為新的 Excel 上傳區域綁定事件
+        const excelFileInput = document.getElementById('excelFile');
+        if (excelFileInput) {
+          excelFileInput.addEventListener('change', async function(e) {
+            if (!e.target.files.length) return;
+            
+            const file = e.target.files[0];
+            console.log('Excel 檔案已選擇:', file.name);
+
+            try {
+              console.log('開始上傳 Excel 檔案...');
+              const result = await uploadSelectionFile(file);
+              console.log('Excel 上傳結果:', result);
+              
+              if (result.success) {
+                console.log('Excel 上傳成功，開始處理選別資料...');
+                // 處理選別資料
+                processSelectionData(result.data);
+                
+                console.log('選別資料處理完成，開始渲染課表...');
+                // 現在才顯示課程表
+                setupGradeFilter();
+                renderSchedule(allCourses);
+                updateScheduleTitle('all');
+                
+                console.log('課表渲染完成');
+                alert('選別資料上傳成功！課程表已顯示，課程顏色已根據選別資料設定。');
+                
+                // 隱藏整個上傳區塊，因為課程表已經顯示
+                document.getElementById('file-upload-block').style.display = 'none';
+              } else {
+                console.error('Excel 檔案處理失敗:', result.error);
+                alert('選別檔案處理失敗: ' + result.error);
+              }
+            } catch (error) {
+              console.error('Excel 檔案上傳錯誤:', error);
+              alert('選別檔案上傳失敗: ' + error.message);
+            }
+          });
+        }
+      }
     } else {
       alert('檔案處理失敗: ' + result.error);
     }
   } catch (error) {
+    console.error('CSV 上傳錯誤:', error);
     alert('檔案上傳失敗: ' + error.message);
+  }
+    });
   }
 });
 
@@ -399,4 +607,37 @@ function setupGradeFilter() {
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
   console.log('前端應用程式已載入');
+  
+  // 選別檔案上傳事件處理
+  const selectionFileInput = document.getElementById('selectionFile');
+  if (selectionFileInput) {
+    selectionFileInput.addEventListener('change', async function(e) {
+      if (!e.target.files.length) return;
+      
+      const file = e.target.files[0];
+
+      try {
+        const result = await uploadSelectionFile(file);
+        
+        if (result.success) {
+          // 處理選別資料
+          processSelectionData(result.data);
+          
+          // 現在才顯示課程表
+          setupGradeFilter();
+          renderSchedule(allCourses);
+          updateScheduleTitle('all');
+          
+          alert('選別資料上傳成功！課程表已顯示，課程顏色已根據選別資料設定。');
+          
+          // 隱藏整個上傳區塊，因為課程表已經顯示
+          document.getElementById('file-upload-block').style.display = 'none';
+        } else {
+          alert('選別檔案處理失敗: ' + result.error);
+        }
+      } catch (error) {
+        alert('選別檔案上傳失敗: ' + error.message);
+      }
+    });
+  }
 }); 

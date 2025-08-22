@@ -58,8 +58,6 @@
       '管理次領域': 'cell-mgmt',
     };
 
-
-
     const weekDays = ['一', '二', '三', '四', '五'];
     const periods = ['A', 'B', 'C', 'D', 'Z', 'E', 'F', 'G', 'H', 'I', 'J'];
 
@@ -72,11 +70,72 @@
       }).filter(Boolean);
     }
 
-    // 測試時間解析
-    function testTimeParsing() {
-      const testTime = '4hij';
-      const result = parseCourseTimes(testTime);
-      console.log('測試時間解析:', testTime, '結果:', result);
+    // 修復表格邊框的函數
+    function fixTableBorders(table) {
+      const trs = table.querySelectorAll('tr');
+      
+      // 1. 確保所有最後一行的單元格都有下邊框
+      const lastRow = trs[trs.length - 1];
+      if (lastRow) {
+        const cells = lastRow.querySelectorAll('td, th');
+        cells.forEach(cell => {
+          cell.style.borderBottom = '2px solid #bcbcbc';
+        });
+      }
+      
+      // 2. 確保所有最右列的單元格都有右邊框
+      trs.forEach((tr, rowIndex) => {
+        const cells = tr.querySelectorAll('td, th');
+        if (cells.length > 0) {
+          const lastCell = cells[cells.length - 1];
+          lastCell.style.borderRight = '2px solid #bcbcbc';
+        }
+      });
+      
+      // 3. 特別處理有 rowspan 的單元格
+      const allCells = table.querySelectorAll('td[rowspan], th[rowspan]');
+      allCells.forEach(cell => {
+        const rowspan = parseInt(cell.getAttribute('rowspan') || '1', 10);
+        
+        // 如果這個單元格延伸到表格底部，確保有下邊框
+        const parentRow = cell.closest('tr');
+        const rowIndex = Array.from(trs).indexOf(parentRow);
+        
+        if (rowIndex + rowspan >= trs.length) {
+          cell.style.borderBottom = '2px solid #bcbcbc';
+        }
+        
+        // 如果這個單元格在最右列，確保有右邊框
+        const cellIndex = Array.from(parentRow.children).indexOf(cell);
+        if (cellIndex === parentRow.children.length - 1) {
+          cell.style.borderRight = '2px solid #bcbcbc';
+        }
+      });
+      
+      // 4. 確保表格本身的邊框完整
+      table.style.border = '2px solid #bcbcbc';
+      
+      // 5. 特別處理右下角
+      let rightBottomCell = null;
+      for (let i = trs.length - 1; i >= 0; i--) {
+        const row = trs[i];
+        const cells = row.querySelectorAll('td, th');
+        if (cells.length > 0) {
+          for (let j = cells.length - 1; j >= 0; j--) {
+            const cell = cells[j];
+            if (!cell.classList.contains('period-header')) {
+              rightBottomCell = cell;
+              break;
+            }
+          }
+          if (rightBottomCell) break;
+        }
+      }
+      
+      if (rightBottomCell) {
+        rightBottomCell.style.borderRight = '2px solid #bcbcbc';
+        rightBottomCell.style.borderBottom = '2px solid #bcbcbc';
+      }
     }
 
     document.getElementById('csvFile').addEventListener('change', function(e) {
@@ -85,40 +144,35 @@
       
       const file = e.target.files[0];
       if (file.name.endsWith('.json')) {
-        // 讀取 JSON 檔案
         const reader = new FileReader();
         reader.onload = function(e) {
           const jsonData = JSON.parse(e.target.result);
-          allCourses = jsonData.courses; // 儲存所有課程資料
-          setupGradeFilter(); // 設定年級篩選功能
-          filterCourses('all'); // 預設顯示所有課程
+          allCourses = jsonData.courses;
+          setupGradeFilter();
+          filterCourses('all');
         };
         reader.readAsText(file);
       } else {
-        // 讀取 CSV 檔案
         Papa.parse(file, {
           header: true,
           encoding: "UTF-8",
           complete: function(results) {
-            allCourses = results.data; // 儲存所有課程資料
-            setupGradeFilter(); // 設定年級篩選功能
-            filterCourses('all'); // 預設顯示所有課程
+            allCourses = results.data;
+            setupGradeFilter();
+            filterCourses('all');
           }
         });
       }
     });
 
-    let allCourses = []; // 儲存所有課程資料
-    let currentFilter = 'all'; // 目前選中的篩選條件
+    let allCourses = [];
+    let currentFilter = 'all';
 
-    // 年級篩選功能
     function setupGradeFilter() {
       const gradeButtons = document.querySelectorAll('.grade-btn');
       gradeButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-          // 移除所有按鈕的 active 狀態
           gradeButtons.forEach(b => b.classList.remove('active'));
-          // 為當前按鈕添加 active 狀態
           this.classList.add('active');
           
           const grade = this.getAttribute('data-grade');
@@ -128,7 +182,6 @@
       });
     }
 
-    // 篩選課程
     function filterCourses(grade) {
       if (grade === 'all') {
         renderSchedule(allCourses);
@@ -138,26 +191,12 @@
       let filteredCourses = [];
       
       if (grade === 'master') {
-        // 碩班課程：開課年級包含碩士班相關資訊
         filteredCourses = allCourses.filter(course => {
           const gradeInfo = course['開課年級'] || '';
           const courseType = course['學制'] || '';
-          const isMaster = courseType.includes('碩士班') || gradeInfo.includes('碩');
-          
-          // 特別檢查 Linux 課程
-          if (course['課程名稱'] && course['課程名稱'].includes('Linux')) {
-            console.log('Linux 課程篩選檢查:', {
-              courseName: course['課程名稱'],
-              gradeInfo: gradeInfo,
-              courseType: courseType,
-              isMaster: isMaster
-            });
-          }
-          
-          return isMaster;
+          return courseType.includes('碩士班') || gradeInfo.includes('碩');
         });
       } else {
-        // 大學部課程：根據開課年級篩選
         filteredCourses = allCourses.filter(course => {
           const gradeInfo = course['開課年級'] || '';
           return gradeInfo.toString() === grade;
@@ -167,7 +206,6 @@
       renderSchedule(filteredCourses);
     }
 
-    // 更新標題
     function updateScheduleTitle() {
       const titleElement = document.getElementById('schedule-title');
       let title = '國立暨南國際大學資管系課程資訊';
@@ -187,14 +225,7 @@
     }
 
     function renderSchedule(data) {
-      // 更新標題
       updateScheduleTitle();
-      
-      // 測試時間解析
-      testTimeParsing();
-      
-      console.log('渲染課程資料:', data.length, '筆');
-      console.log('課程範例:', data.slice(0, 3));
       
       const table = document.createElement('table');
       table.className = 'schedule-table';
@@ -207,7 +238,6 @@
           timeBlock = `<span class="period-time">${periodTimes[p][0]}<br>-<br>${periodTimes[p][1]}</span>`;
         }
         if (p === 'Z') {
-          // Z 列顯示午間休息，合併所有欄位
           let row = `<tr><th class="period-header">${p}<br>${timeBlock}</th><td class="lunch-break" colspan="${weekDays.length}">午間休息</td></tr>`;
           tableBody.innerHTML += row;
           continue;
@@ -223,29 +253,13 @@
 
       const groupedCourses = {};
       data.forEach(course => {
-        if (!course['課程名稱']) {
-          console.log('跳過無課程名稱的資料:', course);
-          return;
-        }
+        if (!course['課程名稱']) return;
         const times = parseCourseTimes(course['上課時間']);
-        console.log('課程:', course['課程名稱'], '時間:', course['上課時間'], '解析結果:', times);
         
-        // 特別檢查 Linux 課程
-        if (course['課程名稱'] && course['課程名稱'].includes('Linux')) {
-          console.log('=== Linux 課程詳細資訊 ===');
-          console.log('課程名稱:', course['課程名稱']);
-          console.log('上課時間:', course['上課時間']);
-          console.log('解析結果:', times);
-          console.log('開課年級:', course['開課年級']);
-          console.log('任課教師:', course['任課教師']);
-          console.log('上課教室:', course['上課教室']);
-          console.log('=======================');
-        }
         times.forEach(({ dayIdx, periods }) => {
           if (periods.length === 0) return;
           const startPeriod = periods[0];
           const key = `${dayIdx}-${startPeriod}`;
-          console.log('課程:', course['課程名稱'], '分配到格子:', key, 'dayIdx:', dayIdx, 'periods:', periods);
           if (!groupedCourses[key]) {
             groupedCourses[key] = [];
           }
@@ -253,14 +267,10 @@
         });
       });
 
-      console.log('分組後的課程:', groupedCourses);
-
       const cellsToRemove = new Set();
       for (const key in groupedCourses) {
         const originalCourses = groupedCourses[key];
         if (originalCourses.length === 0) continue;
-
-        console.log('處理課程組:', key, originalCourses.map(c => c['課程名稱']));
 
         let rowspan = 0;
         let longestCoursePeriods = [];
@@ -295,37 +305,20 @@
         const startPeriod = key.split('-')[1];
         
         const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
-        if (!startCell) {
-          console.log('找不到格子:', `#cell-${startPeriod}-${dayIdx}`);
-          continue;
-        }
-
-        console.log('渲染課程到格子:', `#cell-${startPeriod}-${dayIdx}`, finalCourses.map(c => c['課程名稱']));
+        if (!startCell) continue;
 
         startCell.rowSpan = rowspan;
         startCell.classList.add('has-course');
 
-        // 決定這個格子是否要加下邊框（如果它的rowspan延伸到最後一列）
-        const periodIndex = periods.indexOf(startPeriod);
-        let isBottomBorder = false;
-        if (periodIndex > -1 && (periodIndex + rowspan === periods.length)) {
-          startCell.classList.add('cell-bottom-border');
-        }
-
         let innerContent = '';
         finalCourses.forEach(course => {
             let blockContent = '';
-            // 課名與括號合併不換行
             const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
-            
-            // 取得開課年級資訊
             const gradeInfo = course['開課年級'] || '';
             
             if (course.isCombined) {
-                // 專題課程不顯示學分數
                 blockContent = `${courseName}<br>(${gradeInfo})<br>${course['任課教師']}`;
             } else {
-                // 從 SemesterCourseName 中提取連結
                 let courseUrl = '';
                 if (course['SemesterCourseName'] && course['SemesterCourseName'].includes('href=')) {
                     const match = course['SemesterCourseName'].match(/href="([^"]+)"/);
@@ -358,28 +351,9 @@
       scheduleDiv.innerHTML = '';
       scheduleDiv.appendChild(table);
 
-      // 補強右下角外框：動態補齊每一欄最後一個 td 的下邊框
-      const trs = table.querySelectorAll('tr');
-      const lastRowIndex = trs.length - 1;
-      const colCount = weekDays.length + 1; // +1 for period header
-      for (let col = 1; col < colCount; col++) { // 從1開始，0是節次
-        let lastCell = null;
-        let rowSum = 0;
-        for (let row = 0; row < trs.length; row++) {
-          const tds = trs[row].querySelectorAll('td, th');
-          let cell = tds[col];
-          if (!cell) continue;
-          const rowspan = parseInt(cell.getAttribute('rowspan') || '1', 10);
-          if (row + rowspan > trs.length - 1) {
-            lastCell = cell;
-            break;
-          }
-        }
-        if (lastCell) {
-          lastCell.style.borderBottom = '2px solid #bcbcbc';
-        }
-      }
+      // 使用新的邊框修復函數
+      fixTableBorders(table);
     }
   </script>
 </body>
-</html> 
+</html>

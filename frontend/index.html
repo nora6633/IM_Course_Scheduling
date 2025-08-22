@@ -26,8 +26,19 @@
         </div>
 
         <div id="file-upload-block" class="file-upload">
-            <input type="file" id="csvFile" accept=".csv,.json" />
-            <p>請選擇 CSV 或 JSON 檔案</p>
+            <div class="upload-section">
+                <h3>步驟 1: 上傳課程資料</h3>
+                <input type="file" id="csvFile" accept=".csv,.json" />
+                <p>請選擇 CSV 或 JSON 檔案</p>
+            </div>
+            
+            <div id="selection-upload-block" class="upload-section">
+                <h3>步驟 2: 上傳選別資料</h3>
+                <input type="file" id="selectionFile" accept=".xlsx,.xls" />
+                <p>請選擇 Excel 檔案 (.xlsx 或 .xls)，包含「選別」欄位</p>
+                <p class="note">注意：Excel 檔案必須包含「課程名稱」和「選別」兩個欄位</p>
+                <p class="note">此步驟為必要步驟，必須上傳選別資料才能顯示課程表</p>
+            </div>
         </div>
 
         <div id="schedule-container">

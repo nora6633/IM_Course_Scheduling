@@ -157,6 +157,53 @@ body { font-family: sans-serif; }
   border-bottom: 2px solid #bcbcbc !important;
 }
 
+/* 強制處理右下角邊框 - 使用更高優先級 */
+.schedule-table tbody tr:last-child td:last-child,
+.schedule-table tbody tr:last-child th:last-child {
+  border-right: 2px solid #bcbcbc !important;
+  border-bottom: 2px solid #bcbcbc !important;
+}
+
+/* 處理可能的 rowspan 情況 */
+.schedule-table tbody tr:last-child td[rowspan]:last-child,
+.schedule-table tbody tr:last-child th[rowspan]:last-child {
+  border-right: 2px solid #bcbcbc !important;
+  border-bottom: 2px solid #bcbcbc !important;
+}
+
+/* 使用 CSS 選擇器確保右下角邊框 */
+.schedule-table tbody tr:last-child > td:last-child,
+.schedule-table tbody tr:last-child > th:last-child {
+  border-right: 2px solid #bcbcbc !important;
+  border-bottom: 2px solid #bcbcbc !important;
+}
+
+/* 終極強制處理右下角邊框 */
+.schedule-table tbody tr:last-child td:last-child,
+.schedule-table tbody tr:last-child th:last-child {
+  border-right: 2px solid #bcbcbc !important;
+  border-bottom: 2px solid #bcbcbc !important;
+  border-right-width: 2px !important;
+  border-bottom-width: 2px !important;
+  border-right-style: solid !important;
+  border-bottom-style: solid !important;
+  border-right-color: #bcbcbc !important;
+  border-bottom-color: #bcbcbc !important;
+}
+
+/* 處理可能的偽元素干擾 */
+.schedule-table tbody tr:last-child td:last-child::after,
+.schedule-table tbody tr:last-child th:last-child::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #bcbcbc;
+  z-index: 1000;
+}
+
 .schedule-table th {
   background: #e9ecef;
   text-align: center;
@@ -245,4 +292,51 @@ body { font-family: sans-serif; }
 
 .view-link:hover {
   text-decoration: underline;
+}
+
+/* 檔案上傳區域樣式 */
+.file-upload {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.upload-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.upload-section:last-child {
+  margin-bottom: 0;
+}
+
+.upload-section h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.upload-section p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.upload-section .note {
+  color: #e74c3c;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.upload-section input[type="file"] {
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
 } 
