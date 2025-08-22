@@ -1,0 +1,21 @@
+{
+  "name": "course-scheduling-system",
+  "version": "1.0.0",
+  "description": "課程排程系統 - 前後端分離架構",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "frontend": "cd frontend && python3 -m http.server 8000",
+    "backend": "cd backend && npm start",
+    "install-all": "cd backend && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["course", "scheduling", "express", "frontend", "backend"],
+  "author": "nora6633",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nora6633/IM_Course_Scheduling.git"
+  }
+} 

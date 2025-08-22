@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國立暨南國際大學資管系課程資訊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="schedule-title">國立暨南國際大學資管系課程資訊</h1>
+        </header>
+
+        <div class="grade-filter">
+            <button class="grade-btn active" data-grade="all">總覽</button>
+            <button class="grade-btn" data-grade="1">大一</button>
+            <button class="grade-btn" data-grade="2">大二</button>
+            <button class="grade-btn" data-grade="3">大三</button>
+            <button class="grade-btn" data-grade="4">大四</button>
+            <button class="grade-btn" data-grade="master">碩班</button>
+        </div>
+
+        <div class="instruction">
+            若想了解該課程詳細資訊,請點選「檢視」即可查看。含為推薦「學士班學生預修碩士班課程申請」者可以修習。
+        </div>
+
+        <div id="file-upload-block" class="file-upload">
+            <div class="upload-section">
+                <h3>步驟 1: 上傳課程資料</h3>
+                <input type="file" id="csvFile" accept=".csv,.json" />
+                <p>請選擇 CSV 或 JSON 檔案</p>
+            </div>
+            
+            <div id="selection-upload-block" class="upload-section">
+                <h3>步驟 2: 上傳選別資料</h3>
+                <input type="file" id="selectionFile" accept=".xlsx,.xls" />
+                <p>請選擇 Excel 檔案 (.xlsx 或 .xls)，包含「選別」欄位</p>
+                <p class="note">注意：Excel 檔案必須包含「課程名稱」和「選別」兩個欄位</p>
+                <p class="note">此步驟為必要步驟，必須上傳選別資料才能顯示課程表</p>
+            </div>
+        </div>
+
+        <div id="schedule-container">
+            <div id="schedule"></div>
+        </div>
+
+        <div id="legend">
+            <span class="legend cell-must">校必修</span>
+            <span class="legend cell-college">院必修</span>
+            <span class="legend cell-dept">系必修</span>
+            <span class="legend cell-tech">技術次領域</span>
+            <span class="legend cell-mgmt">管理次領域</span>
+            <span class="legend cell-elective">專業選修</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
