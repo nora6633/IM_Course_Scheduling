@@ -215,11 +215,11 @@ function renderSchedule(data) {
       // 調試：檢查星期四和星期五的課程
       if ((dayIdx === 3 || dayIdx === 4) && periods.some(p => ['E', 'F', 'G', 'H', 'I', 'J'].includes(p))) {
         const dayName = dayIdx === 3 ? '星期四' : '星期五';
-        console.log(`課程 ${course['課程名稱']} 時段: ${periods.join('')}, 開始時段: ${startPeriod}, 星期: ${dayName}, dayIdx: ${dayIdx}, key: ${key}, 原始時間: ${course['上課時間']}`);
+        // console.log(`課程 ${course['課程名稱']} 時段: ${periods.join('')}, 開始時段: ${startPeriod}, 星期: ${dayName}, dayIdx: ${dayIdx}, key: ${key}, 原始時間: ${course['上課時間']}`);
         
         // 特別檢查資料庫和專題課程
         if (course['課程名稱'].includes('資料庫') || course['課程名稱'].includes('專題討論')) {
-          console.log(`*** 重點課程 ${course['課程名稱']} *** dayIdx: ${dayIdx}, 上課時間: ${course['上課時間']}`);
+          // console.log(`*** 重點課程 ${course['課程名稱']} *** dayIdx: ${dayIdx}, 上課時間: ${course['上課時間']}`);
         }
       }
       
