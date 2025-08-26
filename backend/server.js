@@ -12,9 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // IP 限制中間件
 function restrictToAdminIP(req, res, next) {
-  const clientIP = req.ip || req.connection.remoteAddress || req.socket.remoteAddress ||
-    (req.connection.socket ? req.connection.socket.remoteAddress : null);
-  console.log('client ip', req.ip)
+  const clientIP = req.ip;
   
   const adminIPs = process.env.ADMIN_IP;
   
