@@ -447,9 +447,18 @@ function renderSchedule(data) {
       }
     }
     
-    const gradeDisplay = gradeInfo ? `(${gradeInfo})` : '';
+    // 檢查是否為碩士班課程（根據備註判斷）
+    const remarks = course['備註'] || '';
+    const isMasterCourse = remarks.includes('為碩士班必修課，學士班大三以上學生可自由選擇是否修習。') ||
+                          remarks.includes('為碩士班選修課，學士班大三以上學生可自由選擇是否修習。');
     
-    const blockContent = `${courseName}${creditDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
+    // 決定年級顯示：如果是碩士班課程則顯示 (G)，否則顯示原本的年級
+    const gradeDisplay = isMasterCourse ? '(G)' : (gradeInfo ? `(${gradeInfo})` : '');
+    
+    // 決定星號顯示：如果是碩士班課程則顯示 ⭐
+    const starDisplay = isMasterCourse ? ' ⭐' : '';
+    
+    const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
     
     // 根據選別資料決定顏色
     let courseType = '';
