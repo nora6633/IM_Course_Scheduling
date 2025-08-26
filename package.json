@@ -11,11 +11,20 @@
     "install-all": "cd backend && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["course", "scheduling", "express", "frontend", "backend"],
+  "keywords": [
+    "course",
+    "scheduling",
+    "express",
+    "frontend",
+    "backend"
+  ],
   "author": "nora6633",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/nora6633/IM_Course_Scheduling.git"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
   }
-} 
+}

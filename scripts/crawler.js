@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
 const fs = require('fs');
 
-// Crawler configuration
-const XSRF_TOKEN = "eyJpdiI6ImF0d2tsc3hqMXJlMXZqQngwdG9rMGc9PSIsInZhbHVlIjoiZXNMUEYvNDZCZDlRb1FQQm5QRExqS2psazZPNUJOQUZ6YzB2ZEI2RnVNNmJIV1pBZ1hSWE1GT3pLQ3VxaTYvQVVIY0RIY2pZZFI1Z0xBRU1FbklwNUhWSTJNYjB4ZUxKdkZRcEl6NlZRMVRSQ3d1VFhkUlBIdmtyTE9OK2N1eEMiLCJtYWMiOiJhZWJiNjljYzU5MGYwNDE0YWY4NmQ3NmMwZmE5NTJlMzAxN2ZiNzdhODczYTViYTIxNzM5ZmU3YWZlMjE0ODdhIiwidGFnIjoiIn0%3D;";
-const SESSION = "eyJpdiI6InJNM2M1eDBlQWxJMDIvQTZXUnoyc1E9PSIsInZhbHVlIjoiLzNReXR3eGxKZXRLTFJIZ1FDR1pYUDdZZTdpc2d0MnNVT0tnSDU1Qjc4aGtzclRyZEdiYm9OTytjQ1R2RHVJcEhDMXI1MkZhQnBKSmJOTDRSMlFuY3ZGNzh4OUVjNEhMRmpVbUFxU3E4TmRxMndmamNpK1RCNFZoQTVSTlE5eW4iLCJtYWMiOiJhNTE4NjE4NWY1M2FjZTI4MTBhNDRhN2EyMzY3M2RmNWM5MTBiMDc0YjYyMDEyNjUyY2MzZmQ5YjY2YzRiMGZhIiwidGFnIjoiIn0%3D;";
-const TOKEN = "Z24AHV0DodZu5FtMaaGbsaKUgejE8OnXyspWTgNG";
+// Crawler configuration - read from environment variables
+const XSRF_TOKEN = process.env.XSRF_TOKEN;
+const SESSION = process.env.SESSION;
+const TOKEN = process.env.TOKEN;
+
+// Validate that all required environment variables are present
+if (!XSRF_TOKEN || !SESSION || !TOKEN) {
+    console.error("錯誤: 缺少必要的環境變數");
+    console.error("請確保 .env 檔案包含以下變數:");
+    console.error("  XSRF_TOKEN=...");
+    console.error("  SESSION=...");
+    console.error("  TOKEN=...");
+    process.exit(1);
+}
 
 // Request URL
 const URL = 'https://sis.ncnu.edu.tw/b09/b09120';

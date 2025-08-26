@@ -250,8 +250,8 @@ NCNU 課程資料解析工具
 選項:
   --format, -f <format>    輸出格式: csv, json (預設: csv)
   --crawler, -c            直接使用爬蟲獲取資料 (不需要輸入檔案)
-  --year, -y <year>        學年 (crawler模式，預設: 114)
-  --semester, -s <sem>     學期 1=上學期, 2=下學期 (crawler模式，預設: 1)  
+  --year, -y <year>        學年 (crawler模式必須，例如: 114)
+  --semester, -s <sem>     學期 1=上學期, 2=下學期 (crawler模式必須)  
   --unit, -u <unit>        系所代碼 (crawler模式，預設: 93=資訊管理學系)
   --help, -h               顯示此說明
 
@@ -268,9 +268,9 @@ NCNU 課程資料解析工具
   node scripts/parser.js - -                       # 從stdin讀取，輸出到stdout
 
 爬蟲模式範例:
-  node scripts/parser.js --crawler                 # 直接爬取並輸出CSV
-  node scripts/parser.js --crawler courses.csv     # 直接爬取並輸出到courses.csv
-  node scripts/parser.js -c --format json          # 直接爬取並輸出JSON
+  node scripts/parser.js --crawler -y 114 -s 1     # 爬取114學年上學期並輸出CSV
+  node scripts/parser.js -c -y 114 -s 1 courses.csv # 爬取並輸出到courses.csv
+  node scripts/parser.js -c -y 114 -s 1 --format json # 爬取並輸出JSON
   node scripts/parser.js -c -y 113 -s 2            # 爬取113學年下學期
 
 管道操作範例:
@@ -371,10 +371,29 @@ async function main() {
     
     let htmlContent;
     
+    const semesterInfo = {
+        academicYear: '未知學年',
+        semester: '未知學期',
+        department: '資管系'
+    };
     if (useCrawler) {
+        // Validate required parameters for crawler mode
+        if (!crawlerParams.academicYear) {
+            console.error("錯誤: 爬蟲模式需要指定學年參數 --year");
+            console.error("範例: node scripts/parser.js --crawler --year 114 --semester 1");
+            process.exit(1);
+        }
+        if (!crawlerParams.semester) {
+            console.error("錯誤: 爬蟲模式需要指定學期參數 --semester");
+            console.error("範例: node scripts/parser.js --crawler --year 114 --semester 1");
+            process.exit(1);
+        }
+	semesterInfo.academicYear = crawlerParams.academicYear;
+        semesterInfo.semester = crawlerParams.semester;
+        
         console.error(`解析參數 (爬蟲模式):`);
-        console.error(`  學年: ${crawlerParams.academicYear || '114'}`);
-        console.error(`  學期: ${crawlerParams.semester || '1'}`);
+        console.error(`  學年: ${crawlerParams.academicYear}`);
+        console.error(`  學期: ${crawlerParams.semester}`);
         console.error(`  系所: ${crawlerParams.unitID || '93'}`);
         console.error(`  輸出格式: ${format}`);
         if (outputFile) {
@@ -409,7 +428,6 @@ async function main() {
     }
     
     // 提取學年和學期資訊
-    const semesterInfo = extractSemesterInfo(htmlContent);
     console.error('提取到的學期資訊:', semesterInfo);
     
     // 提取JSON資料
