@@ -5,6 +5,10 @@ html, body {
   overflow: visible;
 }
 
+h1 {
+  text-align: center;
+}
+
 .page-container,
 .schedule-main,
 #schedule,
@@ -241,6 +245,69 @@ body { font-family: sans-serif; }
 }
 .course-block:first-child {
     border-left: none;
+}
+
+/* 巢狀表格樣式 - 確保填滿整個父元素高度並與主表格行對齊 */
+.nested-course-table {
+  width: 100% !important;
+  height: 100% !important;
+  border-collapse: collapse !important;
+  table-layout: fixed;
+}
+
+.nested-course-table td {
+  vertical-align: top !important;
+  border: 1px solid #ddd !important;
+  padding: 2px !important;
+}
+
+/* 每個巢狀表格行應該有固定高度以與主表格對齊 */
+.nested-course-table tr {
+  /* 計算每個時段的高度 - 基於主表格的行高 */
+  height: calc(100% / var(--periods-count));
+}
+
+/* 確保有 rowspan 的 td 元素填滿整個高度 */
+.has-course {
+  height: 100%;
+  position: relative;
+}
+
+.has-course .nested-course-table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 為不同 rowspan 的巢狀表格設定 CSS 變數 */
+.has-course[data-periods="1"] .nested-course-table {
+  --periods-count: 1;
+}
+
+.has-course[data-periods="2"] .nested-course-table {
+  --periods-count: 2;
+}
+
+.has-course[data-periods="3"] .nested-course-table {
+  --periods-count: 3;
+}
+
+.has-course[data-periods="4"] .nested-course-table {
+  --periods-count: 4;
+}
+
+.has-course[data-periods="5"] .nested-course-table {
+  --periods-count: 5;
+}
+
+.has-course[data-periods="6"] .nested-course-table {
+  --periods-count: 6;
+}
+
+.has-course[data-periods="7"] .nested-course-table {
+  --periods-count: 7;
 }
 
 .course-title {

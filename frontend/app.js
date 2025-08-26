@@ -91,12 +91,12 @@ async function uploadSelectionFile(file) {
   formData.append('file', file);
 
   try {
-    console.log('準備上傳到:', `${API_BASE_URL}/upload-excel`);
+    //console.log('準備上傳到:', `${API_BASE_URL}/upload-excel`);
     const response = await fetch(`${API_BASE_URL}/upload-excel`, {
       method: 'POST',
       body: formData
     });
-    console.log('API 回應狀態:', response.status);
+    //console.log('API 回應狀態:', response.status);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -144,12 +144,12 @@ function parseCourseTimes(timeStr) {
 
 // 渲染課表
 function renderSchedule(data) {
-  console.log('開始渲染課表，資料筆數:', data.length);
+  //console.log('開始渲染課表，資料筆數:', data.length);
   
   // 確保 schedule 元素存在
   let scheduleDiv = document.getElementById('schedule');
   if (!scheduleDiv) {
-    console.log('schedule 元素不存在，創建新的 schedule-container');
+    //console.log('schedule 元素不存在，創建新的 schedule-container');
     const scheduleContainer = document.getElementById('schedule-container');
     if (scheduleContainer) {
       scheduleContainer.innerHTML = '<div id="schedule"></div>';
@@ -192,26 +192,19 @@ function renderSchedule(data) {
     let row = `<tr><th class="period-header">${p}<br>${timeBlock}</th>`;
     for (let d = 0; d < weekDays.length; d++) {
       row += `<td id="cell-${p}-${d}"></td>`;
+      //console.log('weekDays', weekDays[d]);
+      //console.log('row', row);
     }
     row += '</tr>';
     tableBody.innerHTML += row;
   }
   table.appendChild(tableBody);
 
-  // 分組課程
+  // 分組課程 - 按起始時段分組
   const groupedCourses = {};
+  
   data.forEach(course => {
     if (!course['課程名稱']) return;
-    
-    // 調試：檢查 Linux 課程
-    if (course['課程名稱'].includes('Linux')) {
-      console.log('找到 Linux 課程:', course['課程名稱'], '時間:', course['上課時間']);
-    }
-    
-    // 調試：檢查專題課程（只顯示一次）
-    if (course['課程名稱'].includes('資訊管理專題與個案') && course['班級'] === 'a') {
-      console.log('找到專題課程:', course['課程名稱'], '時間:', course['上課時間']);
-    }
     
     const times = parseCourseTimes(course['上課時間']);
     times.forEach(({ dayIdx, periods }) => {
@@ -219,142 +212,272 @@ function renderSchedule(data) {
       const startPeriod = periods[0];
       const key = `${dayIdx}-${startPeriod}`;
       
+      // 調試：檢查星期四和星期五的課程
+      if ((dayIdx === 3 || dayIdx === 4) && periods.some(p => ['E', 'F', 'G', 'H', 'I', 'J'].includes(p))) {
+        const dayName = dayIdx === 3 ? '星期四' : '星期五';
+        // console.log(`課程 ${course['課程名稱']} 時段: ${periods.join('')}, 開始時段: ${startPeriod}, 星期: ${dayName}, dayIdx: ${dayIdx}, key: ${key}, 原始時間: ${course['上課時間']}`);
+        
+        // 特別檢查資料庫和專題課程
+        if (course['課程名稱'].includes('資料庫') || course['課程名稱'].includes('專題討論')) {
+          // console.log(`*** 重點課程 ${course['課程名稱']} *** dayIdx: ${dayIdx}, 上課時間: ${course['上課時間']}`);
+        }
+      }
+      
       if (!groupedCourses[key]) {
         groupedCourses[key] = [];
       }
       groupedCourses[key].push({ ...course, periods });
-      
-      // 調試：檢查 Linux 課程的分組
-      if (course['課程名稱'].includes('Linux')) {
-        console.log('Linux 課程分組到:', key, 'dayIdx:', dayIdx, 'periods:', periods);
-      }
-      
-      // 調試：檢查專題課程的分組（只顯示一次）
-      if (course['課程名稱'].includes('資訊管理專題與個案') && course['班級'] === 'a') {
-        console.log('專題課程分組到:', key, 'dayIdx:', dayIdx, 'periods:', periods);
-      }
     });
   });
 
   console.log('分組後的課程:', groupedCourses);
 
-  // 渲染課程
-  const cellsToRemove = new Set();
+  // 檢測重疊課程組並創建巢狀表格結構
   
+  // 先按天分組所有課程
+  const coursesByDay = {};
   for (const key in groupedCourses) {
-    const originalCourses = groupedCourses[key];
-    if (originalCourses.length === 0) continue;
-
-    // 調試：檢查星期四 H 時段
-    if (key === '3-H') {
-      console.log('星期四 H 時段的課程:', originalCourses.map(c => c['課程名稱']));
-    }
-
-    let rowspan = 0;
-    let longestCoursePeriods = [];
-    for (const c of originalCourses) {
-      if (c.periods && c.periods.length > rowspan) {
-        rowspan = c.periods.length;
-        longestCoursePeriods = c.periods;
-      }
-    }
-
-    // 所有課程都正常顯示，不特殊處理專題課程
-    const finalCourses = [...originalCourses];
-
-    // 設置到對應的格子
     const dayIdx = parseInt(key.split('-')[0], 10);
-    const startPeriod = key.split('-')[1];
-
-    const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
-    if (!startCell) {
-      console.log('找不到格子:', `#cell-${startPeriod}-${dayIdx}`);
-      continue;
+    if (!coursesByDay[dayIdx]) {
+      coursesByDay[dayIdx] = [];
     }
-
-    // 調試：檢查星期四 H 時段的渲染
-    if (key === '3-H') {
-      console.log('星期四 H 時段最終課程:', finalCourses.map(c => c['課程名稱']));
-      console.log('星期四 H 時段 rowspan:', rowspan);
-    }
-
-    startCell.rowSpan = rowspan;
-    startCell.classList.add('has-course');
-
-    // 決定這個格子是否要加下邊框
-    const periodIndex = periods.indexOf(startPeriod);
-    if (periodIndex > -1 && (periodIndex + rowspan === periods.length)) {
-      startCell.classList.add('cell-bottom-border');
-    }
-
-    let innerContent = '';
-    finalCourses.forEach(course => {
-      const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
-      const gradeInfo = course['開課年級'] || '';
-      const teacher = course['任課教師'] || course['授課教師'] || '';
-      const classroom = course['上課教室'] || course['教室'] || '';
-      const credit = course['學分數'] || '';
-      
-      // 專題課程不顯示學分數
-      const creditDisplay = courseName.includes('資訊管理專題與個案') ? '' : (credit ? `(${credit})` : '');
-      
-      // 從 SemesterCourseName 中提取連結
-      let courseUrl = '';
-      if (course['SemesterCourseName'] && course['SemesterCourseName'].includes('href=')) {
-        const match = course['SemesterCourseName'].match(/href="([^"]+)"/);
-        if (match) {
-          courseUrl = match[1];
-        }
-      }
-      
-      const gradeDisplay = gradeInfo ? `(${gradeInfo})` : '';
-      const blockContent = `${courseName}${creditDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
-      
-      // 根據選別資料決定顏色
-      let courseType = '';
-      
-      // 優先使用 Excel 上傳的選別資料（根據課程編號匹配）
-      if (courseSelectionData[course['課程編號']]) {
-        courseType = courseSelectionData[course['課程編號']];
-        console.log(`課程 ${courseName} (編號: ${course['課程編號']}) 使用 Excel 選別: ${courseType}`);
-      } else {
-        // 如果沒有選別資料，則使用課程本身的選別或修別欄位
-        courseType = course['選別'] || course['修別'] || '';
-        console.log(`課程 ${courseName} (編號: ${course['課程編號']}) 使用原始選別: ${courseType}`);
-      }
-      
-      // 除錯：檢查選別值和顏色映射
-      console.log(`課程 ${courseName} 的選別值: "${courseType}"`);
-      console.log(`對應的顏色類別: ${typeColorMap[courseType] || 'cell-elective (預設)'}`);
-      
-      const colorClass = typeColorMap[courseType] || 'cell-elective';
-      
-      innerContent += `<div class="course-block ${colorClass}">
-                        ${blockContent}
-                      </div>`;
+    groupedCourses[key].forEach(course => {
+      coursesByDay[dayIdx].push({ ...course, startPeriod: key.split('-')[1] });
     });
+  }
 
-    startCell.innerHTML = `<div class="cell-content-wrapper">${innerContent}</div>`;
-
-    // 調試：檢查星期四 H 時段的 DOM 渲染
-    if (key === '3-H') {
-      console.log('星期四 H 時段 innerContent:', innerContent);
-      console.log('星期四 H 時段 startCell.innerHTML:', startCell.innerHTML);
-    }
-
-    for (let i = 1; i < rowspan; i++) {
-      const periodToRemove = longestCoursePeriods[i];
-      if (periodToRemove) {
-        cellsToRemove.add(`cell-${periodToRemove}-${dayIdx}`);
+  // 為每天找出重疊的課程組
+  Object.keys(coursesByDay).forEach(dayIdx => {
+    const dayCourses = coursesByDay[dayIdx];
+    const processedCourses = new Set();
+    
+    dayCourses.forEach(course => {
+      if (processedCourses.has(course['課程名稱'])) return;
+      
+      // 找出與此課程重疊的所有其他課程
+      const overlapGroup = [course];
+      const usedPeriods = new Set(course.periods);
+      
+      dayCourses.forEach(otherCourse => {
+        if (otherCourse['課程名稱'] === course['課程名稱']) return;
+        if (processedCourses.has(otherCourse['課程名稱'])) return;
+        
+        // 檢查是否有重疊時段
+        const hasOverlap = otherCourse.periods.some(p => usedPeriods.has(p));
+        if (hasOverlap) {
+          overlapGroup.push(otherCourse);
+          otherCourse.periods.forEach(p => usedPeriods.add(p));
+        }
+      });
+      
+      // 標記所有課程為已處理
+      overlapGroup.forEach(c => processedCourses.add(c['課程名稱']));
+      
+      if (overlapGroup.length > 1) {
+        // 有重疊：創建巢狀表格
+        renderOverlapGroup(overlapGroup, dayIdx, table);
+      } else {
+        // 無重疊：正常渲染
+        renderSingleCourse(course, dayIdx, table);
       }
+    });
+  });
+
+  // 渲染單一課程（無重疊）
+  function renderSingleCourse(course, dayIdx, table) {
+    const startCell = table.querySelector(`#cell-${course.startPeriod}-${dayIdx}`);
+    if (!startCell) return;
+    
+    startCell.rowSpan = course.periods.length;
+    startCell.classList.add('has-course');
+    startCell.setAttribute('data-periods', course.periods.length);
+    
+    const courseData = createCourseContent(course, course.periods.length);
+    startCell.classList.add(courseData.colorClass);
+    startCell.innerHTML = `<div class="cell-content-wrapper">${courseData.content}</div>`;
+    
+    // 移除其他時段的格子
+    for (let i = 1; i < course.periods.length; i++) {
+      const periodToRemove = course.periods[i];
+      const cellToRemove = table.querySelector(`#cell-${periodToRemove}-${dayIdx}`);
+      if (cellToRemove) cellToRemove.remove();
     }
   }
 
-  // 移除被合併的單元格
-  cellsToRemove.forEach(cellId => {
-    const cell = table.querySelector(`#${cellId}`);
-    if (cell) cell.remove();
-  });
+  // 渲染重疊課程組（使用巢狀表格）
+  function renderOverlapGroup(courses, dayIdx, table) {
+    // console.log(`處理重疊課程組:`, courses.map(c => `${c['課程名稱']}(${c.periods.join('')})`));
+    
+    // 找出所有使用的時段
+    const allPeriods = new Set();
+    courses.forEach(course => {
+      course.periods.forEach(p => allPeriods.add(p));
+    });
+    const sortedPeriods = Array.from(allPeriods).sort((a, b) => periods.indexOf(a) - periods.indexOf(b));
+    
+    const startPeriod = sortedPeriods[0];
+    const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
+    if (!startCell) return;
+    
+    startCell.rowSpan = sortedPeriods.length;
+    startCell.classList.add('has-course');
+    startCell.setAttribute('data-periods', sortedPeriods.length);
+    
+    // 創建巢狀表格
+    const nestedTable = createNestedTable(courses, sortedPeriods);
+    startCell.innerHTML = nestedTable;
+    
+    // 移除其他時段的格子
+    for (let i = 1; i < sortedPeriods.length; i++) {
+      const periodToRemove = sortedPeriods[i];
+      const cellToRemove = table.querySelector(`#cell-${periodToRemove}-${dayIdx}`);
+      if (cellToRemove) cellToRemove.remove();
+    }
+  }
+
+  // 創建巢狀表格HTML
+  function createNestedTable(courses, allPeriods) {
+    // 建立課程的固定順序（按課程名稱排序以確保一致性）
+    const sortedCourses = courses.sort((a, b) => a['課程名稱'].localeCompare(b['課程名稱']));
+    
+    // 計算每個課程在每個時段的 rowspan 和是否應該顯示
+    const courseSpanInfo = {};
+    
+    sortedCourses.forEach(course => {
+      const courseName = course['課程名稱'];
+      courseSpanInfo[courseName] = {};
+      
+      // 找出課程的連續時段組
+      const coursePeriods = course.periods.filter(p => allPeriods.includes(p));
+      coursePeriods.sort((a, b) => allPeriods.indexOf(a) - allPeriods.indexOf(b));
+      
+      let currentSpanStart = null;
+      let spanLength = 0;
+      
+      for (let i = 0; i < allPeriods.length; i++) {
+        const period = allPeriods[i];
+        
+        if (coursePeriods.includes(period)) {
+          if (currentSpanStart === null) {
+            // 開始新的連續區段
+            currentSpanStart = period;
+            spanLength = 1;
+          } else {
+            // 繼續連續區段
+            spanLength++;
+          }
+          
+          // 檢查是否是連續區段的結束
+          const nextPeriod = allPeriods[i + 1];
+          const isLastPeriod = i === allPeriods.length - 1;
+          const nextPeriodNotInCourse = !coursePeriods.includes(nextPeriod);
+          
+          if (isLastPeriod || nextPeriodNotInCourse) {
+            // 結束連續區段，設置 span 信息
+            courseSpanInfo[courseName][currentSpanStart] = {
+              rowspan: spanLength,
+              show: true
+            };
+            
+            // 標記其他時段為不顯示
+            for (let j = 1; j < spanLength; j++) {
+              const periodIndex = allPeriods.indexOf(currentSpanStart) + j;
+              if (periodIndex < allPeriods.length) {
+                const skipPeriod = allPeriods[periodIndex];
+                courseSpanInfo[courseName][skipPeriod] = {
+                  rowspan: 0,
+                  show: false
+                };
+              }
+            }
+            
+            currentSpanStart = null;
+            spanLength = 0;
+          }
+        }
+      }
+    });
+    
+    let html = '<table class="nested-course-table" style="width:100%; height:100%; border-collapse: collapse;">';
+    
+    allPeriods.forEach(period => {
+      html += '<tr>';
+      
+      // 為每個課程檢查是否在此時段，並處理 rowspan
+      sortedCourses.forEach(course => {
+        const courseName = course['課程名稱'];
+        const spanInfo = courseSpanInfo[courseName][period];
+        
+        if (spanInfo && spanInfo.show) {
+          // 顯示課程內容，使用 rowspan
+          const courseData = createCourseContent(course, spanInfo.rowspan);
+          const rowspanAttr = spanInfo.rowspan > 1 ? ` rowspan="${spanInfo.rowspan}"` : '';
+          html += `<td${rowspanAttr} class="${courseData.colorClass}" style="border: 1px solid #ddd; padding: 2px; vertical-align: top;">${courseData.content}</td>`;
+        } else if (!spanInfo) {
+          // 課程不在此時段，顯示空格
+          html += '<td style="border: 1px solid #ddd; padding: 2px;"></td>';
+        }
+        // 如果 spanInfo 存在但 show 為 false，則不添加任何 td（被 rowspan 覆蓋）
+      });
+      
+      html += '</tr>';
+    });
+    
+    html += '</table>';
+    return html;
+  }
+  
+  // 創建課程內容的輔助函數 - 返回內容和顏色類別
+  function createCourseContent(course, rowspan = 1) {
+    const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
+    const gradeInfo = course['開課年級'] || '';
+    const teacher = course['任課教師'] || course['授課教師'] || '';
+    const classroom = course['上課教室'] || course['教室'] || '';
+    const credit = course['學分數'] || '';
+    
+    // 專題課程不顯示學分數
+    const creditDisplay = courseName.includes('資訊管理專題與個案') ? '' : (credit ? `(${credit})` : '');
+    
+    // 從 SemesterCourseName 中提取連結
+    let courseUrl = '';
+    if (course['SemesterCourseName'] && course['SemesterCourseName'].includes('href=')) {
+      const match = course['SemesterCourseName'].match(/href="([^"]+)"/);
+      if (match) {
+        courseUrl = match[1];
+      }
+    }
+    
+    // 檢查是否為碩士班課程（根據備註判斷）
+    const remarks = course['備註'] || '';
+    const isMasterCourse = remarks.includes('為碩士班必修課，學士班大三以上學生可自由選擇是否修習。') ||
+                          remarks.includes('為碩士班選修課，學士班大三以上學生可自由選擇是否修習。');
+    
+    // 決定年級顯示：如果是碩士班課程則顯示 (G)，否則顯示原本的年級
+    const gradeDisplay = isMasterCourse ? '(G)' : (gradeInfo ? `(${gradeInfo})` : '');
+    
+    // 決定星號顯示：如果是碩士班課程則顯示 ⭐
+    const starDisplay = isMasterCourse ? ' ⭐' : '';
+    
+    const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
+    
+    // 根據選別資料決定顏色
+    let courseType = '';
+    
+    // 優先使用 Excel 上傳的選別資料（根據課程編號匹配）
+    if (courseSelectionData[course['課程編號']]) {
+      courseType = courseSelectionData[course['課程編號']];
+    } else {
+      // 如果沒有選別資料，則使用課程本身的選別或修別欄位
+      courseType = course['選別'] || course['修別'] || '';
+    }
+    
+    const colorClass = typeColorMap[courseType] || 'cell-elective';
+    
+    return {
+      content: `<div class="course-block">${blockContent}</div>`,
+      colorClass: colorClass
+    };
+  }
 
   // 確保表格有完整的邊框結構
   const tbody = table.querySelector('tbody');
@@ -400,14 +523,14 @@ function renderSchedule(data) {
   }
 
   // 調試：檢查表格結構
-  console.log('表格行數:', rows.length);
-  console.log('最後一行:', lastRow);
+  //console.log('表格行數:', rows.length);
+  //console.log('最後一行:', lastRow);
   if (lastRow) {
-    console.log('最後一行的單元格數量:', lastRow.querySelectorAll('td, th').length);
+    //console.log('最後一行的單元格數量:', lastRow.querySelectorAll('td, th').length);
     const lastCell = lastRow.querySelector('td:last-child, th:last-child');
-    console.log('最後一個單元格:', lastCell);
+    //console.log('最後一個單元格:', lastCell);
     if (lastCell) {
-      console.log('最後一個單元格的邊框樣式:', lastCell.style.borderRight, lastCell.style.borderBottom);
+      //console.log('最後一個單元格的邊框樣式:', lastCell.style.borderRight, lastCell.style.borderBottom);
     }
   }
 
@@ -418,8 +541,8 @@ function renderSchedule(data) {
 function processSelectionData(selectionData) {
   courseSelectionData = {};
   
-  console.log('開始處理選別資料，資料筆數:', selectionData.length);
-  console.log('第一筆資料範例:', selectionData[0]);
+  //console.log('開始處理選別資料，資料筆數:', selectionData.length);
+  //console.log('第一筆資料範例:', selectionData[0]);
   
   // 建立課程編號到選別的映射
   selectionData.forEach(course => {
@@ -429,21 +552,21 @@ function processSelectionData(selectionData) {
     
     if (courseCode && selection) {
       courseSelectionData[courseCode] = selection;
-      console.log(`課程編號 ${courseCode} 對應選別: ${selection}`);
+      //console.log(`課程編號 ${courseCode} 對應選別: ${selection}`);
     } else {
-      console.log(`跳過資料: 課程編號=${courseCode}, 選別=${selection}`);
+      //console.log(`跳過資料: 課程編號=${courseCode}, 選別=${selection}`);
     }
   });
   
-  console.log('選別資料處理完成，共處理', Object.keys(courseSelectionData).length, '筆資料');
-  console.log('選別資料映射:', courseSelectionData);
+  //console.log('選別資料處理完成，共處理', Object.keys(courseSelectionData).length, '筆資料');
+  //console.log('選別資料映射:', courseSelectionData);
   
   // 如果有課程資料，重新渲染以應用選別顏色
   if (allCourses.length > 0) {
-    console.log('開始重新渲染課表...');
+    //console.log('開始重新渲染課表...');
     renderSchedule(allCourses);
   } else {
-    console.log('沒有課程資料可渲染');
+    //console.log('沒有課程資料可渲染');
   }
 }
 
@@ -529,25 +652,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!e.target.files.length) return;
             
             const file = e.target.files[0];
-            console.log('Excel 檔案已選擇:', file.name);
+            //console.log('Excel 檔案已選擇:', file.name);
 
             try {
-              console.log('開始上傳 Excel 檔案...');
+              //console.log('開始上傳 Excel 檔案...');
               const result = await uploadSelectionFile(file);
-              console.log('Excel 上傳結果:', result);
+              //console.log('Excel 上傳結果:', result);
               
               if (result.success) {
-                console.log('Excel 上傳成功，開始處理選別資料...');
+                //console.log('Excel 上傳成功，開始處理選別資料...');
                 // 處理選別資料
                 processSelectionData(result.data);
                 
-                console.log('選別資料處理完成，開始渲染課表...');
+                //console.log('選別資料處理完成，開始渲染課表...');
                 // 現在才顯示課程表
                 setupGradeFilter();
                 renderSchedule(allCourses);
                 updateScheduleTitle('all');
                 
-                console.log('課表渲染完成');
+                //console.log('課表渲染完成');
                 alert('選別資料上傳成功！課程表已顯示，課程顏色已根據選別資料設定。');
                 
                 // 隱藏整個上傳區塊，因為課程表已經顯示
@@ -613,7 +736,7 @@ function setupGradeFilter() {
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('前端應用程式已載入');
+  //console.log('前端應用程式已載入');
   
   // 選別檔案上傳事件處理
   const selectionFileInput = document.getElementById('selectionFile');
