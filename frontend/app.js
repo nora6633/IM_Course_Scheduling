@@ -306,7 +306,7 @@ function renderSchedule(data) {
 
   // 渲染重疊課程組（使用巢狀表格）
   function renderOverlapGroup(courses, dayIdx, table) {
-    console.log(`處理重疊課程組:`, courses.map(c => `${c['課程名稱']}(${c.periods.join('')})`));
+    // console.log(`處理重疊課程組:`, courses.map(c => `${c['課程名稱']}(${c.periods.join('')})`));
     
     // 找出所有使用的時段
     const allPeriods = new Set();
