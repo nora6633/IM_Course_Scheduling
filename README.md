@@ -1,77 +1,31 @@
-# TypeScript Express API
+# NCNU IM Course
 
-A RESTful API built with TypeScript and Express.js.
+## Generate course infomations (csv) by crawling iNCNU
+1. Download the repo: `git clone https://github.com/nora6633/IM_Course_Scheduling.git`
 
-## Generate course infomations csv by crawling iNCNU
-- `node scripts/parser.js --crawler --year <year> --semester <semester>`
+2. Get **XSRF-TOKEN** , **_session** , **_token** in `https://sis.ncnu.edu.tw/b09/b09120`
+   <img width="647" height="577" alt="image" src="https://github.com/user-attachments/assets/f661492e-6b83-45c4-8cab-05e55bed430f" />
 
-## Features
+   <img width="655" height="512" alt="image" src="https://github.com/user-attachments/assets/387483aa-87d6-4a4f-883b-6dae3e64fd8b" />
 
-- TypeScript support
-- Express.js framework
-- CORS enabled
-- Environment variables support
-- Basic CRUD operations
-- Error handling
-- User management endpoints
+   <img width="679" height="343" alt="image" src="https://github.com/user-attachments/assets/42aa1cf7-f28f-45ce-8150-f8974cebf2b8" />
 
-## Prerequisites
+3. Update the **XSRF-TOKEN** , **_session** , **_token**
+   - `sudo vim .env`
 
-- Node.js (v14 or higher)
-- npm or yarn
+4. Generate the course whichever you want: `sudo node scripts/parser.js --crawler --year <year> --semester <semester>`
+   <img width="1210" height="329" alt="image" src="https://github.com/user-attachments/assets/37841529-5c1f-43ae-8643-347ce0c74c52" />
 
-## Installation
+## Upload Workflow(Admin Only)
+5. Initially,there is no course information in website
+   - <img width="707" height="677" alt="image" src="https://github.com/user-attachments/assets/87149785-49f5-4b16-ba69-39bb91fd446e" />
 
-1. Clone the repository
-2. Install dependencies:
-```bash
-npm install
-```
+6. Turn on OpenVPN,and click "課程資料上傳系統"
+   - <img width="690" height="659" alt="image" src="https://github.com/user-attachments/assets/d109a856-659f-4c62-91bf-6acecb3fb470" />
 
-3. Create a `.env` file in the root directory and add:
-```
-PORT=3000
-NODE_ENV=development
-```
+7. Upload the csv file you just generated at Step4, and upload the Excel file also.
+  - <img width="736" height="632" alt="image" src="https://github.com/user-attachments/assets/b9509dc8-3711-4a24-9e3e-d224d73fbdf3" />
 
-## Development
+8. Finally,you get courses informations from all semesters!
+   - <img width="1328" height="790" alt="image" src="https://github.com/user-attachments/assets/134b91dd-d778-4e12-926e-3bf6fff41f79" />
 
-To start the development server:
-
-```bash
-npm run dev
-```
-
-## Build
-
-To build the project:
-
-```bash
-npm run build
-```
-
-## Production
-
-To start the production server:
-
-```bash
-npm start
-```
-
-## API Endpoints
-
-### Users
-
-- GET `/api/users` - Get all users
-- GET `/api/users/:id` - Get user by ID
-- POST `/api/users` - Create a new user
-- PUT `/api/users/:id` - Update a user
-- DELETE `/api/users/:id` - Delete a user
-
-## Testing
-
-To run tests:
-
-```bash
-npm test
-``` 
