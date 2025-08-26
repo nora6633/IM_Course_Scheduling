@@ -290,9 +290,11 @@ function renderSchedule(data) {
     
     startCell.rowSpan = course.periods.length;
     startCell.classList.add('has-course');
+    startCell.setAttribute('data-periods', course.periods.length);
     
-    const courseContent = createCourseContent(course);
-    startCell.innerHTML = `<div class="cell-content-wrapper">${courseContent}</div>`;
+    const courseData = createCourseContent(course, course.periods.length);
+    startCell.classList.add(courseData.colorClass);
+    startCell.innerHTML = `<div class="cell-content-wrapper">${courseData.content}</div>`;
     
     // 移除其他時段的格子
     for (let i = 1; i < course.periods.length; i++) {
@@ -319,6 +321,7 @@ function renderSchedule(data) {
     
     startCell.rowSpan = sortedPeriods.length;
     startCell.classList.add('has-course');
+    startCell.setAttribute('data-periods', sortedPeriods.length);
     
     // 創建巢狀表格
     const nestedTable = createNestedTable(courses, sortedPeriods);
@@ -337,19 +340,84 @@ function renderSchedule(data) {
     // 建立課程的固定順序（按課程名稱排序以確保一致性）
     const sortedCourses = courses.sort((a, b) => a['課程名稱'].localeCompare(b['課程名稱']));
     
+    // 計算每個課程在每個時段的 rowspan 和是否應該顯示
+    const courseSpanInfo = {};
+    
+    sortedCourses.forEach(course => {
+      const courseName = course['課程名稱'];
+      courseSpanInfo[courseName] = {};
+      
+      // 找出課程的連續時段組
+      const coursePeriods = course.periods.filter(p => allPeriods.includes(p));
+      coursePeriods.sort((a, b) => allPeriods.indexOf(a) - allPeriods.indexOf(b));
+      
+      let currentSpanStart = null;
+      let spanLength = 0;
+      
+      for (let i = 0; i < allPeriods.length; i++) {
+        const period = allPeriods[i];
+        
+        if (coursePeriods.includes(period)) {
+          if (currentSpanStart === null) {
+            // 開始新的連續區段
+            currentSpanStart = period;
+            spanLength = 1;
+          } else {
+            // 繼續連續區段
+            spanLength++;
+          }
+          
+          // 檢查是否是連續區段的結束
+          const nextPeriod = allPeriods[i + 1];
+          const isLastPeriod = i === allPeriods.length - 1;
+          const nextPeriodNotInCourse = !coursePeriods.includes(nextPeriod);
+          
+          if (isLastPeriod || nextPeriodNotInCourse) {
+            // 結束連續區段，設置 span 信息
+            courseSpanInfo[courseName][currentSpanStart] = {
+              rowspan: spanLength,
+              show: true
+            };
+            
+            // 標記其他時段為不顯示
+            for (let j = 1; j < spanLength; j++) {
+              const periodIndex = allPeriods.indexOf(currentSpanStart) + j;
+              if (periodIndex < allPeriods.length) {
+                const skipPeriod = allPeriods[periodIndex];
+                courseSpanInfo[courseName][skipPeriod] = {
+                  rowspan: 0,
+                  show: false
+                };
+              }
+            }
+            
+            currentSpanStart = null;
+            spanLength = 0;
+          }
+        }
+      }
+    });
+    
     let html = '<table class="nested-course-table" style="width:100%; height:100%; border-collapse: collapse;">';
     
     allPeriods.forEach(period => {
       html += '<tr>';
       
-      // 為每個課程檢查是否在此時段，如果在就顯示，不在就顯示空格
+      // 為每個課程檢查是否在此時段，並處理 rowspan
       sortedCourses.forEach(course => {
-        if (course.periods.includes(period)) {
-          const courseContent = createCourseContent(course);
-          html += `<td style="border: 1px solid #ddd; padding: 2px; vertical-align: top;">${courseContent}</td>`;
-        } else {
+        const courseName = course['課程名稱'];
+        const spanInfo = courseSpanInfo[courseName][period];
+        
+        if (spanInfo && spanInfo.show) {
+          // 顯示課程內容，使用 rowspan
+          const courseData = createCourseContent(course, spanInfo.rowspan);
+          const rowspanAttr = spanInfo.rowspan > 1 ? ` rowspan="${spanInfo.rowspan}"` : '';
+          html += `<td${rowspanAttr} class="${courseData.colorClass}" style="border: 1px solid #ddd; padding: 2px; vertical-align: top;">${courseData.content}</td>`;
+        } else if (!spanInfo) {
+          // 課程不在此時段，顯示空格
           html += '<td style="border: 1px solid #ddd; padding: 2px;"></td>';
         }
+        // 如果 spanInfo 存在但 show 為 false，則不添加任何 td（被 rowspan 覆蓋）
       });
       
       html += '</tr>';
@@ -359,8 +427,8 @@ function renderSchedule(data) {
     return html;
   }
   
-  // 創建課程內容的輔助函數
-  function createCourseContent(course) {
+  // 創建課程內容的輔助函數 - 返回內容和顏色類別
+  function createCourseContent(course, rowspan = 1) {
     const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
     const gradeInfo = course['開課年級'] || '';
     const teacher = course['任課教師'] || course['授課教師'] || '';
@@ -380,6 +448,7 @@ function renderSchedule(data) {
     }
     
     const gradeDisplay = gradeInfo ? `(${gradeInfo})` : '';
+    
     const blockContent = `${courseName}${creditDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
     
     // 根據選別資料決定顏色
@@ -395,9 +464,10 @@ function renderSchedule(data) {
     
     const colorClass = typeColorMap[courseType] || 'cell-elective';
     
-    return `<div class="course-block ${colorClass}">
-              ${blockContent}
-            </div>`;
+    return {
+      content: `<div class="course-block">${blockContent}</div>`,
+      colorClass: colorClass
+    };
   }
 
   // 確保表格有完整的邊框結構
