@@ -232,118 +232,132 @@ function renderSchedule(data) {
 
   console.log('分組後的課程:', groupedCourses);
 
-  // 收集所有起始格子以避免移除
-  const startingCells = new Set();
+  // 檢測重疊課程組並創建巢狀表格結構
+  
+  // 先按天分組所有課程
+  const coursesByDay = {};
   for (const key in groupedCourses) {
     const dayIdx = parseInt(key.split('-')[0], 10);
-    const startPeriod = key.split('-')[1];
-    startingCells.add(`cell-${startPeriod}-${dayIdx}`);
+    if (!coursesByDay[dayIdx]) {
+      coursesByDay[dayIdx] = [];
+    }
+    groupedCourses[key].forEach(course => {
+      coursesByDay[dayIdx].push({ ...course, startPeriod: key.split('-')[1] });
+    });
   }
 
-  // 渲染課程
-  const cellsToRemove = new Set();
-  
-  // 調試：顯示處理順序
-  const sortedKeys = Object.keys(groupedCourses).sort();
-  console.log('課程處理順序:', sortedKeys);
-  console.log('起始格子清單:', Array.from(startingCells));
-  
-  for (const key in groupedCourses) {
-    const originalCourses = groupedCourses[key];
-
-    let rowspan = 0;
-    let longestCoursePeriods = [];
-    for (const c of originalCourses) {
-      if (c.periods && c.periods.length > rowspan) {
-        rowspan = c.periods.length;
-        longestCoursePeriods = c.periods;
-      }
-    }
-
-    // 所有課程都正常顯示
-    const finalCourses = [...originalCourses];
-
-    // 設置到對應的格子
-    const dayIdx = parseInt(key.split('-')[0], 10);
-    const startPeriod = key.split('-')[1];
-
-    // 先檢查格子是否存在於 DOM 中
-    const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
+  // 為每天找出重疊的課程組
+  Object.keys(coursesByDay).forEach(dayIdx => {
+    const dayCourses = coursesByDay[dayIdx];
+    const processedCourses = new Set();
     
-    console.log(`檢查格子 ${key}:`, {
-      cellId: `cell-${startPeriod}-${dayIdx}`,
-      exists: !!startCell,
-      courses: originalCourses.map(c => c['課程名稱']),
-      inStartingCells: startingCells.has(`cell-${startPeriod}-${dayIdx}`),
-      inCellsToRemove: cellsToRemove.has(`cell-${startPeriod}-${dayIdx}`)
-    });
-    
-    if (!startCell) {
-      console.log(`❌ 找不到格子: cell-${startPeriod}-${dayIdx}`);
-      console.log('當前 cellsToRemove:', Array.from(cellsToRemove));
-      continue;
-    }
-
-    // 調試：檢查星期四的渲染
-    if (dayIdx === 3 && ['E', 'F', 'G', 'H'].includes(startPeriod)) {
-      console.log(`*** 渲染 ${key}: ***`, finalCourses.map(c => `${c['課程名稱']}(${c.periods.join('')})`));
-    }
-
-    // 檢查是否有其他課程會與此課程的rowspan衝突
-    let hasOverlapConflict = false;
-    for (let i = 1; i < rowspan; i++) {
-      const conflictPeriod = longestCoursePeriods[i];
-      const conflictCellId = `cell-${conflictPeriod}-${dayIdx}`;
-      if (startingCells.has(conflictCellId)) {
-        hasOverlapConflict = true;
-        console.log(`檢測到rowspan衝突: ${key} 與 ${conflictCellId}`);
-        break;
-      }
-    }
-    
-    // 如果有衝突，不使用rowspan
-    if (hasOverlapConflict) {
-      console.log(`${key} 因為衝突不使用rowspan`);
-      startCell.rowSpan = 1;
-    } else {
-      startCell.rowSpan = rowspan;
-    }
-    startCell.classList.add('has-course');
-
-    let innerContent = '';
-    finalCourses.forEach(course => {
-      const courseContent = createCourseContent(course);
-      innerContent += courseContent;
-    });
-
-    startCell.innerHTML = `<div class="cell-content-wrapper">${innerContent}</div>`;
-
-    // 只移除不是其他課程起始點的格子
-    for (let i = 1; i < rowspan; i++) {
-      const periodToRemove = longestCoursePeriods[i];
-      if (periodToRemove) {
-        const cellToRemoveId = `cell-${periodToRemove}-${dayIdx}`;
-        // 只有當這個格子不是其他課程的起始格子時才移除
-        if (!startingCells.has(cellToRemoveId)) {
-          console.log(`標記移除格子: ${cellToRemoveId}`);
-          cellsToRemove.add(cellToRemoveId);
-        } else {
-          console.log(`保留格子 ${cellToRemoveId} (是其他課程的起始格子)`);
+    dayCourses.forEach(course => {
+      if (processedCourses.has(course['課程名稱'])) return;
+      
+      // 找出與此課程重疊的所有其他課程
+      const overlapGroup = [course];
+      const usedPeriods = new Set(course.periods);
+      
+      dayCourses.forEach(otherCourse => {
+        if (otherCourse['課程名稱'] === course['課程名稱']) return;
+        if (processedCourses.has(otherCourse['課程名稱'])) return;
+        
+        // 檢查是否有重疊時段
+        const hasOverlap = otherCourse.periods.some(p => usedPeriods.has(p));
+        if (hasOverlap) {
+          overlapGroup.push(otherCourse);
+          otherCourse.periods.forEach(p => usedPeriods.add(p));
         }
+      });
+      
+      // 標記所有課程為已處理
+      overlapGroup.forEach(c => processedCourses.add(c['課程名稱']));
+      
+      if (overlapGroup.length > 1) {
+        // 有重疊：創建巢狀表格
+        renderOverlapGroup(overlapGroup, dayIdx, table);
+      } else {
+        // 無重疊：正常渲染
+        renderSingleCourse(course, dayIdx, table);
       }
+    });
+  });
+
+  // 渲染單一課程（無重疊）
+  function renderSingleCourse(course, dayIdx, table) {
+    const startCell = table.querySelector(`#cell-${course.startPeriod}-${dayIdx}`);
+    if (!startCell) return;
+    
+    startCell.rowSpan = course.periods.length;
+    startCell.classList.add('has-course');
+    
+    const courseContent = createCourseContent(course);
+    startCell.innerHTML = `<div class="cell-content-wrapper">${courseContent}</div>`;
+    
+    // 移除其他時段的格子
+    for (let i = 1; i < course.periods.length; i++) {
+      const periodToRemove = course.periods[i];
+      const cellToRemove = table.querySelector(`#cell-${periodToRemove}-${dayIdx}`);
+      if (cellToRemove) cellToRemove.remove();
     }
   }
-  
-  console.log('最終要移除的格子:', Array.from(cellsToRemove));
-  
-  // 移除被合併的單元格
-  cellsToRemove.forEach(cellId => {
-    const cell = table.querySelector(`#${cellId}`);
-    if (cell) {
-      console.log(`移除格子: ${cellId}`);
-      cell.remove();
+
+  // 渲染重疊課程組（使用巢狀表格）
+  function renderOverlapGroup(courses, dayIdx, table) {
+    console.log(`處理重疊課程組:`, courses.map(c => `${c['課程名稱']}(${c.periods.join('')})`));
+    
+    // 找出所有使用的時段
+    const allPeriods = new Set();
+    courses.forEach(course => {
+      course.periods.forEach(p => allPeriods.add(p));
+    });
+    const sortedPeriods = Array.from(allPeriods).sort((a, b) => periods.indexOf(a) - periods.indexOf(b));
+    
+    const startPeriod = sortedPeriods[0];
+    const startCell = table.querySelector(`#cell-${startPeriod}-${dayIdx}`);
+    if (!startCell) return;
+    
+    startCell.rowSpan = sortedPeriods.length;
+    startCell.classList.add('has-course');
+    
+    // 創建巢狀表格
+    const nestedTable = createNestedTable(courses, sortedPeriods);
+    startCell.innerHTML = nestedTable;
+    
+    // 移除其他時段的格子
+    for (let i = 1; i < sortedPeriods.length; i++) {
+      const periodToRemove = sortedPeriods[i];
+      const cellToRemove = table.querySelector(`#cell-${periodToRemove}-${dayIdx}`);
+      if (cellToRemove) cellToRemove.remove();
     }
-  });
+  }
+
+  // 創建巢狀表格HTML
+  function createNestedTable(courses, allPeriods) {
+    // 建立課程的固定順序（按課程名稱排序以確保一致性）
+    const sortedCourses = courses.sort((a, b) => a['課程名稱'].localeCompare(b['課程名稱']));
+    
+    let html = '<table class="nested-course-table" style="width:100%; height:100%; border-collapse: collapse;">';
+    
+    allPeriods.forEach(period => {
+      html += '<tr>';
+      
+      // 為每個課程檢查是否在此時段，如果在就顯示，不在就顯示空格
+      sortedCourses.forEach(course => {
+        if (course.periods.includes(period)) {
+          const courseContent = createCourseContent(course);
+          html += `<td style="border: 1px solid #ddd; padding: 2px; vertical-align: top;">${courseContent}</td>`;
+        } else {
+          html += '<td style="border: 1px solid #ddd; padding: 2px;"></td>';
+        }
+      });
+      
+      html += '</tr>';
+    });
+    
+    html += '</table>';
+    return html;
+  }
   
   // 創建課程內容的輔助函數
   function createCourseContent(course) {
