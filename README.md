@@ -27,5 +27,6 @@
   - <img width="736" height="632" alt="image" src="https://github.com/user-attachments/assets/b9509dc8-3711-4a24-9e3e-d224d73fbdf3" />
 
 8. Finally,you get courses informations from all semesters!
-   - <img width="1328" height="790" alt="image" src="https://github.com/user-attachments/assets/134b91dd-d778-4e12-926e-3bf6fff41f79" />
+
+<img width="1328" height="790" alt="image" src="https://github.com/user-attachments/assets/134b91dd-d778-4e12-926e-3bf6fff41f79" />
 
