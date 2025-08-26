@@ -2,6 +2,9 @@
 
 A RESTful API built with TypeScript and Express.js.
 
+## Generate course infomations csv by crawling iNCNU
+- `node scripts/parser.js --crawler --year <year> --semester <semester>`
+
 ## Features
 
 - TypeScript support

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程資料上傳 - 國立暨南國際大學資管系</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .upload-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .upload-section h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .file-input-group {
+            margin: 15px 0;
+        }
+        
+        .file-input-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+        
+        .upload-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .upload-btn:hover {
+            background: #45a049;
+        }
+        
+        .upload-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .result-message {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <h1>課程資料上傳系統</h1>
+            <p style="text-align: center; color: #666;">
+                管理員專用頁面 - 僅限 IP 163.22.17.200 訪問
+            </p>
+        </header>
+
+        <div class="upload-section">
+            <h3>步驟 1: 上傳課程資料 (CSV)</h3>
+            <div class="file-input-group">
+                <input type="file" id="csvFile" accept=".csv" />
+                <p>請選擇包含年份學期的 CSV 檔案，例如：courses_114_1.csv 或 114-1.csv</p>
+            </div>
+            <button class="upload-btn" id="uploadCsvBtn">上傳 CSV 檔案</button>
+            <div id="csvResult" class="result-message" style="display: none;"></div>
+        </div>
+
+        <div class="upload-section">
+            <h3>步驟 2: 上傳選別資料 (Excel)</h3>
+            <div class="file-input-group">
+                <input type="file" id="excelFile" accept=".xlsx,.xls" />
+                <p>請選擇包含年份學期的 Excel 檔案，例如：selection_114_1.xlsx 或 114-1.xlsx</p>
+                <p class="note">注意：Excel 檔案必須包含「課程編號」和「選別」兩個欄位</p>
+            </div>
+            <button class="upload-btn" id="uploadExcelBtn">上傳 Excel 檔案</button>
+            <div id="excelResult" class="result-message" style="display: none;"></div>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">回到首頁</a>
+            <a href="/courses/114-1">檢視 114-1 課程</a>
+            <a href="/courses/114-2">檢視 114-2 課程</a>
+        </div>
+    </div>
+
+    <script src="/js/upload.js"></script>
+</body>
+</html>

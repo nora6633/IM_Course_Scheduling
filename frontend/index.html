@@ -4,57 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>國立暨南國際大學資管系課程資訊</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .home-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .semester-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .semester-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .semester-card:hover {
+            border-color: #4CAF50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .semester-card h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+        
+        .semester-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .admin-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px dashed #e0e0e0;
+        }
+        
+        .admin-link {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .admin-link:hover {
+            background: #e68900;
+        }
+        
+        .description {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="home-container">
         <header>
-            <h1 id="schedule-title">國立暨南國際大學資管系課程資訊</h1>
+            <h1>國立暨南國際大學資管系課程資訊</h1>
+            <p>選擇學期查看課程資訊</p>
         </header>
 
-        <div class="grade-filter">
-            <button class="grade-btn active" data-grade="all">總覽</button>
-            <button class="grade-btn" data-grade="1">大一</button>
-            <button class="grade-btn" data-grade="2">大二</button>
-            <button class="grade-btn" data-grade="3">大三</button>
-            <button class="grade-btn" data-grade="4">大四</button>
-            <button class="grade-btn" data-grade="master">碩班</button>
+        <div class="description">
+            <h3>系統說明</h3>
+            <ul>
+                <li>點選下方學期連結可查看該學期的課程表</li>
+                <li>課程表支援年級篩選功能（大一、大二、大三、大四、碩班）</li>
+                <li>含⭐為推薦「學士班學生預修碩士班課程申請」者可以修習的課程</li>
+                <li>點選課程格中的「檢視」按鈕可查看課程詳細資訊</li>
+            </ul>
         </div>
 
-        <div class="instruction">
-            若想了解該課程詳細資訊,請點選「檢視」即可查看。含⭐為推薦「學士班學生預修碩士班課程申請」者可以修習。
+        <div id="loading-semesters" style="text-align: center; padding: 40px; color: #666;">
+            載入學期資料中...
+        </div>
+        
+        <div id="no-semesters" style="text-align: center; padding: 40px; color: #999; display: none;">
+            <p>目前沒有可用的學期資料</p>
+            <p>請聯繫管理員上傳課程資料</p>
+        </div>
+        
+        <div id="semester-links" class="semester-links" style="display: none;">
+            <!-- 動態載入的學期連結將顯示在這裡 -->
         </div>
 
-        <div id="file-upload-block" class="file-upload">
-            <div class="upload-section">
-                <h3>步驟 1: 上傳課程資料</h3>
-                <input type="file" id="csvFile" accept=".csv,.json" />
-                <p>請選擇 CSV 或 JSON 檔案</p>
-            </div>
-            
-            <div id="selection-upload-block" class="upload-section">
-                <h3>步驟 2: 上傳選別資料</h3>
-                <input type="file" id="selectionFile" accept=".xlsx,.xls" />
-                <p>請選擇 Excel 檔案 (.xlsx 或 .xls)，包含「選別」欄位</p>
-                <p class="note">注意：Excel 檔案必須包含「課程名稱」和「選別」兩個欄位</p>
-                <p class="note">此步驟為必要步驟，必須上傳選別資料才能顯示課程表</p>
-            </div>
-        </div>
-
-        <div id="schedule-container">
-            <div id="schedule"></div>
-        </div>
-
-        <div id="legend">
-            <span class="legend cell-must">校必修</span>
-            <span class="legend cell-college">院必修</span>
-            <span class="legend cell-dept">系必修</span>
-            <span class="legend cell-tech">技術次領域</span>
-            <span class="legend cell-mgmt">管理次領域</span>
-            <span class="legend cell-elective">專業選修</span>
+        <div class="admin-section">
+            <h3>管理員專區</h3>
+            <p>管理員可透過以下連結上傳和管理課程資料</p>
+            <a href="/admin" class="admin-link">課程資料上傳系統</a>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script>
+        // 載入可用學期
+        async function loadAvailableSemesters() {
+            const loadingDiv = document.getElementById('loading-semesters');
+            const noSemestersDiv = document.getElementById('no-semesters');
+            const semesterLinksDiv = document.getElementById('semester-links');
+            
+            try {
+                const response = await fetch('/api/available-semesters');
+                const result = await response.json();
+                
+                loadingDiv.style.display = 'none';
+                
+                if (result.success && result.semesters.length > 0) {
+                    // 顯示學期連結
+                    semesterLinksDiv.innerHTML = result.semesters
+                        .filter(semester => semester.hasData) // 只顯示有資料的學期
+                        .map(semester => `
+                            <a href="/courses/${semester.id}" class="semester-card">
+                                <h3>${semester.name}</h3>
+                            </a>
+                        `).join('');
+                    
+                    if (semesterLinksDiv.innerHTML.trim()) {
+                        semesterLinksDiv.style.display = 'grid';
+                    } else {
+                        noSemestersDiv.style.display = 'block';
+                    }
+                } else {
+                    noSemestersDiv.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('載入學期資料錯誤:', error);
+                loadingDiv.style.display = 'none';
+                noSemestersDiv.innerHTML = '<p>載入學期資料時發生錯誤</p><p>請稍後再試或聯繫管理員</p>';
+                noSemestersDiv.style.display = 'block';
+            }
+        }
+        
+        // 頁面載入完成後執行
+        document.addEventListener('DOMContentLoaded', loadAvailableSemesters);
+    </script>
 </body>
 </html> 
