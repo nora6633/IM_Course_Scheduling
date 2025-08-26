@@ -5,14 +5,50 @@ const Papa = require('papaparse');
 const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// IP 限制中間件
+function restrictToAdminIP(req, res, next) {
+  const clientIP = req.ip || req.connection.remoteAddress || req.socket.remoteAddress ||
+    (req.connection.socket ? req.connection.socket.remoteAddress : null);
+  console.log('client ip', req.ip)
+  
+  const adminIPs = process.env.ADMIN_IP;
+  
+  if (!adminIPs) {
+    return res.status(500).json({ error: 'Admin IP not configured' });
+  }
+  
+  // 處理可能的 IPv6 mapped IPv4 地址
+  const normalizedClientIP = clientIP.replace(/^::ffff:/, '');
+  
+  // 分割多個 IP 地址（用逗號或分號分隔）
+  const allowedIPs = adminIPs.split(/[,;]/).map(ip => ip.trim());
+  
+  // 檢查客戶端 IP 是否在允許的 IP 列表中
+  const isAllowed = allowedIPs.includes(normalizedClientIP);
+  
+  if (!isAllowed) {
+    console.log(`Access denied for IP: ${normalizedClientIP}. Allowed IPs: ${allowedIPs.join(', ')}`);
+    return res.status(403).json({ 
+      error: `Access denied for ip ${normalizedClientIP}`,
+    });
+  }
+  
+  console.log(`Access granted for IP: ${normalizedClientIP}`);
+  next();
+}
+
 // 中間件
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
+// 設置 trust proxy 以正確獲取客戶端 IP
+app.set('trust proxy', true);
 
 // 設置檔案上傳
 const storage = multer.memoryStorage();
@@ -50,11 +86,33 @@ function processCourseData(data) {
   return groupedCourses;
 }
 
+// 檔案名稱解析函數
+function parseYearSemester(filename) {
+  // 嘗試從檔案名稱中解析年份學期，例如: "114-1.xlsx", "courses_114_1.csv"
+  const match = filename.match(/(\d{3})[-_](\d)/); 
+  if (match) {
+    return `${match[1]}-${match[2]}`;
+  }
+  return null;
+}
+
+// 確保目錄存在
+function ensureDirectoryExists(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+}
+
 // API 路由
-app.post('/api/upload-csv', upload.single('file'), (req, res) => {
+app.post('/api/upload-csv', restrictToAdminIP, upload.single('file'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: '沒有上傳檔案' });
+    }
+    
+    const yearSemester = parseYearSemester(req.file.originalname);
+    if (!yearSemester) {
+      return res.status(400).json({ error: '檔案名稱必須包含年份學期資訊，例如：114-1.csv 或 courses_114_1.csv' });
     }
     
     const csvData = req.file.buffer.toString();
@@ -68,6 +126,12 @@ app.post('/api/upload-csv', upload.single('file'), (req, res) => {
       // 只記錄錯誤，不中斷處理
     }
     
+    // 儲存檔案到 courses_data/<year-semester>/
+    const dataDir = path.join(__dirname, '..', 'courses_data', yearSemester);
+    ensureDirectoryExists(dataDir);
+    const csvFilePath = path.join(dataDir, req.file.originalname);
+    fs.writeFileSync(csvFilePath, csvData);
+    
     const processedData = processCourseData(result.data);
     
     res.json({
@@ -75,7 +139,9 @@ app.post('/api/upload-csv', upload.single('file'), (req, res) => {
       data: result.data,
       groupedCourses: processedData,
       totalCourses: result.data.length,
-      errors: result.errors // 返回錯誤資訊但不中斷
+      errors: result.errors, // 返回錯誤資訊但不中斷
+      yearSemester: yearSemester,
+      savedPath: csvFilePath
     });
   } catch (error) {
     console.error('檔案處理錯誤:', error);
@@ -83,10 +149,15 @@ app.post('/api/upload-csv', upload.single('file'), (req, res) => {
   }
 });
 
-app.post('/api/upload-json', upload.single('file'), (req, res) => {
+app.post('/api/upload-json', restrictToAdminIP, upload.single('file'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: '沒有上傳檔案' });
+    }
+    
+    const yearSemester = parseYearSemester(req.file.originalname);
+    if (!yearSemester) {
+      return res.status(400).json({ error: '檔案名稱必須包含年份學期資訊，例如：114-1.json 或 courses_114_1.json' });
     }
     
     const jsonData = req.file.buffer.toString();
@@ -95,13 +166,21 @@ app.post('/api/upload-json', upload.single('file'), (req, res) => {
     // 假設 JSON 格式是 { courses: [...] }
     const courses = data.courses || data;
     
+    // 儲存檔案到 courses_data/<year-semester>/
+    const dataDir = path.join(__dirname, '..', 'courses_data', yearSemester);
+    ensureDirectoryExists(dataDir);
+    const jsonFilePath = path.join(dataDir, req.file.originalname);
+    fs.writeFileSync(jsonFilePath, jsonData);
+    
     const processedData = processCourseData(courses);
     
     res.json({
       success: true,
       data: courses,
       groupedCourses: processedData,
-      totalCourses: courses.length
+      totalCourses: courses.length,
+      yearSemester: yearSemester,
+      savedPath: jsonFilePath
     });
   } catch (error) {
     console.error('JSON 處理錯誤:', error);
@@ -110,7 +189,7 @@ app.post('/api/upload-json', upload.single('file'), (req, res) => {
 });
 
 // Excel 檔案上傳處理
-app.post('/api/upload-excel', upload.single('file'), (req, res) => {
+app.post('/api/upload-excel', restrictToAdminIP, upload.single('file'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: '沒有上傳檔案' });
@@ -194,13 +273,26 @@ app.post('/api/upload-excel', upload.single('file'), (req, res) => {
       return obj;
     });
     
+    const yearSemester = parseYearSemester(req.file.originalname);
+    if (!yearSemester) {
+      return res.status(400).json({ error: '檔案名稱必須包含年份學期資訊，例如：114-1.xlsx 或 selection_114_1.xlsx' });
+    }
+    
+    // 儲存檔案到 courses_data/<year-semester>/
+    const dataDir = path.join(__dirname, '..', 'courses_data', yearSemester);
+    ensureDirectoryExists(dataDir);
+    const excelFilePath = path.join(dataDir, req.file.originalname);
+    fs.writeFileSync(excelFilePath, req.file.buffer);
+    
     console.log('Excel 資料處理完成:', jsonData.length, '筆資料');
     
     res.json({
       success: true,
       data: jsonData,
       totalRows: jsonData.length,
-      headers: headers
+      headers: headers,
+      yearSemester: yearSemester,
+      savedPath: excelFilePath
     });
     
   } catch (error) {
@@ -253,6 +345,175 @@ app.post('/api/filter-courses', (req, res) => {
   }
 });
 
+// 讀取課程資料 API
+app.get('/im/:yearSemester', (req, res) => {
+  try {
+    const { yearSemester } = req.params;
+    
+    // 驗證年份學期格式
+    if (!/^\d{3}-\d$/.test(yearSemester)) {
+      return res.status(400).json({ error: '年份學期格式錯誤，應為 XXX-X 格式，例如：114-1' });
+    }
+    
+    const dataDir = path.join(__dirname, '..', 'courses_data', yearSemester);
+    
+    if (!fs.existsSync(dataDir)) {
+      return res.status(404).json({ error: `找不到 ${yearSemester} 學期的課程資料` });
+    }
+    
+    // 讀取目錄中的 CSV 和 Excel 檔案
+    const files = fs.readdirSync(dataDir);
+    const csvFiles = files.filter(file => file.endsWith('.csv'));
+    const excelFiles = files.filter(file => file.endsWith('.xlsx') || file.endsWith('.xls'));
+    
+    let courseData = [];
+    let selectionData = [];
+    
+    // 讀取 CSV 檔案（課程資料）
+    for (const csvFile of csvFiles) {
+      const csvFilePath = path.join(dataDir, csvFile);
+      const csvContent = fs.readFileSync(csvFilePath, 'utf8');
+      const result = Papa.parse(csvContent, { 
+        header: true,
+        skipEmptyLines: true
+      });
+      courseData = courseData.concat(result.data);
+    }
+    
+    // 讀取 Excel 檔案（選別資料）
+    for (const excelFile of excelFiles) {
+      const excelFilePath = path.join(dataDir, excelFile);
+      const workbook = XLSX.read(fs.readFileSync(excelFilePath), { type: 'buffer' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+      
+      // 尋找標題行
+      let headers = null;
+      let rows = null;
+      
+      for (let i = 1; i < Math.min(10, data.length); i++) {
+        const row = data[i];
+        if (row && Array.isArray(row)) {
+          const hasCourseCode = row.some(cell => 
+            cell && typeof cell === 'string' && (cell === '課程編號' || cell.includes('課程編號') || cell.includes('Course Code') || cell === '課號')
+          );
+          const hasSelection = row.some(cell => 
+            cell && typeof cell === 'string' && (cell === '選別' || cell.includes('選別') || cell.includes('Selection'))
+          );
+          
+          if (hasCourseCode && hasSelection) {
+            headers = row;
+            rows = data.slice(i + 1);
+            break;
+          }
+        }
+      }
+      
+      if (headers && rows) {
+        const jsonData = rows.map(row => {
+          const obj = {};
+          headers.forEach((header, index) => {
+            obj[header] = row[index] || '';
+          });
+          return obj;
+        });
+        selectionData = selectionData.concat(jsonData);
+      }
+    }
+    
+    const processedData = processCourseData(courseData);
+    
+    res.json({
+      success: true,
+      yearSemester: yearSemester,
+      courseData: courseData,
+      selectionData: selectionData,
+      groupedCourses: processedData,
+      totalCourses: courseData.length,
+      files: { csvFiles, excelFiles }
+    });
+    
+  } catch (error) {
+    console.error('讀取課程資料錯誤:', error);
+    res.status(500).json({ error: '讀取課程資料錯誤: ' + error.message });
+  }
+});
+
+// 路由處理 - 確保年份學期格式正確，避免與靜態檔案衝突
+app.get('/courses/:yearSemester(\\d{3}-\\d)', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'courses.html'));
+});
+
+// 管理員頁面路由 - 也需要 IP 限制
+app.get('/admin', restrictToAdminIP, (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'upload.html'));
+});
+
+// 取得可用學期清單
+app.get('/api/available-semesters', (req, res) => {
+  try {
+    const coursesDataDir = path.join(__dirname, '..', 'courses_data');
+    
+    // 檢查 courses_data 目錄是否存在
+    if (!fs.existsSync(coursesDataDir)) {
+      return res.json({
+        success: true,
+        semesters: [],
+        message: 'No courses data directory found'
+      });
+    }
+    
+    // 讀取目錄中的所有項目
+    const items = fs.readdirSync(coursesDataDir, { withFileTypes: true });
+    
+    // 篩選出符合年份學期格式的目錄
+    const semesters = items
+      .filter(item => item.isDirectory()) // 只要目錄
+      .map(item => item.name)
+      .filter(name => /^\d{3}-\d$/.test(name)) // 符合 XXX-X 格式
+      .map(semester => {
+        const semesterDir = path.join(coursesDataDir, semester);
+        const files = fs.readdirSync(semesterDir);
+        const hasData = files.length > 0;
+        
+        // 解析學期資訊
+        const [year, sem] = semester.split('-');
+        const academicYear = parseInt(year);
+        const semesterNumber = parseInt(sem);
+        
+        return {
+          id: semester,
+          name: `${academicYear} 學年度第 ${semesterNumber} 學期`,
+          hasData: hasData
+        };
+      })
+      .sort((a, b) => {
+        // 按學期排序：先按學年，再按學期數
+        const [aYear, aSem] = a.id.split('-').map(Number);
+        const [bYear, bSem] = b.id.split('-').map(Number);
+        
+        if (aYear !== bYear) {
+          return bYear - aYear; // 較新的學年在前
+        }
+        return bSem - aSem; // 第二學期在第一學期之後
+      });
+    
+    res.json({
+      success: true,
+      semesters: semesters,
+      total: semesters.length
+    });
+    
+  } catch (error) {
+    console.error('取得可用學期錯誤:', error);
+    res.status(500).json({ 
+      success: false,
+      error: '無法取得可用學期清單: ' + error.message 
+    });
+  }
+});
+
 // 健康檢查
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
@@ -260,11 +521,18 @@ app.get('/api/health', (req, res) => {
 
 // 啟動伺服器
 app.listen(PORT, () => {
-  console.log(`後端伺服器運行在 http://localhost:${PORT}`);
+  console.log(`伺服器運行在 http://localhost:${PORT}`);
+  console.log(`頁面端點:`);
+  console.log(`  GET / - 首頁`);
+  console.log(`  GET /admin - 管理員上傳頁面 (僅限管理員 IP)`);
+  console.log(`  GET /courses/:yearSemester - 課程表頁面`);
   console.log(`API 端點:`);
-  console.log(`  POST /api/upload-csv - 上傳 CSV 檔案`);
-  console.log(`  POST /api/upload-json - 上傳 JSON 檔案`);
-  console.log(`  POST /api/upload-excel - 上傳 Excel 檔案`);
+  console.log(`  GET /api/available-semesters - 取得可用學期清單`);
+  console.log(`  POST /api/upload-csv - 上傳 CSV 檔案 (僅限管理員 IP)`);
+  console.log(`  POST /api/upload-json - 上傳 JSON 檔案 (僅限管理員 IP)`);
+  console.log(`  POST /api/upload-excel - 上傳 Excel 檔案 (僅限管理員 IP)`);
+  console.log(`  GET /im/:yearSemester - 讀取課程資料`);
   console.log(`  POST /api/filter-courses - 篩選課程`);
   console.log(`  GET /api/health - 健康檢查`);
+  console.log(`資料儲存位置: courses_data/<year-semester>/`);
 }); 
