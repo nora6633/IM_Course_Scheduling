@@ -123,12 +123,13 @@ function parseCourseTimes(timeStr) {
 function createCourseContent(course, rowspan = 1) {
   const courseName = course['課程名稱'] ? course['課程名稱'].replace(/([^(（]+)([\(（][^)）]+[\)）])/, '<span class="course-title">$1$2</span>') : '';
   const gradeInfo = course['開課年級'] || '';
-  const teacher = course['任課教師'] || course['授課教師'] || '';
+  const teacher = (course['任課教師'] || course['授課教師'] || '').replace(/^"|"$/g, '').replace(/,/g, '、');
   const classroom = course['上課教室'] || course['教室'] || '';
   const credit = course['學分數'] || '';
   
   // 專題課程不顯示學分數
   const creditDisplay = courseName.includes('資訊管理專題與個案') ? '' : (credit ? `(${credit})` : '');
+  const teacherDisplay = courseName.includes('資訊管理專題與個案') ? 'a. 簡宏宇 B24<br>b. 洪嘉良 管451<br>c. 黃俊哲、龔榮發 管203<br>d. 陳建宏 管204<br>e. 陳彥錚、陳小芬 管136<br>f. 戴榮賦、鄭育評 管106' : teacher;
   
   // 從 SemesterCourseName 中提取連結
   let courseUrl = '';
@@ -150,8 +151,7 @@ function createCourseContent(course, rowspan = 1) {
   // 決定星號顯示：如果是碩士班課程則顯示 ⭐
   const starDisplay = isMasterCourse ? ' ⭐' : '';
   
-  const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacher}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
-  
+  const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacherDisplay}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
   // 根據選別資料決定顏色
   let courseType = '';
   
@@ -213,24 +213,26 @@ function renderSchedule() {
   const tableBody = document.createElement('tbody');
   periods.forEach(period => {
     const periodTime = periodTimes[period];
-    const timeBlock = `${periodTime[0]}<br>${periodTime[1]}`;
+    const timeBlock = `${periodTime[0]}<br>-<br>${periodTime[1]}`;
     
     if (period === 'Z') {
-      // Z 列顯示午間休息，不合併儲存格
-      const row = document.createElement('tr');
-      const timeCell = document.createElement('th');
-      timeCell.className = 'period-header';
-      timeCell.innerHTML = `${period}<br>${timeBlock}`;
-      row.appendChild(timeCell);
-      
-      for (let d = 0; d < weekDays.length; d++) {
-        const lunchCell = document.createElement('td');
-        lunchCell.className = 'lunch-break';
-        lunchCell.textContent = '午間休息';
-        row.appendChild(lunchCell);
-      }
-      tableBody.appendChild(row);
-      return;
+  	const row = document.createElement('tr');
+
+  	// 節次與時間
+  	const timeCell = document.createElement('th');
+  	timeCell.className = 'period-header';
+  	timeCell.innerHTML = `${period}<br>${timeBlock}`;
+  	row.appendChild(timeCell);
+
+  	// 午間休息合併一格
+  	const lunchCell = document.createElement('td');
+  	lunchCell.className = 'lunch-break';
+  	lunchCell.colSpan = weekDays.length; // 合併所有 weekday 欄位
+  	lunchCell.textContent = '午間休息';
+  	row.appendChild(lunchCell);
+
+  	tableBody.appendChild(row);
+  	return;
     }
 
     const row = document.createElement('tr');
@@ -471,35 +473,28 @@ function filterCourses(grade) {
   const buttons = document.querySelectorAll('.grade-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector(`[data-grade="${grade}"]`).classList.add('active');
-  
+
   currentFilter = grade;
-  
+
   if (grade === 'all') {
-    // 顯示所有課程
     renderSchedule();
   } else {
-    const gradeMap = {
-      '1': '大一',
-      '2': '大二', 
-      '3': '大三',
-      '4': '大四',
-      'master': '碩士班'
-    };
-    
-    const targetGrade = gradeMap[grade];
-    
-    // 篩選課程並重新渲染
     const originalCourses = allCourses;
-    allCourses = originalCourses.filter(course => 
-      course['開課年級'] === targetGrade || course['開課年級'] === grade
-    );
-    
+
+    const filteredCourses = originalCourses.filter(course => {
+      if (grade === 'master') {
+        return course['學制'] === '碩士班';
+      } else {
+        return course['學制'] === '學士班' && course['開課年級'] === grade;
+      }
+    });
+
+    allCourses = filteredCourses;
     renderSchedule();
-    
-    // 恢復原始資料
     allCourses = originalCourses;
   }
 }
+
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
