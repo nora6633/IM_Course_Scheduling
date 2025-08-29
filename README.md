@@ -1,4 +1,39 @@
 # NCNU IM Course
+以 **Node.js** 後端 + **純前端頁面** + **資料蒐集/解析腳本** 組成的課程排程小系統。
+資料來源（例如 NCNU SIS）可由 scripts/ 下的工具抓取並寫入 courses_data/，前端頁面讀取/顯示，後端提供靜態頁與 API（視 backend/server.js 實作而定）。
+
+## 目錄結構
+```bash=
+.
+│  .env                  # 服務環境變數（請依 .env.example 複製/填寫）
+│  .env.example          # 環境變數範例
+│  docker-compose.yml    # 以單一服務啟動（node: backend/server.js）
+│  Dockerfile            # 建置 image，預設以 backend/server.js 為入口
+│  package.json          # 有共用 package 可放這層
+│  start_services.sh     #（測試）啟動/初始化腳本
+│
+├─backend
+│      package.json
+│      server.js         # 服務入口
+│
+├─courses_data
+│      .gitkeep          # 課程資料產物放這裡（例如 114-1/ ...）
+│
+├─frontend
+│  │  index.html
+│  │  courses.html
+│  │  upload.html
+│  ├─css
+│  │      style.css
+│  └─js
+│         app.js
+│         courses.js
+│         upload.js
+│
+└─scripts
+       crawler.js        # 抓取原始資料
+       parser.js         # 解析並轉成 csv
+```
 
 ## Generate course infomations (csv) by crawling iNCNU
 1. Download the repo: `git clone https://github.com/nora6633/IM_Course_Scheduling.git`
@@ -28,5 +63,5 @@
 
 8. Finally,you get courses informations from all semesters!
 
-<img width="1328" height="790" alt="image" src="https://github.com/user-attachments/assets/134b91dd-d778-4e12-926e-3bf6fff41f79" />
+<img width="1920" height="1314" alt="圖片" src="https://github.com/user-attachments/assets/73f3aba1-2a85-494d-a49d-d7d8f1d59ead" />
 

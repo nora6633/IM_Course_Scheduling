@@ -407,3 +407,18 @@ body { font-family: sans-serif; }
   border-radius: 4px;
   background-color: white;
 } 
+
+.lunch-break {
+  background-color: #e9ecef;
+  line-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.1rem;        
+  color: #5a4d2c;           
+  padding: 12px 0;          
+}
+
+tr .lunch-break {
+  border-top: 2px solid #e6d79f; /* 上下邊框讓午休段落更明顯 */
+  border-bottom: 2px solid #e6d79f;
+}
