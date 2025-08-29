@@ -63,5 +63,5 @@
 
 8. Finally,you get courses informations from all semesters!
 
-<img width="1328" height="790" alt="image" src="https://github.com/user-attachments/assets/134b91dd-d778-4e12-926e-3bf6fff41f79" />
+<img width="1920" height="1314" alt="圖片" src="https://github.com/user-attachments/assets/73f3aba1-2a85-494d-a49d-d7d8f1d59ead" />
 
